@@ -288,30 +288,30 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 .rf-side {
   width: 28px; flex-shrink: 0;
   display: flex; flex-direction: column;
+  align-items: center;
   border-right: 1px solid var(--card-border);
+  position: relative;
 }
-.rf-side .rf-sect {
-  flex: 1; position: relative;
-  display: flex; align-items: center; justify-content: center;
-  min-height: 28px;
-}
-.rf-side .rf-sect::before {
-  content: ""; position: absolute;
-  left: 50%; top: 4px; bottom: 4px;
+.rf-side .rf-line {
+  position: absolute;
+  left: 50%; top: 8px; bottom: 8px;
   width: 3px; border-radius: 2px;
+  background: linear-gradient(var(--gold) 0%, var(--gold) 33%, var(--blue) 33%, var(--blue) 66%, var(--green) 66%, var(--green) 100%);
   transform: translateX(-50%);
 }
-.rf-side .rf-sect.gold::before { background: var(--gold); }
-.rf-side .rf-sect.blue::before { background: var(--blue); }
-.rf-side .rf-sect.green::before { background: var(--green); }
-.rf-side .rf-sect + .rf-sect { border-top: 1px solid var(--card-border); }
-.rf-side .rf-lbl {
+.rf-side .rf-labels {
+  display: flex; flex-direction: column;
+  flex: 1; padding: 0.5rem 0;
+}
+.rf-side .rf-label {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
   font-size: 0.55rem; font-weight: 600; letter-spacing: 1px;
   writing-mode: vertical-lr; text-orientation: mixed;
 }
-.rf-side .rf-sect.gold .rf-lbl { color: var(--gold); }
-.rf-side .rf-sect.blue .rf-lbl { color: var(--blue); }
-.rf-side .rf-sect.green .rf-lbl { color: var(--green); }
+.rf-side .rf-label.gold { color: var(--gold); }
+.rf-side .rf-label.blue { color: var(--blue); }
+.rf-side .rf-label.green { color: var(--green); }
 .rf-flow {
   flex: 1; padding: 0.8rem 1rem;
   display: flex; flex-direction: column; gap: 0.4rem;
@@ -890,11 +890,14 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 
   <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系</div>
   <div class="role-flowchart">
-    <!-- 左侧三层括弧 -->
+    <!-- 左侧连续括弧 + 三层标注 -->
     <div class="rf-side">
-      <div class="rf-sect gold"><span class="rf-lbl">战略统筹层</span></div>
-      <div class="rf-sect blue"><span class="rf-lbl">工程执行层</span></div>
-      <div class="rf-sect green"><span class="rf-lbl">价值落地层</span></div>
+      <div class="rf-line"></div>
+      <div class="rf-labels">
+        <span class="rf-label gold">战略统筹层</span>
+        <span class="rf-label blue">工程执行层</span>
+        <span class="rf-label green">价值落地层</span>
+      </div>
     </div>
     <!-- 连续流程图 -->
     <div class="rf-flow">
@@ -1215,6 +1218,9 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 </footer>
 
 <!-- ===== Scroll Reveal ===== -->
+</style>
+</head>
+<body>
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
