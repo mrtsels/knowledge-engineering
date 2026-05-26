@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>知识工程理论在公司落地实践 — 汇报大纲</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e17;
+  --bg-alt: #111827;
+  --card: #141e33;
+  --card-border: #1e2d48;
+  --card-hover: #1a2740;
+  --gold: #d4a853;
+  --gold-light: #f0d68a;
+  --gold-glow: rgba(212,168,83,0.12);
+  --blue: #3b82f6;
+  --blue-dim: #1e3a6a;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --text-primary: #f0f4f8;
+  --text-secondary: #8899b0;
+  --text-muted: #4b5e77;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 3px; }
+
+/* ===== Noise overlay ===== */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== Navigation ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(20px);
+  background: rgba(10,14,23,0.85);
+  border-bottom: 1px solid var(--card-border);
+  padding: 0 2rem;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+nav .logo { font-weight: 600; font-size: 0.9rem; color: var(--gold); letter-spacing: 0.5px; }
+nav .logo span { color: var(--text-muted); font-weight: 300; }
+nav .dots { display: flex; gap: 6px; }
+nav .dots a {
+  display: block; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--card-border); transition: all 0.3s;
+}
+nav .dots a:hover, nav .dots a.active { background: var(--gold); transform: scale(1.3); }
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 6rem 2rem 4rem;
+  position: relative;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+  background: linear-gradient(transparent, var(--bg));
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-block; padding: 0.35rem 1rem; border-radius: 100px;
+  background: var(--gold-glow); border: 1px solid rgba(212,168,83,0.2);
+  color: var(--gold); font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 2px; margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2rem,5vw,3.8rem); font-weight: 900;
+  line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero p {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 600px; margin: 0 auto 2.5rem;
+}
+.hero-meta {
+  display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+  font-size: 0.8rem; color: var(--text-muted);
+}
+.hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.hero-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+.scroll-hint {
+  position: absolute; bottom: 3rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px;
+}
+.scroll-hint .line {
+  width: 1px; height: 40px; background: linear-gradient(var(--text-muted), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ===== Sections ===== */
+section.page {
+  padding: 5rem 2rem;
+  max-width: 1200px; margin: 0 auto;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+section.page.visible { opacity: 1; transform: translateY(0); }
+section.page .page-inner {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 3rem;
+  box-shadow: var(--shadow);
+}
+
+/* ===== Headings ===== */
+.section-num {
+  display: inline-block; font-size: 0.7rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.page-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(1.3rem,2.5vw,1.8rem); font-weight: 700;
+  line-height: 1.5; margin-bottom: 2rem;
+}
+.page-title .hl { color: var(--gold); }
+.subtitle { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2.5rem; }
+.divider {
+  width: 60px; height: 2px; background: var(--gold);
+  margin: 2rem 0;
+}
+
+/* ===== Tables ===== */
+.table-wrap {
+  overflow-x: auto; margin: 1.5rem 0; border-radius: var(--radius-sm);
+  border: 1px solid var(--card-border);
+}
+table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem;
+}
+thead { background: rgba(212,168,83,0.08); }
+th {
+  text-align: left; padding: 0.8rem 1rem;
+  font-weight: 600; color: var(--gold); border-bottom: 1px solid var(--card-border);
+  font-size: 0.8rem; letter-spacing: 0.5px;
+}
+td {
+  padding: 0.75rem 1rem; border-bottom: 1px solid rgba(30,45,72,0.5);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(212,168,83,0.03); }
+
+/* Status badges */
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.badge-green { background: rgba(34,197,94,0.12); color: #22c55e; }
+.badge-amber { background: rgba(245,158,11,0.12); color: #f59e0b; }
+.badge-blue { background: rgba(59,130,246,0.12); color: #3b82f6; }
+.badge-red { background: rgba(239,68,68,0.12); color: #ef4444; }
+.badge-gold { background: var(--gold-glow); color: var(--gold); }
+
+/* ===== Flowchart Base ===== */
+.flow-wrap { margin: 2rem 0; }
+.flow-label { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 1px; }
+
+/* Horizontal flow */
+.flow-h {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 0;
+}
+.flow-h .node {
+  position: relative;
+  flex-shrink: 0; padding: 0.7rem 1.2rem; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(212,168,83,0.05));
+}
+.flow-h .node .cap-tag {
+  position: absolute; bottom:-16px; left:50%; transform:translateX(-50%);
+  font-size:0.6rem; line-height:1; white-space:nowrap;
+  padding:0.1rem 0.4rem; border-radius:3px;
+  border:1px solid rgba(212,168,83,0.25);
+  color:var(--gold); background:var(--bg-alt);
+  pointer-events:none;
+}
+  border: 1px solid rgba(59,130,246,0.15);
+  text-align: center; font-size: 0.8rem; font-weight: 500;
+  transition: all 0.3s;
+  position: relative;
+}
+.flow-h .node:hover {
+  border-color: var(--gold); background: var(--gold-glow);
+}
+.flow-h .node .sub { display: block; font-size: 0.65rem; font-weight: 400; color: var(--text-muted); margin-top: 0.2rem; }
+.flow-h .arrow {
+  flex-shrink: 0; width: 28px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow-h .arrow::before {
+  content: ''; display: block; width: 100%; height: 1px;
+  background: linear-gradient(90deg, var(--card-border), var(--gold), var(--card-border));
+}
+.flow-h .arrow::after {
+  content: ''; position: absolute; right: 0;
+  width: 6px; height: 6px; border-right: 1.5px solid var(--gold); border-top: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+}
+.flow-h .arrow.dashed::before { background: repeating-linear-gradient(90deg, var(--card-border) 0, var(--card-border) 4px, transparent 4px, transparent 8px); }
+.flow-h .arrow.dashed::after { border-color: var(--text-muted); }
+
+/* Special feedback arrow */
+.feedback-loop {
+  display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.feedback-loop .node {
+  padding: 0.6rem 1rem; border-radius: var(--radius-sm);
+  border: 1px dashed var(--card-border); font-size: 0.75rem; font-weight: 400;
+  text-align: center; color: var(--text-secondary);
+}
+.feedback-loop .connector {
+  display: flex; align-items: center; color: var(--text-muted); font-size: 0.7rem;
+}
+.feedback-loop .connector .line {
+  width: 20px; height: 1px; background: var(--card-border); margin: 0 4px;
+}
+
+/* ===== Phase Flow (Page 3) ===== */
+.phase-group {
+  margin: 1.5rem 0; border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); overflow: hidden;
+}
+.phase-header {
+  padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.phase-header.input { background: rgba(59,130,246,0.08); color: var(--blue); }
+.phase-header.process { background: rgba(212,168,83,0.08); color: var(--gold); }
+.phase-header.output { background: rgba(34,197,94,0.08); color: var(--green); }
+.phase-body { padding: 1rem; display: flex; flex-wrap: wrap; align-items: center; }
+
+/* ===== Three-layer system ===== */
+.layer-system {
+  display: flex; flex-direction: column; gap: 0.5rem; margin: 2rem 0;
+}
+.layer {
+  border: 1px solid var(--card-border); border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+  transition: all 0.3s;
+}
+.layer:hover { border-color: var(--gold); }
+.layer .layer-name { font-weight: 700; color: var(--gold); margin-bottom: 0.6rem; }
+.layer .layer-items { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; }
+.layer .layer-items .item { font-size: 0.82rem; color: var(--text-secondary); }
+.layer .layer-theory { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem; }
+.layer-platform {
+  border: 2px solid var(--gold); border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+  background: var(--gold-glow);
+  text-align: center; font-weight: 600; color: var(--gold);
+}
+.layer-connector {
+  text-align: center; color: var(--text-muted); font-size: 0.7rem;
+  padding: 0.2rem 0;
+}
+
+/* ===== Evaluation loop ===== */
+.eval-loop {
+  display: flex; flex-wrap: wrap; gap: 0; justify-content: center;
+  margin: 2rem 0; position: relative;
+}
+.eval-step {
+  flex: 1; min-width: 140px; max-width: 180px;
+  padding: 1rem; text-align: center;
+  border: 1px solid var(--card-border); border-right: none;
+  background: var(--bg-alt); position: relative;
+}
+.eval-step:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.eval-step:last-child { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; border-right: 1px solid var(--card-border); }
+.eval-step .step-num {
+  display: inline-block; width: 24px; height: 24px; line-height: 24px;
+  background: var(--gold); color: var(--bg); border-radius: 50%;
+  font-size: 0.7rem; font-weight: 700; margin-bottom: 0.4rem;
+}
+.eval-step .step-label { font-size: 0.78rem; font-weight: 500; margin-bottom: 0.3rem; }
+.eval-step .step-desc { font-size: 0.65rem; color: var(--text-muted); }
+.eval-step .step-status { display: inline-block; margin-top: 0.3rem; font-size: 1rem; }
+.eval-step.current { border-color: var(--gold); background: var(--gold-glow); }
+.eval-arrow {
+  width: 24px; display: flex; align-items: center; position: relative; z-index: 1;
+  flex-shrink: 0;
+}
+.eval-arrow::before {
+  content: ''; width: 100%; height: 1px;
+  background: var(--card-border);
+}
+.eval-arrow::after {
+  content: ''; position: absolute; right: 1px;
+  width: 5px; height: 5px; border-right: 1.5px solid var(--text-muted);
+  border-top: 1.5px solid var(--text-muted);
+  transform: rotate(45deg);
+}
+
+/* ===== Highlight block ===== */
+.highlight {
+  background: var(--gold-glow); border-left: 3px solid var(--gold);
+  padding: 1rem 1.2rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 1.5rem 0; font-size: 0.9rem;
+}
+.highlight strong { color: var(--gold); }
+
+/* ===== Insight block ===== */
+.insight-box {
+  background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.12);
+  border-radius: var(--radius-sm); padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+}
+.insight-box .insight-title { font-weight: 700; color: var(--blue); margin-bottom: 0.5rem; font-size: 0.85rem; }
+.insight-box ul { list-style: none; padding: 0; }
+.insight-box li {
+  font-size: 0.82rem; color: var(--text-secondary);
+  padding: 0.3rem 0; padding-left: 1rem;
+  position: relative;
+}
+.insight-box li::before { content: '—'; position: absolute; left: 0; color: var(--text-muted); }
+
+/* ===== Grid for levers ===== */
+.levers {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem; margin: 1.5rem 0;
+}
+.lever-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); padding: 1.2rem;
+  text-align: center;
+}
+.lever-card .num {
+  display: inline-block; width: 32px; height: 32px; line-height: 32px;
+  background: var(--gold); color: var(--bg); border-radius: 50%;
+  font-weight: 700; font-size: 0.85rem; margin-bottom: 0.5rem;
+}
+.lever-card h4 { font-size: 0.9rem; margin-bottom: 0.3rem; }
+.lever-card p { font-size: 0.75rem; color: var(--text-secondary); }
+
+/* ===== Decision box ===== */
+.decisions { margin: 1.5rem 0; }
+.decision-item {
+  display: flex; gap: 1rem; padding: 1rem;
+  border-bottom: 1px solid var(--card-border); align-items: flex-start;
+}
+.decision-item:last-child { border-bottom: none; }
+.decision-item .d-num {
+  flex-shrink: 0; width: 32px; height: 32px; display: flex;
+  align-items: center; justify-content: center;
+  background: var(--gold-glow); border-radius: 50%;
+  font-weight: 700; font-size: 0.9rem; color: var(--gold);
+}
+.decision-item .d-content { flex: 1; }
+.decision-item .d-content .d-title { font-weight: 600; font-size: 0.9rem; }
+.decision-item .d-content .d-desc { font-size: 0.8rem; color: var(--text-secondary); margin: 0.2rem 0; }
+.decision-item .d-content .d-ask { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ===== Card for timeline ===== */
+.timeline {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem; margin: 1.5rem 0;
+}
+.timeline-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); padding: 1.2rem;
+  position: relative; overflow: hidden;
+}
+.timeline-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.timeline-card.short::before { background: linear-gradient(90deg, var(--blue), var(--gold)); }
+.timeline-card.mid::before { background: linear-gradient(90deg, var(--gold), var(--amber)); }
+.timeline-card.long::before { background: linear-gradient(90deg, var(--amber), var(--red)); }
+.timeline-card .tl-period {
+  font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 0.3rem;
+}
+.timeline-card h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.timeline-card ul { list-style: none; padding: 0; }
+.timeline-card li {
+  font-size: 0.75rem; color: var(--text-secondary);
+  padding: 0.2rem 0; padding-left: 0.8rem;
+  position: relative;
+}
+.timeline-card li::before { content: '›'; position: absolute; left: 0; color: var(--gold); }
+
+/* ===== Maturity grid ===== */
+.maturity-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem; margin: 1.5rem 0;
+}
+.maturity-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); padding: 1rem;
+  text-align: center; transition: all 0.3s;
+}
+.maturity-card:hover { border-color: var(--gold); }
+.maturity-card .m-chapter { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px; }
+.maturity-card .m-name { font-size: 0.82rem; font-weight: 600; margin: 0.3rem 0; }
+.maturity-card .m-star { font-size: 1rem; }
+.maturity-card .m-desc { font-size: 0.7rem; color: var(--text-secondary); }
+
+/* ===== Visual Keyword Mapping ===== */
+.kwmapping-wrap {
+  margin: 2rem 0;
+}
+.kwmapping-label {
+  text-align: center; font-size: 0.7rem; color: var(--text-muted);
+  margin-bottom: 1.2rem; letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.kwmapping {
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-alt);
+}
+.kwrow {
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid var(--card-border);
+  transition: all 0.3s;
+}
+.kwrow:last-child { border-bottom: none; }
+.kwrow:hover { background: rgba(212,168,83,0.02); }
+.kwbox {
+  flex: 1; padding: 1rem 1.2rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+}
+.kwbox-no {
+  text-align: right;
+  border-right: none;
+}
+.kwbox-yes {
+  text-align: left;
+}
+.kwtag {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 1px;
+  color: var(--text-muted); margin-bottom: 0.3rem;
+}
+.kwmain {
+  font-size: 1.1rem; font-weight: 700;
+  line-height: 1.3;
+}
+.kwsub {
+  font-size: 0.72rem; color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+.kwarrow {
+  flex-shrink: 0; width: 48px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.kwarrow-line {
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--card-border), var(--gold), var(--card-border));
+}
+.kwarrow-head {
+  position: absolute; right: 14px;
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--gold);
+  border-top: 2px solid var(--gold);
+  transform: rotate(45deg);
+}
+.kwrow:hover .kwarrow-line {
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+.kwrow:hover .kwarrow-head {
+  border-color: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+  .kwrow { flex-direction: column; align-items: center; text-align: center; }
+  .kwbox-no { text-align: center; }
+  .kwbox-yes { text-align: center; }
+  .kwarrow { width: 100%; height: 24px; }
+  .kwarrow-head { right: auto; transform: rotate(135deg); top: 6px; }
+}
+
+/* ===== Visual: 十大信息机制 ===== */
+.infomech-wrap {
+  margin: 2rem 0; padding: 1.5rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.infomech-header {
+  text-align: center; margin-bottom: 1.5rem;
+}
+.infomech-chapter {
+  font-size: 0.65rem; color: var(--text-muted);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.infomech-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--gold);
+}
+.infomech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.im-card {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.2rem;
+  padding: 0.8rem 0.4rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s;
+}
+.im-card:hover {
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
+}
+.im-card .im-icon { font-size: 1.2rem; line-height: 1; }
+.im-card .im-name {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--text-primary);
+}
+.im-card .im-desc {
+  font-size: 0.6rem; color: var(--text-muted);
+  text-align: center;
+}
+.im-card-emphasis {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, var(--gold-glow), var(--card));
+  position: relative;
+}
+.im-card-emphasis:hover {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+.im-card-emphasis .im-name { color: var(--gold); }
+.im-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.55rem; font-weight: 600;
+  background: var(--gold-glow);
+  color: var(--gold);
+  border: 1px solid rgba(212,168,83,0.2);
+  margin-top: 0.1rem;
+}
+.infomech-footer {
+  text-align: center;
+}
+.infomech-flow {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 0;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0.8rem;
+}
+.fm-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem; font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.fm-tag:hover { color: var(--text-primary); background: var(--card); }
+.fm-highlight {
+  color: var(--gold) !important;
+  font-weight: 700 !important;
+}
+.fm-arrow {
+  display: inline-block;
+  padding: 0 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+.infomech-outcome {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.infomech-outcome strong {
+  color: var(--gold);
+}
+.outcome-icon { font-size: 1.1rem; }
+
+@media (max-width: 768px) {
+  .infomech-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Appendix ===== */
+.appendix {
+  padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
+}
+.appendix h2 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.appendix .sub {
+  color: var(--text-secondary); font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center; padding: 3rem 2rem;
+  color: var(--text-muted); font-size: 0.75rem;
+  border-top: 1px solid var(--card-border);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  section.page { padding: 3rem 1rem; }
+  section.page .page-inner { padding: 1.5rem; }
+  .flow-h .node { padding: 0.5rem 0.8rem; font-size: 0.7rem; }
+  .flow-h .arrow { width: 14px; }
+  .phase-body { flex-direction: column; gap: 0.5rem; }
+  .eval-step { min-width: 100px; font-size: 0.7rem; }
+  .eval-arrow { display: none; }
+  .maturity-grid { grid-template-columns: repeat(2, 1fr); }
+  .levers { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; }
+  nav .dots a { width: 6px; height: 6px; }
+  .page-title { font-size: 1.1rem; }
+}
+
+/* ===== Keynote reveal ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="logo">知识工程 <span>· 实践汇报</span></div>
+  <div class="dots">
+    <a href="#p1" title="定位" style="background:var(--gold)"></a>
+    <a href="#p2" title="价值"></a>
+    <a href="#p3" title="管线"></a>
+    <a href="#p4" title="机制"></a>
+    <a href="#p5" title="架构"></a>
+    <a href="#p6" title="角色"></a>
+    <a href="#p7" title="动力"></a>
+    <a href="#p8" title="评估"></a>
+    <a href="#p9" title="行动"></a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-badge">领域知识工程学 · 实践汇报</div>
+  <h1>知识工程理论<br>在<em>公司落地实践</em></h1>
+  <p>从「领域知识工程学」理论框架出发，构建可沉淀、可复用、可推理、可自动化服务的知识工程体系</p>
+  <div class="hero-meta">
+    <span>汇报对象：上级领导</span><span class="dot"></span>
+    <span>理论框架：罗建中《领域知识工程学》</span><span class="dot"></span>
+    <span>汇报时长：20-25 分钟</span>
+  </div>
+  <div class="scroll-hint">
+    <span>向下滚动</span>
+    <div class="line"></div>
+  </div>
+</header>
+
+<!-- ===== PAGE 1 ===== -->
+<section class="page" id="p1">
+<div class="page-inner">
+  <div class="section-num">Page 01</div>
+  <div class="page-title">我们做了一套「知识工程体系」<br>—— 不是知识管理平台，而是<span class="hl">社控系统</span></div>
+
+  <!-- ===== Visual Keyword Mapping ===== -->
+  <div class="kwmapping-wrap">
+    <div class="kwmapping-label">▎ 关键词一一对应</div>
+    <div class="kwmapping">
+      <!-- Row 1 -->
+      <div class="kwrow">
+        <div class="kwbox kwbox-no">
+          <div class="kwtag">❌ 不是</div>
+          <div class="kwmain" style="color:var(--red);">知识管理平台</div>
+          <div class="kwsub">× 建设项目</div>
+        </div>
+        <div class="kwarrow">
+          <div class="kwarrow-line"></div>
+          <div class="kwarrow-head"></div>
+        </div>
+        <div class="kwbox kwbox-yes">
+          <div class="kwtag">✅ 是</div>
+          <div class="kwmain" style="color:var(--green);">社控系统</div>
+          <div class="kwsub">社会组织行为自动化控制</div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="kwrow">
+        <div class="kwbox kwbox-no">
+          <div class="kwtag">❌ 不是</div>
+          <div class="kwmain" style="color:var(--red);">大模型包装</div>
+          <div class="kwsub">× 项目式交付</div>
+        </div>
+        <div class="kwarrow">
+          <div class="kwarrow-line"></div>
+          <div class="kwarrow-head"></div>
+        </div>
+        <div class="kwbox kwbox-yes">
+          <div class="kwtag">✅ 是</div>
+          <div class="kwmain" style="color:var(--green);">任务范式框架</div>
+          <div class="kwsub">信息机制纽带 · 工程化知识生产管线</div>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="kwrow">
+        <div class="kwbox kwbox-no">
+          <div class="kwtag">❌ 不是</div>
+          <div class="kwmain" style="color:var(--red);">一次性</div>
+          <div class="kwsub">× 交付即结束</div>
+        </div>
+        <div class="kwarrow">
+          <div class="kwarrow-line"></div>
+          <div class="kwarrow-head"></div>
+        </div>
+        <div class="kwbox kwbox-yes">
+          <div class="kwtag">✅ 是</div>
+          <div class="kwmain" style="color:var(--green);">持续运营体系</div>
+          <div class="kwsub">项目 → 产品 → 服务 持续演进</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow-label">▎ 整体架构</div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:0.8rem;">
+      <div class="flow-h">
+        <div class="node">一线需求</div>
+        <div class="arrow"></div>
+        <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">产品助理<br><span class="sub">情报整编</span></div>
+        <div class="arrow"></div>
+        <div class="node">产品经理<br><span class="sub">任务范式定义</span></div>
+        <div class="arrow"></div>
+        <div class="node" style="border-color:rgba(59,130,246,0.3);">开发/训练<br><span class="sub">双线工程化</span></div>
+        <div class="arrow"></div>
+        <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">交付用户<br><span class="sub">伴随服务</span></div>
+      </div>
+      <div style="width:2px;height:12px;background:var(--card-border);"></div>
+      <div class="flow-h" style="gap:1rem;">
+        <span style="font-size:0.7rem;color:var(--text-muted);">反馈回路</span>
+        <div class="node" style="border:1px dashed rgba(212,168,83,0.3);background:var(--gold-glow);">知识运营经理<br><span class="sub">枢纽</span></div>
+        <div class="arrow dashed"></div>
+        <div class="node" style="border:1px dashed var(--card-border);">售前顾问<br><span class="sub">反馈</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>信息对称闭环</strong>：所有角色在同一个任务范式下共享利害信息，每一个环节的输出都是下一个环节的输入。
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 2 ===== -->
+<section class="page" id="p2">
+<div class="page-inner">
+  <div class="section-num">Page 02</div>
+  <div class="page-title">知识工程解决了<span class="hl">四个真实业务痛点</span><br>—— 专家流失 · 信息孤岛 · 需求失真 · 决策盲区</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>业务痛点</th><th>之前的状态</th><th>知识工程介入后</th><th>量化成果</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>专家经验流失</strong></td>
+        <td>老师傅带新人周期长、文档散落、人员变动后知识断层</td>
+        <td>知识图谱沉淀经验，智能辅助问答</td>
+        <td><span class="badge badge-green">新人独立上岗周期缩短</span></td>
+      </tr>
+      <tr>
+        <td><strong>跨项目信息孤岛</strong></td>
+        <td>项目A踩过的坑项目B接着踩，共性需求重复开发</td>
+        <td>统一知识底座、预置件复用</td>
+        <td><span class="badge badge-green">沟通成本降低</span></td>
+      </tr>
+      <tr>
+        <td><strong>一线需求失真</strong></td>
+        <td>需求层层传递后偏离原意，做出功能用户不用</td>
+        <td>产品助理整编一线需求 + 产品经理统筹</td>
+        <td><span class="badge badge-green">需求交付准确率提升</span></td>
+      </tr>
+      <tr>
+        <td><strong>决策缺乏全局视角</strong></td>
+        <td>凭个人经验判断，信息掌握不全面</td>
+        <td>信息对称 + 知识推理辅助决策</td>
+        <td><span class="badge badge-green">决策效率提升</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ===== 底层逻辑可视化：十大信息机制 ===== -->
+  <div class="infomech-wrap">
+    <div class="infomech-header">
+      <div class="infomech-chapter">《领域知识工程学》第2章</div>
+      <div class="infomech-title">底层逻辑 · 十大信息机制</div>
+    </div>
+    <div class="infomech-grid">
+      <div class="im-card"><span class="im-icon">🏷️</span><span class="im-name">标识</span><span class="im-desc">唯一识别每个实体</span></div>
+      <div class="im-card"><span class="im-icon">📝</span><span class="im-name">留痕</span><span class="im-desc">行为轨迹可追溯</span></div>
+      <div class="im-card"><span class="im-icon">🔓</span><span class="im-name">公开</span><span class="im-desc">信息透明可及</span></div>
+      <div class="im-card"><span class="im-icon">🔗</span><span class="im-name">共享</span><span class="im-desc">跨角色互通</span></div>
+      <div class="im-card"><span class="im-icon">📊</span><span class="im-name">汇聚</span><span class="im-desc">多源信息集中</span></div>
+      <div class="im-card"><span class="im-icon">🛡️</span><span class="im-name">安全</span><span class="im-desc">权限与合规管控</span></div>
+      <div class="im-card"><span class="im-icon">⚙️</span><span class="im-name">预置</span><span class="im-desc">模板/规则预制</span></div>
+      <div class="im-card"><span class="im-icon">🧪</span><span class="im-name">仿真</span><span class="im-desc">虚拟推演验证</span></div>
+      <div class="im-card im-card-emphasis"><span class="im-icon">⚖️</span><span class="im-name">对称</span><span class="im-desc">决策信息对等</span><span class="im-badge">控制类</span></div>
+      <div class="im-card im-card-emphasis"><span class="im-icon">🔄</span><span class="im-name">反馈</span><span class="im-desc">结果驱动调整</span><span class="im-badge">控制类</span></div>
+    </div>
+    <div class="infomech-footer">
+      <div class="infomech-flow">
+        <span class="fm-tag">标识</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">留痕</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">公开</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">共享</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">汇聚</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">安全</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">预置</span><span class="fm-arrow">→</span>
+        <span class="fm-tag">仿真</span><span class="fm-arrow">→</span>
+        <span class="fm-tag fm-highlight">对称</span><span class="fm-arrow">→</span>
+        <span class="fm-tag fm-highlight">反馈</span>
+      </div>
+      <div class="infomech-outcome">
+        <span class="outcome-icon">🎯</span>
+        <span>让<strong>每个角色</strong>在决策时掌握<strong>足够充分的利害信息</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 3 ===== -->
+<section class="page" id="p3">
+<div class="page-inner">
+  <div class="section-num">Page 03</div>
+  <div class="page-title">知识的「生产」不是靠写文档<br>—— 而是靠一条完整的<span class="hl">工程管线</span></div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>能力层</th><th>核心能力</th><th>理论对应</th><th>成熟度</th><th>覆盖场景</th><th>IPO对应</th></tr></thead>
+    <tbody>
+      <tr><td><strong>知识获取</strong></td><td>NLP抽取、多模态解析、人机协同标注</td><td>第4章「信息能力」+ 第6章「形式化搜集」</td><td>★★★☆☆</td><td>文档结构化、对话知识抽取</td><td><span class="badge badge-blue" style="font-size:0.75rem;">输入</span> 形式化搜集</td></tr>
+      <tr><td><strong>知识表示</strong></td><td>本体/模式设计、实体关系定义</td><td>第4章「本体构建」</td><td>★★★★☆</td><td>业务领域建模</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 主题化标引 · 逻辑化存储</td></tr>
+      <tr><td><strong>知识融合</strong></td><td>实体对齐、冲突消解、质量评估</td><td>第4章「事实还原」+「事件建模」</td><td>★★★☆☆</td><td>多源数据整合</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 关联化分析</td></tr>
+      <tr><td><strong>知识推理</strong></td><td>规则推理、图推理、LLM增强推理</td><td>第5章「问题三维度分析」</td><td>★★☆☆☆</td><td>根因分析、风险预测</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 数量化计算</td></tr>
+      <tr><td><strong>知识服务</strong></td><td>语义搜索、智能问答、知识推荐、报告生成</td><td>第6章「结构化表达」+「可视化呈现」</td><td>★★★★☆</td><td>一线员工自助查询</td><td><span class="badge badge-green" style="font-size:0.75rem;">输出</span> 结构化表达 · 可视化呈现</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow-label">▎ 八种生产方法 · IPO 闭环</div>
+
+    <div class="phase-group">
+      <div class="phase-header input">▶ 输入 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识获取</span></div>
+      <div class="phase-body">
+        <div class="flow-h">
+          <div class="node" style="border-color:rgba(59,130,246,0.4);background:rgba(59,130,246,0.06);">形式化搜集</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-group">
+      <div class="phase-header process">▶ 处理 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识表示 · 知识融合 · 知识推理</span></div>
+      <div class="phase-body">
+        <div class="flow-h">
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">主题化标引<div class="cap-tag">知识表示</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">逻辑化存储<div class="cap-tag">知识表示</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">关联化分析<div class="cap-tag">知识融合</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">数量化计算<div class="cap-tag">知识推理</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-group">
+      <div class="phase-header output">▶ 输出 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识服务</span></div>
+      <div class="phase-body">
+        <div class="flow-h">
+          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">结构化表达<div class="cap-tag">知识服务</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">反馈化控制<div class="cap-tag" style="color:var(--text-muted);border-color:var(--text-muted);">闭环</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">可视化呈现<div class="cap-tag">知识服务</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 4 ===== -->
+<section class="page" id="p4">
+<div class="page-inner">
+  <div class="section-num">Page 04</div>
+  <div class="page-title">信息不是在系统中「流动」的<br>—— 而是被<span class="hl">十大信息机制</span>驱动的</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>机制</th><th>分类</th><th>在公司实践中的体现</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:var(--blue)">标识</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品助理的配置管理——每项需求、每个任务、每个角色唯一标识</td></tr>
+      <tr><td><strong style="color:var(--blue)">留痕</strong></td><td><span class="badge badge-blue">感知</span></td><td>一线需求汇集记录、开发过程痕迹、用户反馈记录——以<strong>痕迹信息</strong>为主，减少填报失真</td></tr>
+      <tr><td><strong style="color:var(--blue)">公开</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品目标、考核标准、项目进度的透明化</td></tr>
+      <tr><td><strong style="color:var(--blue)">共享</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品经理 ↔ 开发团队 ↔ 项目团队之间的信息协同，打破孤岛</td></tr>
+      <tr><td><strong style="color:var(--blue)">汇聚</strong></td><td><span class="badge badge-blue">感知</span></td><td>一线需求从分散到集中，被产品助理整编后汇聚到产品经理</td></tr>
+      <tr><td><strong style="color:var(--blue)">安全</strong></td><td><span class="badge badge-blue">感知</span></td><td>公司内部信息权限管理——法权保护（主权、产权、人权）</td></tr>
+      <tr><td><strong style="color:var(--gold)">预置</strong></td><td><span class="badge badge-gold">认知</span></td><td>产品模板、开发框架、训练模型等预置知识资产——需求出现前就准备好构件</td></tr>
+      <tr><td><strong style="color:var(--gold)">仿真</strong></td><td><span class="badge badge-gold">认知</span></td><td>训练类工程师的模型仿真——在部署前验证效果</td></tr>
+      <tr style="background:var(--gold-glow);"><td><strong style="color:var(--gold)">对称</strong></td><td><span class="badge badge-gold">控制</span></td><td><strong>最关键的机制</strong>——产品经理统筹全局，一线需求长箭头向上，售前顾问将用户实情回传</td></tr>
+      <tr><td><strong style="color:var(--gold)">反馈</strong></td><td><span class="badge badge-gold">控制</span></td><td>用户→售前顾问→知识运营经理→开发团队→迭代→用户的完整闭环</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-title">三个最关键的洞察</div>
+    <ul>
+      <li><strong>对称 + 反馈 = 系统的「神经系统」</strong>——没有这一对，其他8个机制只是数据存储</li>
+      <li><strong>留痕 > 填报</strong>：我们优先依赖痕迹信息（客观直接表征），而非填报信息（主观间接表达）</li>
+      <li><strong>安全 ≠ 防火墙，而是法权保护</strong>——权限管理不是技术问题，是治理问题</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 5 ===== -->
+<section class="page" id="p5">
+<div class="page-inner">
+  <div class="section-num">Page 05</div>
+  <div class="page-title">技术选型的核心逻辑<br>—— 为什么选<span class="hl">知识图谱</span>而非纯向量库，为什么<span class="hl">先实体创新</span>再数字化</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>问题</th><th>我们的选择</th><th>理论依据</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>为什么用<strong>知识图谱</strong>而非纯向量库？</td>
+        <td>知识图谱承载的不仅是语义相似度，更是<strong>因果关系</strong>和任务范式结构</td>
+        <td>第3章「因果确定」——解决问题需要识别因果性，而非仅靠相关性</td>
+      </tr>
+      <tr>
+        <td>为什么用<strong>双子系统</strong>架构？</td>
+        <td>任何经济活动以「主动系统」（供给侧）和「对象系统」（需求侧）强相关互作用展开</td>
+        <td>第3章「双子系统」——两系统五要素（主体、行为、客体、时间、空间）一体不可分割</td>
+      </tr>
+      <tr>
+        <td>大模型在其中扮演什么角色？</td>
+        <td>LLM不是替代知识工程，而是增强各环节——但<strong>实体创新先于数字倍增</strong></td>
+        <td>第5章核心：没有实体创新就没有数字化的价值</td>
+      </tr>
+      <tr>
+        <td>为什么重视<strong>资源预置</strong>？</td>
+        <td>不是接到需求才开发，而是在需求出现前就预置好构件和资源——<strong>工业化思想</strong></td>
+        <td>第6章「资源预置」——区别于传统IT行业的核心特征</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
+    <div class="insight-title" style="color:var(--gold);">一个额外的管理创新</div>
+    <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;">我们把第7章的「三导」方法（原用于教育场景）迁移到了工程管理中：</p>
+    <table style="font-size:0.8rem;">
+      <thead>
+        <tr><th>三导</th><th>理论定义</th><th>公司实践</th><th>对应角色</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--gold)">引导</strong></td><td>引导学生自我完成条件性知识获取</td><td>产品经理引导工程师理解业务背景和用户需求，而非直接下指令</td><td>产品经理 → 开发团队</td></tr>
+        <tr><td><strong style="color:var(--gold)">指导</strong></td><td>将范式下的任务及过程模式植入</td><td>知识运营经理将知识工程方法论和工程规范植入日常工作流程</td><td>知识运营经理 → 全体</td></tr>
+        <tr><td><strong style="color:var(--gold)">制导</strong></td><td>强制性约束和反复实践，形成动力定型</td><td>产品助理的考核机制 + 项目管理流程中的评审节点——制度化的「强制」让团队形成标准工作习惯</td><td>产品助理 + 流程制度</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 6 ===== -->
+<section class="page" id="p6">
+<div class="page-inner">
+  <div class="section-num">Page 06</div>
+  <div class="page-title">理论上的六类「供给侧岗位」在公司都有对应<br>—— 其中<span class="hl">产品助理</span>是最被低估的关键节点</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>理论角色</th><th>公司对应</th><th>核心职责</th><th>对应说明</th></tr></thead>
+    <tbody>
+      <tr><td><strong>创意设计师</strong></td><td>产品经理（统筹全局）</td><td>提出创意、指导设计、对产品负总责</td><td>从问题出发，完成任务范式的顶层定义</td></tr>
+      <tr><td><strong>产品集成师</strong></td><td>产品经理（统筹全局）</td><td>管理设计任务、组织团队、推进工作</td><td>同一角色的管理维度</td></tr>
+      <tr><td><strong>领域运营师</strong></td><td>知识运营经理</td><td>连通设计团队与市场用户，制定运营战略</td><td>对接开发业务方向，连接售前顾问和用户反馈</td></tr>
+      <tr><td><strong>功能设计师</strong></td><td>技术类工程师</td><td>执行顶层设计、详细设计、原型设计</td><td>将产品创意转化为可执行技术方案</td></tr>
+      <tr><td><strong>知识萃取师</strong></td><td>知识运营经理（兼任）</td><td>信息资源分析和知识提炼，构建知识本体</td><td>从业务和用户反馈中萃取可复用知识</td></tr>
+      <tr style="background:var(--gold-glow);"><td><strong>情报整编师</strong></td><td><strong style="color:var(--gold)">产品助理</strong></td><td>从一线搜集需求信息并进行初级加工</td><td><strong>最被低估但最关键的角色</strong>——一线需求汇集、配置管理、考核整编</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系</div>
+  <div class="layer-system">
+    <div class="layer" style="border-color:rgba(212,168,83,0.3);">
+      <div class="layer-name">战略统筹层</div>
+      <div class="layer-items">
+        <span class="item">产品经理 —— 划定业务边界、确定任务范式</span>
+        <span class="item">产品助理 —— 量化目标、整编需求、配置管理</span>
+        <span class="item">一线需求 —— 长箭头向上传递，确保信息对称</span>
+      </div>
+      <div class="layer-theory">第3章「领域限定 + 目标约束 + 问题驱动」</div>
+    </div>
+    <div class="layer-connector">▼</div>
+    <div class="layer" style="border-color:rgba(59,130,246,0.3);">
+      <div class="layer-name">工程执行层</div>
+      <div class="layer-items">
+        <span class="item">技术类工程师（系统构建）—— 主动系统</span>
+        <span class="item">训练类工程师（模型/算法训练）—— 对象系统</span>
+        <span class="item">汇报线汇聚到知识运营经理 —— 双线对齐</span>
+      </div>
+      <div class="layer-theory">第3章「双子系统」+ 第6章「工程方法」</div>
+    </div>
+    <div class="layer-connector">▼</div>
+    <div class="layer" style="border-color:rgba(34,197,94,0.3);">
+      <div class="layer-name">价值落地层</div>
+      <div class="layer-items">
+        <span class="item">项目团队 → 交付用户</span>
+        <span class="item">售前顾问 → 桥梁（汇报+指导+反馈）</span>
+        <span class="item">反馈回知识运营经理 → 迭代闭环</span>
+      </div>
+      <div class="layer-theory">第7章「业态创新：项目→产品→服务」</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 7 ===== -->
+<section class="page" id="p7">
+<div class="page-inner">
+  <div class="section-num">Page 07</div>
+  <div class="page-title">每个人的内生动力决定了系统能不能持续运转<br>—— <span class="hl">信息对称</span>是激发动力的核心手段</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>角色</th><th>内生动力</th><th>当前状态</th><th>强化方向</th></tr></thead>
+    <tbody>
+      <tr><td><strong>产品经理</strong></td><td>做出成功产品、市场认可、战略影响力</td><td><span class="badge badge-green">动力明确</span></td><td>建立产品全生命周期数据反馈链路</td></tr>
+      <tr><td><strong>开发工程师</strong></td><td>技术成长、项目成就感、职业发展</td><td><span class="badge badge-amber">中等</span></td><td>增加「成果可视性」——让工程师看到代码对用户的真实价值</td></tr>
+      <tr><td><strong>训练工程师</strong></td><td>模型效果提升、算法创新空间</td><td><span class="badge badge-amber">中等</span></td><td>建立模型迭代可视化看板，实验效果实时对称</td></tr>
+      <tr><td><strong>知识运营经理</strong></td><td>打通知识与业务的价值印证</td><td><span class="badge badge-green">动力明确</span></td><td>核心枢纽，需要持续赋能</td></tr>
+      <tr><td><strong>产品助理</strong></td><td>从执行到规划的职业成长</td><td><span class="badge badge-red">需激发</span></td><td>「角色化实训」——让产品助理遍历更多角色建立全局视角</td></tr>
+      <tr><td><strong>售前顾问</strong></td><td>客户满意、项目成功、个人品牌</td><td><span class="badge badge-green">动力明确</span></td><td>加强其对产品迭代的影响力</td></tr>
+      <tr><td><strong>一线使用者</strong></td><td>效率提升、工作减负、产出增长</td><td><span class="badge badge-green">最底层动力</span></td><td>其满意度是所有工作的最终检验标准</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="flow-label" style="margin-top:1.5rem;">▎ 评估闭环六阶段 · 现状审视</div>
+  <div class="eval-loop">
+    <div class="eval-step">
+      <div class="step-num">①</div>
+      <div class="step-label">明确目标</div>
+      <div class="step-desc">产品经理统筹</div>
+      <div class="step-status">✅</div>
+    </div>
+    <div class="eval-arrow"></div>
+    <div class="eval-step">
+      <div class="step-num">②</div>
+      <div class="step-label">指标量化</div>
+      <div class="step-desc">产品助理考核</div>
+      <div class="step-status">✅</div>
+    </div>
+    <div class="eval-arrow"></div>
+    <div class="eval-step current">
+      <div class="step-num">③</div>
+      <div class="step-label">激发条件</div>
+      <div class="step-desc">培训体系缺失</div>
+      <div class="step-status">⚠️</div>
+    </div>
+    <div class="eval-arrow"></div>
+    <div class="eval-step current">
+      <div class="step-num">④</div>
+      <div class="step-label">同步评估</div>
+      <div class="step-desc">记录不完整</div>
+      <div class="step-status">⚠️</div>
+    </div>
+    <div class="eval-arrow"></div>
+    <div class="eval-step current">
+      <div class="step-num">⑤</div>
+      <div class="step-label">信息推送</div>
+      <div class="step-desc">实时性不足</div>
+      <div class="step-status">⚠️</div>
+    </div>
+    <div class="eval-arrow"></div>
+    <div class="eval-step">
+      <div class="step-num">⑥</div>
+      <div class="step-label">反馈</div>
+      <div class="step-desc">闭环已形成</div>
+      <div class="step-status">✅</div>
+    </div>
+  </div>
+  <div style="text-align:center;font-size:0.7rem;color:var(--text-muted);margin-top:0.5rem;">
+    <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:0.3rem;"></span> 当前需改进环节
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 8 ===== -->
+<section class="page" id="p8">
+<div class="page-inner">
+  <div class="section-num">Page 08</div>
+  <div class="page-title">对照全书理论，我们当前处于<br>「<span class="hl">第7章落地中段</span>、第8章理念接近但实践有距离」</div>
+
+  <div class="maturity-grid">
+    <div class="maturity-card"><div class="m-chapter">第2章</div><div class="m-name">信息机制</div><div class="m-star">⭐</div><div class="m-desc">实践中不自觉地应用了多数机制</div></div>
+    <div class="maturity-card"><div class="m-chapter">第3章</div><div class="m-name">任务范式</div><div class="m-star">⭐</div><div class="m-desc">产品统筹+双子系统已有体现</div></div>
+    <div class="maturity-card"><div class="m-chapter">第4章</div><div class="m-name">范式演化</div><div class="m-star">⚡</div><div class="m-desc">本体构建做到一部分，未系统化</div></div>
+    <div class="maturity-card"><div class="m-chapter">第5章</div><div class="m-name">工程创意</div><div class="m-star">⚡</div><div class="m-desc">问题驱动存在，逆向实证未系统化</div></div>
+    <div class="maturity-card"><div class="m-chapter">第6章</div><div class="m-name">工程方法</div><div class="m-star">⭐</div><div class="m-desc">双线工程+八种方法已对应</div></div>
+    <div class="maturity-card" style="border-color:var(--gold);background:var(--gold-glow);"><div class="m-chapter" style="color:var(--gold);">第7章</div><div class="m-name" style="color:var(--gold);">实训实战</div><div class="m-star" style="color:var(--gold);">⭐</div><div class="m-desc" style="color:var(--text-secondary);">当前最有落地的章节</div></div>
+    <div class="maturity-card"><div class="m-chapter">第8章</div><div class="m-name">超级应用</div><div class="m-star">⚡</div><div class="m-desc">理念接近「全量、在线、实时」</div></div>
+  </div>
+
+  <div class="highlight">
+    核心判断：公司已经搭建了一个符合知识工程学范式的实践框架，下一步要完成从第7章到第8章的跨越——关键词是<strong>「信息对称基础设施」</strong>。
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 9 ===== -->
+<section class="page" id="p9">
+<div class="page-inner">
+  <div class="section-num">Page 09</div>
+  <div class="page-title">下一步需要<span class="hl">三个杠杆</span>撬动<br>—— 信息对称 · 知识沉淀 · 角色完整化</div>
+
+  <div class="levers">
+    <div class="lever-card">
+      <div class="num">1</div>
+      <h4>信息对称基础设施</h4>
+      <p>解决反馈回路长、信息实时对称不足</p>
+      <p style="font-size:0.7rem;color:var(--gold);margin-top:0.3rem;">回报：决策效率倍增 + 角色自驱动</p>
+    </div>
+    <div class="lever-card">
+      <div class="num">2</div>
+      <h4>知识沉淀·开源空间</h4>
+      <p>解决项目经验散落在个人和文档中</p>
+      <p style="font-size:0.7rem;color:var(--gold);margin-top:0.3rem;">回报：全公司知识复用率提升</p>
+    </div>
+    <div class="lever-card">
+      <div class="num">3</div>
+      <h4>角色体系完整化</h4>
+      <p>知识萃取师和情报整编师角色未显性化</p>
+      <p style="font-size:0.7rem;color:var(--gold);margin-top:0.3rem;">回报：知识生产管线从「兼职」变「专职」</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-card short">
+      <div class="tl-period">短期 · 1-3月</div>
+      <h4>补齐基础能力短板</h4>
+      <ul>
+        <li>产品助理「情报整编」流程标准化</li>
+        <li>售前顾问反馈结构化模板</li>
+        <li>缩短反馈周期（周→天）</li>
+      </ul>
+    </div>
+    <div class="timeline-card mid">
+      <div class="tl-period">中期 · 3-6月</div>
+      <h4>深化核心能力</h4>
+      <ul>
+        <li>建设内部预置件/知识沉淀平台</li>
+        <li>条件性知识学习计划</li>
+        <li>推动实时信息对称基础设施</li>
+      </ul>
+    </div>
+    <div class="timeline-card long">
+      <div class="tl-period">长期 · 6-12月</div>
+      <h4>实现范式跨越</h4>
+      <ul>
+        <li>培养/招聘专职「知识萃取师」</li>
+        <li>从「项目交付」到「服务化运营」转型</li>
+        <li>构建「全量、在线、实时」信息对称体系</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3 style="font-family:'Noto Serif SC',serif;font-size:1.1rem;margin-bottom:1rem;">需要领导决策的五件事</h3>
+  <div class="decisions">
+    <div class="decision-item">
+      <div class="d-num">1️⃣</div>
+      <div class="d-content">
+        <div class="d-title">团队建设</div>
+        <div class="d-desc">将产品助理的「情报整编」角色显性化，增设知识运营岗位编制</div>
+        <div class="d-ask">需要决策：人员编制审批</div>
+      </div>
+    </div>
+    <div class="decision-item">
+      <div class="d-num">2️⃣</div>
+      <div class="d-content">
+        <div class="d-title">平台投入</div>
+        <div class="d-desc">建设内部知识沉淀与预置件管理平台（「开源空间」雏形）</div>
+        <div class="d-ask">需要决策：预算审批</div>
+      </div>
+    </div>
+    <div class="decision-item">
+      <div class="d-num">3️⃣</div>
+      <div class="d-content">
+        <div class="d-title">组织机制</div>
+        <div class="d-desc">跨项目知识共建的激励机制——贡献知识计入绩效考核</div>
+        <div class="d-ask">需要决策：制度层面支持</div>
+      </div>
+    </div>
+    <div class="decision-item">
+      <div class="d-num">4️⃣</div>
+      <div class="d-content">
+        <div class="d-title">推广策略</div>
+        <div class="d-desc">先做深一个标杆业务域 vs 同时铺开多个域？<strong style="color:var(--gold);">建议先深后广</strong></div>
+        <div class="d-ask">需要决策：战略方向确认</div>
+      </div>
+    </div>
+    <div class="decision-item">
+      <div class="d-num">5️⃣</div>
+      <div class="d-content">
+        <div class="d-title">人才储备</div>
+        <div class="d-desc">「条件性知识」培训计划（图书情报学、系统科学等）——短期外训，长期内建</div>
+        <div class="d-ask">需要决策：培训预算审批</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== APPENDIX ===== -->
+<section class="appendix" id="appendix">
+  <h2>附录 · 关键理论概念速查</h2>
+  <p class="sub">备用材料，不在正式汇报中展示</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>概念</th><th>章节</th><th>一句话定义</th></tr></thead>
+    <tbody>
+      <tr><td>任务范式</td><td>第3章</td><td>人类经济社会活动特定任务过程的基本模式（领域+双子系统+五要素+问题+目标）</td></tr>
+      <tr><td>双子系统</td><td>第3章</td><td>主动系统（施行方）+ 对象系统（被作用方），强相关互作用</td></tr>
+      <tr><td>五要素</td><td>第3章</td><td>主体、行为、客体、时间、空间——一体不可分割</td></tr>
+      <tr><td>十大信息机制</td><td>第2章</td><td>感知6（标识/留痕/公开/共享/汇聚/安全）+ 认知2（预置/仿真）+ 控制2（对称/反馈）</td></tr>
+      <tr><td>本体构建</td><td>第4章</td><td>从信息资源中萃取概念和关系，形成支撑工程设计的知识体系</td></tr>
+      <tr><td>问题三维度</td><td>第5章</td><td>现象→根源→症结，逐层深入分析问题（症结与利益机制相关）</td></tr>
+      <tr><td>逆向实证</td><td>第5章</td><td>向历史要未来——从足够样本量的同类事件中找到规律</td></tr>
+      <tr><td>八种生产方法</td><td>第6章</td><td>形式化搜集→主题化标引→逻辑化存储→关联化分析→数量化计算→结构化表达→反馈化控制→可视化呈现</td></tr>
+      <tr><td>三导</td><td>第7章</td><td>引导（自主学习）+ 指导（范式植入）+ 制导（强制重复→动力定型）</td></tr>
+      <tr><td>供给侧六类岗位</td><td>第7章</td><td>创意设计师/领域运营师/产品集成师/功能设计师/知识萃取师/情报整编师</td></tr>
+      <tr><td>开源空间</td><td>第7章</td><td>来源/资源/产业链/价值链全开放的产业生态平台</td></tr>
+      <tr><td>全量、在线、实时</td><td>第8章</td><td>超级应用的三大应战策略——全量标识、在线留痕、实时对称反馈</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  知识工程理论在公司落地实践 · 领导汇报大纲<br>
+  理论框架：罗建中《领域知识工程学》 · 基于第2-8章理论框架
+</footer>
+
+<!-- ===== Scroll Reveal ===== -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section.page').forEach(s => observer.observe(s));
+
+// Dot nav highlight
+const dots = document.querySelectorAll('nav .dots a');
+const pages = document.querySelectorAll('section.page');
+window.addEventListener('scroll', () => {
+  let idx = -1;
+  pages.forEach((p, i) => {
+    const rect = p.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.5) idx = i;
+  });
+  dots.forEach((d, i) => d.style.background = i === idx ? 'var(--gold)' : 'var(--card-border)');
+});
+</script>
+
+</body>
+</html>
