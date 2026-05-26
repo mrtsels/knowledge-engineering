@@ -751,9 +751,10 @@ footer {
     <a href="#p4" title="管线"></a>
     <a href="#p5" title="组织"></a>
     <a href="#p6" title="技术"></a>
-    <a href="#p7" title="动力"></a>
-    <a href="#p8" title="诊断"></a>
-    <a href="#p9" title="行动"></a>
+    <a href="#p7" title="智能"></a>
+    <a href="#p8" title="动力"></a>
+    <a href="#p9" title="诊断"></a>
+    <a href="#p10" title="行动"></a>
   </div>
 </nav>
 
@@ -1229,15 +1230,97 @@ footer {
     </table>
   </div>
   <div class="highlight">
-    <strong>问题：动力从哪来</strong>——架构和技术解决了"能不能做"。<strong>解决：信息对称</strong>——"愿不愿意做"取决于每个人的内生动力，信息对称是激发动力的关键。下面分析各角色状态。
+    <strong>问题：大模型怎么落地</strong>——架构和选型解决了主干技术路线。<strong>解决：本地部署</strong>——在开源基座模型上做知识增强，嵌入知识构建·读取·交互全链路。下面来看具体方案。
   </div>
 </div>
 </section>
 
-<!-- ===== PAGE 7: 动力机制 ===== -->
+<!-- ===== PAGE 7: 本地大模型 ===== -->
 <section class="page" id="p7">
 <div class="page-inner">
   <div class="section-num">Page 07</div>
+  <div class="page-title">本地大模型：<span class="hl">知识构建·读取·交互全链路赋能</span></div>
+
+  <div class="subtitle">在知识图谱和双子系统的基础上，将本地大模型嵌入知识生产管线，以公司私有知识持续训练，实现「知识→智能服务」的闭环。</div>
+
+  <!-- Three-column capabilities -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;">
+    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-sm);padding:1.2rem;">
+      <div style="font-size:0.7rem;color:var(--blue);font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">① 知识库构建</div>
+      <ul style="font-size:0.8rem;color:var(--text-secondary);list-style:none;padding:0;">
+        <li style="margin-bottom:0.4rem;">• 智能文档解析与结构化抽取</li>
+        <li style="margin-bottom:0.4rem;">• 实体/关系自动抽取 → 知识图谱</li>
+        <li style="margin-bottom:0.4rem;">• 多模态内容理解与标引</li>
+        <li style="margin-bottom:0.4rem;">• 本体模式半自动构建</li>
+      </ul>
+    </div>
+    <div style="background:rgba(212,168,83,0.06);border:1px solid rgba(212,168,83,0.2);border-radius:var(--radius-sm);padding:1.2rem;">
+      <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">② 知识读取</div>
+      <ul style="font-size:0.8rem;color:var(--text-secondary);list-style:none;padding:0;">
+        <li style="margin-bottom:0.4rem;">• 语义搜索（超越关键词匹配）</li>
+        <li style="margin-bottom:0.4rem;">• 因果推理与根因分析</li>
+        <li style="margin-bottom:0.4rem;">• 跨文档知识聚合与对比</li>
+        <li style="margin-bottom:0.4rem;">• 个性化知识推荐</li>
+      </ul>
+    </div>
+    <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-sm);padding:1.2rem;">
+      <div style="font-size:0.7rem;color:var(--green);font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">③ 知识交互</div>
+      <ul style="font-size:0.8rem;color:var(--text-secondary);list-style:none;padding:0;">
+        <li style="margin-bottom:0.4rem;">• 智能问答（业务场景专属）</li>
+        <li style="margin-bottom:0.4rem;">• 报告/方案自动生成</li>
+        <li style="margin-bottom:0.4rem;">• 对话式数据分析与洞察</li>
+        <li style="margin-bottom:0.4rem;">• 辅助决策推演</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Key decisions table -->
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>关键决策</th><th>我们的选择</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>部署方式</strong></td>
+        <td><span class="badge badge-green">本地部署为主</span></td>
+        <td>公司知识是核心资产，数据不出域是底线；本地推理时延可控，业务连续性有保障</td>
+      </tr>
+      <tr>
+        <td><strong>知识增强策略</strong></td>
+        <td><span class="badge badge-blue">RAG 为先</span></td>
+        <td>零成本更新知识库，适合业务知识快速变化；仅对高频固定场景做 LoRA 微调</td>
+      </tr>
+      <tr>
+        <td><strong>基座模型选型</strong></td>
+        <td><span class="badge badge-amber">开源可商用模型</span></td>
+        <td>可私有化部署、社区生态成熟、有量化方案降低硬件门槛</td>
+      </tr>
+      <tr>
+        <td><strong>训练数据来源</strong></td>
+        <td><span class="badge badge-gold">知识图谱 + 业务文档 + 对话日志</span></td>
+        <td>知识图谱提供结构化事实，文档提供领域深度，对话日志提供真实交互语料</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
+    <div class="insight-title" style="color:var(--gold);">关键判断</div>
+    <ul>
+      <li><strong>不需要从零训练</strong>——在开源基座基础上做知识增强即可见效，成本可控</li>
+      <li><strong>RAG + 知识图谱 是当前性价比最高的组合</strong>——既发挥图谱的结构化推理能力，又保留大模型的文本理解与生成优势</li>
+      <li><strong>本地部署硬件投入是一次性的</strong>——一台 GPU 服务器可覆盖公司级推理需求，后续以运维成本为主</li>
+    </ul>
+  </div>
+  <div class="highlight">
+    <strong>问题：技术到位了，人愿不愿意用</strong>——本地大模型解决了能力问题。<strong>解决：内生动力</strong>——系统能力就位后，每个角色是否有动力使用和贡献？下面分析各角色状态。
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE 8: 动力机制 ===== -->
+<section class="page" id="p8">
+<div class="page-inner">
+  <div class="section-num">Page 08</div>
   <div class="page-title">动力机制：<span class="hl">信息对称激活每个角色</span></div>
 
   <div class="table-wrap">
@@ -1308,10 +1391,10 @@ footer {
 </div>
 </section>
 
-<!-- ===== PAGE 8: 成熟度诊断 ===== -->
-<section class="page" id="p8">
+<!-- ===== PAGE 9: 成熟度诊断 ===== -->
+<section class="page" id="p9">
 <div class="page-inner">
-  <div class="section-num">Page 08</div>
+  <div class="section-num">Page 09</div>
   <div class="page-title">当前诊断：<span class="hl">核心差距在信息对称基础设施</span></div>
 
   <div class="maturity-grid">
@@ -1330,10 +1413,10 @@ footer {
 </div>
 </section>
 
-<!-- ===== PAGE 9: 行动路线 ===== -->
-<section class="page" id="p9">
+<!-- ===== PAGE 10: 行动路线 ===== -->
+<section class="page" id="p10">
 <div class="page-inner">
-  <div class="section-num">Page 09</div>
+  <div class="section-num">Page 10</div>
   <div class="page-title">行动路线与<span class="hl">五项决策</span></div>
 
   <div class="levers">
