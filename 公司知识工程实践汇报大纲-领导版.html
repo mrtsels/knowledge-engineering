@@ -131,14 +131,16 @@ section.page.visible { opacity: 1; transform: translateY(0); }
 section.page .page-inner {
   background: var(--card); border: 1px solid var(--card-border);
   border-radius: var(--radius); padding: 3rem;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
 }
 
 /* ===== Headings ===== */
 .section-num {
-  display: inline-block; font-size: 0.7rem; font-weight: 700;
-  color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  position: absolute; top: 2rem; right: 2rem;
+  font-size: 8rem; font-weight: 900;
+  color: var(--gold); opacity: 0.08;
+  line-height: 1; pointer-events: none;
+  user-select: none; font-family: 'Noto Sans SC', sans-serif;
 }
 .page-title {
   font-family: 'Noto Serif SC', serif;
@@ -191,18 +193,8 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   flex-wrap: wrap; gap: 0;
 }
 .flow-h .node {
-  position: relative;
   flex-shrink: 0; padding: 0.7rem 1.2rem; border-radius: var(--radius-sm);
   background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(212,168,83,0.05));
-}
-.flow-h .node .cap-tag {
-  position: absolute; bottom:-16px; left:50%; transform:translateX(-50%);
-  font-size:0.6rem; line-height:1; white-space:nowrap;
-  padding:0.1rem 0.4rem; border-radius:3px;
-  border:1px solid rgba(212,168,83,0.25);
-  color:var(--gold); background:var(--bg-alt);
-  pointer-events:none;
-}
   border: 1px solid rgba(59,130,246,0.15);
   text-align: center; font-size: 0.8rem; font-weight: 500;
   transition: all 0.3s;
@@ -328,6 +320,52 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   margin: 1.5rem 0; font-size: 0.9rem;
 }
 .highlight strong { color: var(--gold); }
+
+/* ===== Page Bridge (between pages) ===== */
+.page-bridge {
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  position: relative;
+}
+.page-bridge .bridge-inner {
+  background: linear-gradient(135deg, rgba(212,168,83,0.08), rgba(212,168,83,0.03));
+  border: 1px solid rgba(212,168,83,0.15);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.bridge-arrow {
+  display: flex; justify-content: center; align-items: center;
+  height: 32px; position: relative;
+}
+.bridge-arrow::before {
+  content: ''; display: block; width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+}
+.bridge-arrow::after {
+  content: ''; position: absolute; bottom: 2px;
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+}
+.bridge-label {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 2px;
+  color: var(--text-muted); text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.bridge-text {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;
+}
+.bridge-text strong {
+  color: var(--gold); font-weight: 700;
+}
+.bridge-text .hl {
+  display: inline-block;
+  background: var(--gold-glow); padding: 0.1rem 0.5rem;
+  border-radius: 4px; color: var(--gold-light);
+}
 
 /* ===== Insight block ===== */
 .insight-box {
@@ -614,91 +652,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   .infomech-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ===== IPO Flow with Tags ===== */
-.ipo-flow-wrap { margin: 2rem 0; }
-.ipo-node {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 0.3rem; padding: 0.2rem;
-}
-.ipo-node-inline {
-  min-width: 120px; max-width: 160px;
-}
-.ipo-node-box {
-  padding: 0.5rem 0.8rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.78rem; font-weight: 600;
-  text-align: center;
-  width: 100%;
-}
-.ipo-input-box {
-  background: rgba(59,130,246,0.1);
-  border: 1px solid rgba(59,130,246,0.3);
-  color: var(--blue);
-}
-.ipo-process-box {
-  background: var(--gold-glow);
-  border: 1px solid rgba(212,168,83,0.3);
-  color: var(--gold);
-}
-.ipo-output-box {
-  background: rgba(34,197,94,0.08);
-  border: 1px solid rgba(34,197,94,0.3);
-  color: var(--green);
-}
-.ipo-cap {
-  font-size: 0.6rem; color: var(--text-muted);
-  font-weight: 500; letter-spacing: 0.5px;
-}
-.ipo-tags {
-  display: flex; flex-wrap: wrap; gap: 0.2rem;
-  justify-content: center;
-}
-.ipo-tags-sm { gap: 0.15rem; }
-.ipo-tag {
-  display: inline-block;
-  padding: 0.1rem 0.35rem;
-  border-radius: 3px;
-  background: rgba(59,130,246,0.08);
-  border: 1px solid rgba(59,130,246,0.12);
-  font-size: 0.6rem; font-weight: 500;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  line-height: 1.4;
-}
-.ipo-tag:hover {
-  border-color: var(--blue);
-  color: var(--text-primary);
-}
-.ipo-scenes {
-  display: flex; flex-wrap: wrap; gap: 0.2rem;
-  justify-content: center;
-}
-.ipo-scenes-sm { gap: 0.15rem; }
-.ipo-scene {
-  display: inline-block;
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-  background: rgba(212,168,83,0.06);
-  border: 1px solid rgba(212,168,83,0.1);
-  font-size: 0.55rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-  line-height: 1.4;
-}
-.ipo-scene:hover {
-  border-color: var(--gold);
-  color: var(--text-secondary);
-}
-
-/* Override flow-h gap for inline nodes */
-.ipo-flow-wrap .flow-h { gap: 0; }
-.ipo-flow-wrap .flow-h .arrow { width: 18px; }
-
-@media (max-width: 768px) {
-  .ipo-node-inline { min-width: 80px; max-width: 120px; }
-  .ipo-flow-wrap .flow-h .arrow { width: 8px; }
-}
-
 /* ===== Appendix ===== */
 .appendix {
   padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
@@ -758,16 +711,15 @@ footer {
 <nav>
   <div class="logo">知识工程 <span>· 实践汇报</span></div>
   <div class="dots">
-    <a href="#p1" title="痛点" style="background:var(--gold)"></a>
-    <a href="#p2" title="本质"></a>
-    <a href="#p3" title="机制"></a>
-    <a href="#p4" title="管线"></a>
-    <a href="#p5" title="组织"></a>
-    <a href="#p6" title="技术"></a>
-    <a href="#p7" title="智能"></a>
-    <a href="#p8" title="动力"></a>
-    <a href="#p9" title="诊断"></a>
-    <a href="#p10" title="行动"></a>
+    <a href="#p1" title="定位" style="background:var(--gold)"></a>
+    <a href="#p2" title="价值"></a>
+    <a href="#p3" title="管线"></a>
+    <a href="#p4" title="机制"></a>
+    <a href="#p5" title="架构"></a>
+    <a href="#p6" title="角色"></a>
+    <a href="#p7" title="动力"></a>
+    <a href="#p8" title="评估"></a>
+    <a href="#p9" title="行动"></a>
   </div>
 </nav>
 
@@ -777,9 +729,7 @@ footer {
   <h1>知识工程理论<br>在<em>公司落地实践</em></h1>
   <p>从「领域知识工程学」理论框架出发，构建可沉淀、可复用、可推理、可自动化服务的知识工程体系</p>
   <div class="hero-meta">
-    <span>汇报对象：上级领导</span><span class="dot"></span>
-    <span>理论框架：罗建中《领域知识工程学》</span><span class="dot"></span>
-    <span>汇报时长：20-25 分钟</span>
+    <span>理论框架：罗建中《领域知识工程学》</span>
   </div>
   <div class="scroll-hint">
     <span>向下滚动</span>
@@ -787,56 +737,11 @@ footer {
   </div>
 </header>
 
-<!-- ===== PAGE 1: 业务痛点 ===== -->
+<!-- ===== PAGE 1 ===== -->
 <section class="page" id="p1">
 <div class="page-inner">
-  <div class="section-num">Page 01</div>
-  <div class="page-title">业务之痛：<span class="hl">专家流失、信息孤岛、需求失真、决策盲区</span></div>
-
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>业务痛点</th><th>之前的状态</th><th>知识工程介入后</th><th>量化成果</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>专家经验流失</strong></td>
-        <td>老师傅带新人周期长、文档散落、人员变动后知识断层</td>
-        <td>知识图谱沉淀经验，智能辅助问答</td>
-        <td><span class="badge badge-green">新人独立上岗周期缩短</span></td>
-      </tr>
-      <tr>
-        <td><strong>跨项目信息孤岛</strong></td>
-        <td>项目A踩过的坑项目B接着踩，共性需求重复开发</td>
-        <td>统一知识底座、预置件复用</td>
-        <td><span class="badge badge-green">沟通成本降低</span></td>
-      </tr>
-      <tr>
-        <td><strong>一线需求失真</strong></td>
-        <td>需求层层传递后偏离原意，做出功能用户不用</td>
-        <td>产品助理整编一线需求 + 产品经理统筹</td>
-        <td><span class="badge badge-green">需求交付准确率提升</span></td>
-      </tr>
-      <tr>
-        <td><strong>决策缺乏全局视角</strong></td>
-        <td>凭个人经验判断，信息掌握不全面</td>
-        <td>信息对称 + 知识推理辅助决策</td>
-        <td><span class="badge badge-green">决策效率提升</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="highlight">
-    <strong>解决：社控系统</strong>——知识工程通过一套社控系统把信息对称做到极致。下面来看这套系统的完整设计。
-    <div class="arrow-down"><span>↓</span></div>
-  </div>
-</div>
-</section>
-
-<!-- ===== PAGE 2: 知识工程的本质 ===== -->
-<section class="page" id="p2">
-<div class="page-inner">
-  <div class="section-num">Page 02</div>
-  <div class="page-title">知识工程的本质：<span class="hl">信息对称驱动的一套社控系统</span></div>
+  <div class="section-num">01</div>
+  <div class="page-title">我们做了一套「知识工程体系」<br>—— 不是知识管理平台，而是<span class="hl">社控系统</span></div>
 
   <!-- ===== Visual Keyword Mapping ===== -->
   <div class="kwmapping-wrap">
@@ -921,17 +826,57 @@ footer {
   </div>
 
   <div class="highlight">
-    <strong>解决：十大信息机制</strong>——这一闭环的驱动力来自对称+反馈两大控制机制。下面展开十大信息机制。
-    <div class="arrow-down"><span>↓</span></div>
+    <strong>问题：信息不对称</strong>——四大业务痛点的根源都在信息不对称。
   </div>
 </div>
 </section>
 
-<!-- ===== PAGE 3: 十大信息机制 ===== -->
-<section class="page" id="p3">
+<!-- ===== BRIDGE 1 → 2 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">这套<strong>社控系统</strong>解决了信息不对称问题——<span class="hl">四大业务痛点</span>正是这一系统要逐一应对的具体场景。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 2 ===== -->
+<section class="page" id="p2">
 <div class="page-inner">
-  <div class="section-num">Page 03</div>
-  <div class="page-title">十大信息机制：<span class="hl">对称与反馈是系统的「神经系统」</span></div>
+  <div class="section-num">02</div>
+  <div class="page-title">知识工程应对了<span class="hl">四个可能出现的业务痛点</span><br>—— 专家流失 · 信息孤岛 · 需求失真 · 决策盲区</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>业务痛点</th><th>可能出现的状态</th><th>知识工程介入后</th><th>量化成果</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>专家经验流失</strong></td>
+        <td>可能出现：老师傅带新人周期长、文档散落、人员变动后知识断层</td>
+        <td>知识图谱沉淀经验，智能辅助问答</td>
+        <td><span class="badge badge-green">新人独立上岗周期缩短</span></td>
+      </tr>
+      <tr>
+        <td><strong>跨项目信息孤岛</strong></td>
+        <td>可能出现：项目A踩过的坑项目B接着踩，共性需求重复开发</td>
+        <td>统一知识底座、预置件复用</td>
+        <td><span class="badge badge-green">沟通成本降低</span></td>
+      </tr>
+      <tr>
+        <td><strong>一线需求失真</strong></td>
+        <td>可能出现：需求层层传递后偏离原意，做出功能用户不用</td>
+        <td>产品助理整编一线需求 + 产品经理统筹</td>
+        <td><span class="badge badge-green">需求交付准确率提升</span></td>
+      </tr>
+      <tr>
+        <td><strong>决策缺乏全局视角</strong></td>
+        <td>可能出现：凭个人经验判断，信息掌握不全面</td>
+        <td>信息对称 + 知识推理辅助决策</td>
+        <td><span class="badge badge-green">决策效率提升</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 
   <!-- ===== 底层逻辑可视化：十大信息机制 ===== -->
   <div class="infomech-wrap">
@@ -971,6 +916,102 @@ footer {
     </div>
   </div>
 
+  <div class="highlight">
+    <strong>问题：痛点已识别，缺统一底层逻辑</strong>——四个痛点虽然已有对策，但缺乏一套统一的底层机制串联。
+  </div>
+</div>
+</section>
+
+<!-- ===== BRIDGE 2 → 3 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text"><strong>十大信息机制</strong>为四个痛点提供了统一的底层逻辑——而知识的实际生产，需要靠一条完整的<span class="hl">工程管线</span>来承载。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 3 ===== -->
+<section class="page" id="p3">
+<div class="page-inner">
+  <div class="section-num">03</div>
+  <div class="page-title">知识的「生产」不是靠写文档<br>—— 而是靠一条完整的<span class="hl">工程管线</span></div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>能力层</th><th>核心能力</th><th>理论对应</th><th>成熟度</th><th>覆盖场景</th><th>IPO对应</th></tr></thead>
+    <tbody>
+      <tr><td><strong>知识获取</strong></td><td>NLP抽取、多模态解析、人机协同标注</td><td>第4章「信息能力」+ 第6章「形式化搜集」</td><td>★★★☆☆</td><td>文档结构化、对话知识抽取</td><td><span class="badge badge-blue" style="font-size:0.75rem;">输入</span> 形式化搜集</td></tr>
+      <tr><td><strong>知识表示</strong></td><td>本体/模式设计、实体关系定义</td><td>第4章「本体构建」</td><td>★★★★☆</td><td>业务领域建模</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 主题化标引 · 逻辑化存储</td></tr>
+      <tr><td><strong>知识融合</strong></td><td>实体对齐、冲突消解、质量评估</td><td>第4章「事实还原」+「事件建模」</td><td>★★★☆☆</td><td>多源数据整合</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 关联化分析</td></tr>
+      <tr><td><strong>知识推理</strong></td><td>规则推理、图推理、LLM增强推理</td><td>第5章「问题三维度分析」</td><td>★★☆☆☆</td><td>根因分析、风险预测</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 数量化计算</td></tr>
+      <tr><td><strong>知识服务</strong></td><td>语义搜索、智能问答、知识推荐、报告生成</td><td>第6章「结构化表达」+「可视化呈现」</td><td>★★★★☆</td><td>一线员工自助查询</td><td><span class="badge badge-green" style="font-size:0.75rem;">输出</span> 结构化表达 · 可视化呈现</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow-label">▎ 八种生产方法 · IPO 闭环</div>
+
+    <div class="phase-group">
+      <div class="phase-header input">▶ 输入 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识获取</span></div>
+      <div class="phase-body">
+        <div class="flow-h">
+          <div class="node" style="border-color:rgba(59,130,246,0.4);background:rgba(59,130,246,0.06);">形式化搜集</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-group">
+      <div class="phase-header process">▶ 处理 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识表示 · 知识融合 · 知识推理</span></div>
+      <div class="phase-body">
+        <div class="flow-h">
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">主题化标引<div class="cap-tag">知识表示</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">逻辑化存储<div class="cap-tag">知识表示</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">关联化分析<div class="cap-tag">知识融合</div></div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">数量化计算<div class="cap-tag">知识推理</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-group">
+      <div class="phase-header output">▶ 输出</div>
+      <div class="phase-body">
+        <div class="flow-h">
+          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">结构化表达</div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">反馈化控制</div>
+          <div class="arrow"></div>
+          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">可视化呈现</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>问题：知识如何被「生产」</strong>——知识不是靠写文档，而是需要一条完整的工程化生产管线。
+  </div>
+</div>
+</section>
+
+<!-- ===== BRIDGE 3 → 4 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">八种方法构成<span class="hl">IPO闭环</span>，但信息不是简单地「流动」——而是被<strong>十大信息机制</strong>驱动着在管线中运转。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 4 ===== -->
+<section class="page" id="p4">
+<div class="page-inner">
+  <div class="section-num">04</div>
+  <div class="page-title">信息不是在系统中「流动」的<br>—— 而是被<span class="hl">十大信息机制</span>驱动的</div>
+
   <div class="table-wrap">
   <table>
     <thead><tr><th>机制</th><th>分类</th><th>在公司实践中的体现</th></tr></thead>
@@ -997,155 +1038,90 @@ footer {
       <li><strong>安全 ≠ 防火墙，而是法权保护</strong>——权限管理不是技术问题，是治理问题</li>
     </ul>
   </div>
+
   <div class="highlight">
-    <strong>解决：工程管线</strong>——知识的实际生产由一条工程化管线来承载。下面看八种方法构成的IPO闭环。
-    <div class="arrow-down"><span>↓</span></div>
+    <strong>问题：谁来驱动这些机制</strong>——十大机制解释了系统为什么能运转，但需要具体角色来执行。
   </div>
 </div>
 </section>
 
-<!-- ===== PAGE 4: 知识生产管线 ===== -->
-<section class="page" id="p4">
-<div class="page-inner">
-  <div class="section-num">Page 04</div>
-  <div class="page-title">知识生产管线：<span class="hl">八种方法构成IPO闭环</span></div>
-
-  <!-- ===== IPO Flow with Tags ===== -->
-  <div class="ipo-flow-wrap">
-    <div class="flow-label">▎ 八种生产方法 · IPO 闭环</div>
-
-    <!-- INPUT -->
-    <div class="phase-group">
-      <div class="phase-header input">▶ 输入 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识获取</span></div>
-      <div class="phase-body">
-        <div class="ipo-node">
-          <div class="ipo-node-box ipo-input-box">形式化搜集</div>
-          <div class="ipo-tags">
-            <span class="ipo-tag">NLP抽取</span>
-            <span class="ipo-tag">多模态解析</span>
-            <span class="ipo-tag">人机协同标注</span>
-          </div>
-          <div class="ipo-scenes">
-            <span class="ipo-scene">📄 文档结构化</span>
-            <span class="ipo-scene">💬 对话知识抽取</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROCESS -->
-    <div class="phase-group">
-      <div class="phase-header process">▶ 处理 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识表示 · 知识融合 · 知识推理</span></div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">主题化标引</div>
-            <div class="ipo-cap">知识表示</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">本体/模式设计</span>
-              <span class="ipo-tag">实体关系定义</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🏭 业务领域建模</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">逻辑化存储</div>
-            <div class="ipo-cap">知识表示</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">本体/模式设计</span>
-              <span class="ipo-tag">实体关系定义</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🏭 业务领域建模</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">关联化分析</div>
-            <div class="ipo-cap">知识融合</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">实体对齐</span>
-              <span class="ipo-tag">冲突消解</span>
-              <span class="ipo-tag">质量评估</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🔗 多源数据整合</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">数量化计算</div>
-            <div class="ipo-cap">知识推理</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">规则推理</span>
-              <span class="ipo-tag">图推理</span>
-              <span class="ipo-tag">LLM增强推理</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🔍 根因分析</span>
-              <span class="ipo-scene">📊 风险预测</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- OUTPUT -->
-    <div class="phase-group">
-      <div class="phase-header output">▶ 输出 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识服务</span></div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-output-box">结构化表达</div>
-            <div class="ipo-cap">知识服务</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">语义搜索</span>
-              <span class="ipo-tag">智能问答</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">👤 一线员工自助查询</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-output-box">反馈化控制</div>
-            <div class="ipo-cap" style="color:var(--text-muted);">闭环</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">知识推荐</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">👤 一线员工自助查询</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-output-box">可视化呈现</div>
-            <div class="ipo-cap">知识服务</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">报告生成</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">👤 一线员工自助查询</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ===== BRIDGE 4 → 5 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">十大机制需要技术来承载——<strong>知识图谱+双子系统</strong>是支撑这套体系的<span class="hl">核心技术路线</span>。</div>
   </div>
-  <div class="highlight">
-    <strong>解决：六个角色</strong>——每个环节都需要对应角色来执行。下面看角色分工与三层实践体系。
-    <div class="arrow-down"><span>↓</span></div>
-  </div>
+  <div class="bridge-arrow"></div>
 </div>
-</section>
 
-<!-- ===== PAGE 5: 组织架构 ===== -->
+<!-- ===== PAGE 5 ===== -->
 <section class="page" id="p5">
 <div class="page-inner">
-  <div class="section-num">Page 05</div>
-  <div class="page-title"><span class="hl">六个角色</span>与<span class="hl">三层实践体系</span></div>
+  <div class="section-num">05</div>
+  <div class="page-title">技术选型的核心逻辑<br>—— 为什么选<span class="hl">知识图谱</span>而非纯向量库，为什么<span class="hl">先实体创新</span>再数字化</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>问题</th><th>我们的选择</th><th>理论依据</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>为什么用<strong>知识图谱</strong>而非纯向量库？</td>
+        <td>知识图谱承载的不仅是语义相似度，更是<strong>因果关系</strong>和任务范式结构</td>
+        <td>第3章「因果确定」——解决问题需要识别因果性，而非仅靠相关性</td>
+      </tr>
+      <tr>
+        <td>为什么用<strong>双子系统</strong>架构？</td>
+        <td>任何经济活动以「主动系统」（供给侧）和「对象系统」（需求侧）强相关互作用展开</td>
+        <td>第3章「双子系统」——两系统五要素（主体、行为、客体、时间、空间）一体不可分割</td>
+      </tr>
+      <tr>
+        <td>大模型在其中扮演什么角色？</td>
+        <td>LLM不是替代知识工程，而是增强各环节——但<strong>实体创新先于数字倍增</strong></td>
+        <td>第5章核心：没有实体创新就没有数字化的价值</td>
+      </tr>
+      <tr>
+        <td>为什么重视<strong>资源预置</strong>？</td>
+        <td>不是接到需求才开发，而是在需求出现前就预置好构件和资源——<strong>工业化思想</strong></td>
+        <td>第6章「资源预置」——区别于传统IT行业的核心特征</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
+    <div class="insight-title" style="color:var(--gold);">一个额外的管理创新</div>
+    <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;">我们把第7章的「三导」方法（原用于教育场景）迁移到了工程管理中：</p>
+    <table style="font-size:0.8rem;">
+      <thead>
+        <tr><th>三导</th><th>理论定义</th><th>公司实践</th><th>对应角色</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--gold)">引导</strong></td><td>引导学生自我完成条件性知识获取</td><td>产品经理引导工程师理解业务背景和用户需求，而非直接下指令</td><td>产品经理 → 开发团队</td></tr>
+        <tr><td><strong style="color:var(--gold)">指导</strong></td><td>将范式下的任务及过程模式植入</td><td>知识运营经理将知识工程方法论和工程规范植入日常工作流程</td><td>知识运营经理 → 全体</td></tr>
+        <tr><td><strong style="color:var(--gold)">制导</strong></td><td>强制性约束和反复实践，形成动力定型</td><td>产品助理的考核机制 + 项目管理流程中的评审节点——制度化的「强制」让团队形成标准工作习惯</td><td>产品助理 + 流程制度</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight">
+    <strong>问题：技术路线定了，谁来落地</strong>——架构选型明确了主干技术路线，但需要对应角色执行。
+  </div>
+</div>
+</section>
+
+<!-- ===== BRIDGE 5 → 6 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">技术路线确定后，需要对应角色来落地——理论上的<span class="hl">六类供给侧岗位</span>在公司都有对应，其中<strong>产品助理</strong>是最被低估的节点。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 6 ===== -->
+<section class="page" id="p6">
+<div class="page-inner">
+  <div class="section-num">06</div>
+  <div class="page-title">理论上的六类「供给侧岗位」在公司都有对应<br>—— 其中<span class="hl">产品助理</span>是最被低估的关键节点</div>
 
   <div class="table-wrap">
   <table>
@@ -1193,155 +1169,29 @@ footer {
       <div class="layer-theory">第7章「业态创新：项目→产品→服务」</div>
     </div>
   </div>
+
   <div class="highlight">
-    <strong>解决：技术选型</strong>——知识图谱和双子系统是两条核心技术路线。下面说明选型逻辑。
-    <div class="arrow-down"><span>↓</span></div>
+    <strong>问题：角色明确后，技术如何赋能</strong>——角色分工明确后，需要本地大模型嵌入知识全链路。
   </div>
 </div>
 </section>
 
-<!-- ===== PAGE 6: 技术选型 ===== -->
-<section class="page" id="p6">
-<div class="page-inner">
-  <div class="section-num">Page 06</div>
-  <div class="page-title">技术选型的<span class="hl">底层逻辑</span></div>
+<!-- ===== BRIDGE 6 → 7 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">角色明确后，<strong>本地大模型</strong>嵌入知识构建·读取·交互全链路进行赋能——但技术到位了，每个角色有没有动力去用？<span class="hl">内生动力</span>是关键。</div>
 
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>问题</th><th>我们的选择</th><th>理论依据</th></tr></thead>
-    <tbody>
-      <tr>
-        <td>为什么用<strong>知识图谱</strong>而非纯向量库？</td>
-        <td>知识图谱承载的不仅是语义相似度，更是<strong>因果关系</strong>和任务范式结构</td>
-        <td>第3章「因果确定」——解决问题需要识别因果性，而非仅靠相关性</td>
-      </tr>
-      <tr>
-        <td>为什么用<strong>双子系统</strong>架构？</td>
-        <td>任何经济活动以「主动系统」（供给侧）和「对象系统」（需求侧）强相关互作用展开</td>
-        <td>第3章「双子系统」——两系统五要素（主体、行为、客体、时间、空间）一体不可分割</td>
-      </tr>
-      <tr>
-        <td>大模型在其中扮演什么角色？</td>
-        <td>LLM不是替代知识工程，而是增强各环节——但<strong>实体创新先于数字倍增</strong></td>
-        <td>第5章核心：没有实体创新就没有数字化的价值</td>
-      </tr>
-      <tr>
-        <td>为什么重视<strong>资源预置</strong>？</td>
-        <td>不是接到需求才开发，而是在需求出现前就预置好构件和资源——<strong>工业化思想</strong></td>
-        <td>第6章「资源预置」——区别于传统IT行业的核心特征</td></tr>
-    </tbody>
-  </table>
   </div>
-
-  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
-    <div class="insight-title" style="color:var(--gold);">一个额外的管理创新</div>
-    <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;">我们把第7章的「三导」方法（原用于教育场景）迁移到了工程管理中：</p>
-    <table style="font-size:0.8rem;">
-      <thead>
-        <tr><th>三导</th><th>理论定义</th><th>公司实践</th><th>对应角色</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong style="color:var(--gold)">引导</strong></td><td>引导学生自我完成条件性知识获取</td><td>产品经理引导工程师理解业务背景和用户需求，而非直接下指令</td><td>产品经理 → 开发团队</td></tr>
-        <tr><td><strong style="color:var(--gold)">指导</strong></td><td>将范式下的任务及过程模式植入</td><td>知识运营经理将知识工程方法论和工程规范植入日常工作流程</td><td>知识运营经理 → 全体</td></tr>
-        <tr><td><strong style="color:var(--gold)">制导</strong></td><td>强制性约束和反复实践，形成动力定型</td><td>产品助理的考核机制 + 项目管理流程中的评审节点——制度化的「强制」让团队形成标准工作习惯</td><td>产品助理 + 流程制度</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="highlight">
-    <strong>解决：本地部署</strong>——在开源基座模型上做知识增强，嵌入知识构建·读取·交互全链路。下面来看具体方案。
-    <div class="arrow-down"><span>↓</span></div>
-  </div>
+  <div class="bridge-arrow"></div>
 </div>
-</section>
 
-<!-- ===== PAGE 7: 本地大模型 ===== -->
+<!-- ===== PAGE 7 ===== -->
 <section class="page" id="p7">
 <div class="page-inner">
-  <div class="section-num">Page 07</div>
-  <div class="page-title">本地大模型：<span class="hl">知识构建·读取·交互全链路赋能</span></div>
+  <div class="section-num">07</div>
+  <div class="page-title">每个人的内生动力决定了系统能不能持续运转<br>—— <span class="hl">信息对称</span>是激发动力的核心手段</div>
 
-  <div class="subtitle">在知识图谱和双子系统的基础上，将本地大模型嵌入知识生产管线，以公司私有知识持续训练，实现「知识→智能服务」的闭环。</div>
-
-  <!-- Three-column capabilities -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;">
-    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-sm);padding:1.2rem;">
-      <div style="font-size:0.7rem;color:var(--blue);font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">① 知识库构建</div>
-      <ul style="font-size:0.8rem;color:var(--text-secondary);list-style:none;padding:0;">
-        <li style="margin-bottom:0.4rem;">• 智能文档解析与结构化抽取</li>
-        <li style="margin-bottom:0.4rem;">• 实体/关系自动抽取 → 知识图谱</li>
-        <li style="margin-bottom:0.4rem;">• 多模态内容理解与标引</li>
-        <li style="margin-bottom:0.4rem;">• 本体模式半自动构建</li>
-      </ul>
-    </div>
-    <div style="background:rgba(212,168,83,0.06);border:1px solid rgba(212,168,83,0.2);border-radius:var(--radius-sm);padding:1.2rem;">
-      <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">② 知识读取</div>
-      <ul style="font-size:0.8rem;color:var(--text-secondary);list-style:none;padding:0;">
-        <li style="margin-bottom:0.4rem;">• 语义搜索（超越关键词匹配）</li>
-        <li style="margin-bottom:0.4rem;">• 因果推理与根因分析</li>
-        <li style="margin-bottom:0.4rem;">• 跨文档知识聚合与对比</li>
-        <li style="margin-bottom:0.4rem;">• 个性化知识推荐</li>
-      </ul>
-    </div>
-    <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-sm);padding:1.2rem;">
-      <div style="font-size:0.7rem;color:var(--green);font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">③ 知识交互</div>
-      <ul style="font-size:0.8rem;color:var(--text-secondary);list-style:none;padding:0;">
-        <li style="margin-bottom:0.4rem;">• 智能问答（业务场景专属）</li>
-        <li style="margin-bottom:0.4rem;">• 报告/方案自动生成</li>
-        <li style="margin-bottom:0.4rem;">• 对话式数据分析与洞察</li>
-        <li style="margin-bottom:0.4rem;">• 辅助决策推演</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Key decisions table -->
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>关键决策</th><th>我们的选择</th><th>理由</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>部署方式</strong></td>
-        <td><span class="badge badge-green">本地部署为主</span></td>
-        <td>公司知识是核心资产，数据不出域是底线；本地推理时延可控，业务连续性有保障</td>
-      </tr>
-      <tr>
-        <td><strong>知识增强策略</strong></td>
-        <td><span class="badge badge-blue">RAG 为先</span></td>
-        <td>零成本更新知识库，适合业务知识快速变化；仅对高频固定场景做 LoRA 微调</td>
-      </tr>
-      <tr>
-        <td><strong>基座模型选型</strong></td>
-        <td><span class="badge badge-amber">开源可商用模型</span></td>
-        <td>可私有化部署、社区生态成熟、有量化方案降低硬件门槛</td>
-      </tr>
-      <tr>
-        <td><strong>训练数据来源</strong></td>
-        <td><span class="badge badge-gold">知识图谱 + 业务文档 + 对话日志</span></td>
-        <td>知识图谱提供结构化事实，文档提供领域深度，对话日志提供真实交互语料</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
-    <div class="insight-title" style="color:var(--gold);">关键判断</div>
-    <ul>
-      <li><strong>不需要从零训练</strong>——在开源基座基础上做知识增强即可见效，成本可控</li>
-      <li><strong>RAG + 知识图谱 是当前性价比最高的组合</strong>——既发挥图谱的结构化推理能力，又保留大模型的文本理解与生成优势</li>
-      <li><strong>本地部署硬件投入是一次性的</strong>——一台 GPU 服务器可覆盖公司级推理需求，后续以运维成本为主</li>
-    </ul>
-  </div>
-  <div class="highlight">
-    <strong>解决：内生动力</strong>——系统能力就位后，每个角色是否有动力使用和贡献？下面分析各角色状态。
-    <div class="arrow-down"><span>↓</span></div>
-  </div>
-</div>
-</section>
-
-<!-- ===== PAGE 8: 动力机制 ===== -->
-<section class="page" id="p8">
-<div class="page-inner">
-  <div class="section-num">Page 08</div>
-  <div class="page-title">动力机制：<span class="hl">信息对称激活每个角色</span></div>
 
   <div class="table-wrap">
   <table>
@@ -1351,14 +1201,14 @@ footer {
       <tr><td><strong>开发工程师</strong></td><td>技术成长、项目成就感、职业发展</td><td><span class="badge badge-amber">中等</span></td><td>增加「成果可视性」——让工程师看到代码对用户的真实价值</td></tr>
       <tr><td><strong>训练工程师</strong></td><td>模型效果提升、算法创新空间</td><td><span class="badge badge-amber">中等</span></td><td>建立模型迭代可视化看板，实验效果实时对称</td></tr>
       <tr><td><strong>知识运营经理</strong></td><td>打通知识与业务的价值印证</td><td><span class="badge badge-green">动力明确</span></td><td>核心枢纽，需要持续赋能</td></tr>
-      <tr><td><strong>产品助理</strong></td><td>从执行到规划的职业成长</td><td><span class="badge badge-red">需激发</span></td><td>「角色化实训」——让产品助理遍历更多角色建立全局视角</td></tr>
+      <tr><td><strong>产品助理</strong></td><td>从执行到规划的职业成长</td><td><span class="badge badge-amber">可能需要激发</span></td><td>「角色化实训」——让产品助理遍历更多角色建立全局视角</td></tr>
       <tr><td><strong>售前顾问</strong></td><td>客户满意、项目成功、个人品牌</td><td><span class="badge badge-green">动力明确</span></td><td>加强其对产品迭代的影响力</td></tr>
       <tr><td><strong>一线使用者</strong></td><td>效率提升、工作减负、产出增长</td><td><span class="badge badge-green">最底层动力</span></td><td>其满意度是所有工作的最终检验标准</td></tr>
     </tbody>
   </table>
   </div>
 
-  <div class="flow-label" style="margin-top:1.5rem;">▎ 评估闭环六阶段 · 现状审视</div>
+  <div class="flow-label" style="margin-top:1.5rem;">▎ 评估闭环六阶段 · 潜在审视</div>
   <div class="eval-loop">
     <div class="eval-step">
       <div class="step-num">①</div>
@@ -1377,21 +1227,21 @@ footer {
     <div class="eval-step current">
       <div class="step-num">③</div>
       <div class="step-label">激发条件</div>
-      <div class="step-desc">培训体系缺失</div>
+      <div class="step-desc">可能缺乏系统性培训</div>
       <div class="step-status">⚠️</div>
     </div>
     <div class="eval-arrow"></div>
     <div class="eval-step current">
       <div class="step-num">④</div>
       <div class="step-label">同步评估</div>
-      <div class="step-desc">记录不完整</div>
+      <div class="step-desc">全息记录可能不够完整</div>
       <div class="step-status">⚠️</div>
     </div>
     <div class="eval-arrow"></div>
     <div class="eval-step current">
       <div class="step-num">⑤</div>
       <div class="step-label">信息推送</div>
-      <div class="step-desc">实时性不足</div>
+      <div class="step-desc">实时对称可能不足</div>
       <div class="step-status">⚠️</div>
     </div>
     <div class="eval-arrow"></div>
@@ -1403,20 +1253,29 @@ footer {
     </div>
   </div>
   <div style="text-align:center;font-size:0.7rem;color:var(--text-muted);margin-top:0.5rem;">
-    <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:0.3rem;"></span> 当前需改进环节
+    <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:0.3rem;"></span> 可能需要改进的环节
   </div>
+
   <div class="highlight">
-    <strong>解决：成熟度诊断</strong>——对照全书理论框架做整体诊断。下面来看各章节的落地程度。
-    <div class="arrow-down"><span>↓</span></div>
+    <strong>问题：技术到位了，人愿不愿意用</strong>——每个角色的内生动力决定了系统能不能持续运转。
   </div>
 </div>
 </section>
 
-<!-- ===== PAGE 9: 成熟度诊断 ===== -->
-<section class="page" id="p9">
+<!-- ===== BRIDGE 7 → 8 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text"><strong>信息对称</strong>是激发内生动力的核心手段——对照全书理论框架，我们来诊断当前处于哪个阶段，<span class="hl">核心差距</span>在哪里。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 8 ===== -->
+<section class="page" id="p8">
 <div class="page-inner">
-  <div class="section-num">Page 09</div>
-  <div class="page-title">当前诊断：<span class="hl">核心差距在信息对称基础设施</span></div>
+  <div class="section-num">08</div>
+  <div class="page-title">对照全书理论，我们当前处于<br>「<span class="hl">第7章落地中段</span>、第8章理念接近但实践有距离」</div>
 
   <div class="maturity-grid">
     <div class="maturity-card"><div class="m-chapter">第2章</div><div class="m-name">信息机制</div><div class="m-star">⭐</div><div class="m-desc">实践中不自觉地应用了多数机制</div></div>
@@ -1429,35 +1288,43 @@ footer {
   </div>
 
   <div class="highlight">
-    核心判断：公司已经搭建了一个符合知识工程学范式的实践框架，下一步要完成从第7章到第8章的跨越——关键词是<strong>「信息对称基础设施」</strong>。最后给出三个抓手与五项具体决策。
-    <div class="arrow-down"><span>↓</span></div>
+    <strong>问题：当前走到哪了</strong>——对照全书，我们处于第7章落地中段，第8章理念接近但实践有距离。
   </div>
 </div>
 </section>
 
-<!-- ===== PAGE 10: 行动路线 ===== -->
-<section class="page" id="p10">
+<!-- ===== BRIDGE 8 → 9 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">诊断显示核心差距在<span class="hl">信息对称基础设施</span>——需要<strong>三个杠杆</strong>撬动从第7章到第8章的跨越，以下是具体行动方案与五项决策。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 9 ===== -->
+<section class="page" id="p9">
 <div class="page-inner">
-  <div class="section-num">Page 10</div>
-  <div class="page-title">行动路线与<span class="hl">五项决策</span></div>
+  <div class="section-num">09</div>
+  <div class="page-title">下一步需要<span class="hl">三个杠杆</span>撬动<br>—— 信息对称 · 知识沉淀 · 角色完整化</div>
 
   <div class="levers">
     <div class="lever-card">
       <div class="num">1</div>
       <h4>信息对称基础设施</h4>
-      <p>解决反馈回路长、信息实时对称不足</p>
+      <p>应对可能出现：反馈回路长、信息实时对称不足</p>
       <p style="font-size:0.7rem;color:var(--gold);margin-top:0.3rem;">回报：决策效率倍增 + 角色自驱动</p>
     </div>
     <div class="lever-card">
       <div class="num">2</div>
       <h4>知识沉淀·开源空间</h4>
-      <p>解决项目经验散落在个人和文档中</p>
+      <p>应对可能出现：项目经验散落在个人和文档中</p>
       <p style="font-size:0.7rem;color:var(--gold);margin-top:0.3rem;">回报：全公司知识复用率提升</p>
     </div>
     <div class="lever-card">
       <div class="num">3</div>
       <h4>角色体系完整化</h4>
-      <p>知识萃取师和情报整编师角色未显性化</p>
+      <p>应对可能出现：知识萃取师和情报整编师角色未显性化</p>
       <p style="font-size:0.7rem;color:var(--gold);margin-top:0.3rem;">回报：知识生产管线从「兼职」变「专职」</p>
     </div>
   </div>
@@ -1536,6 +1403,10 @@ footer {
         <div class="d-ask">需要决策：培训预算审批</div>
       </div>
     </div>
+  </div>
+
+  <div class="highlight">
+    <strong>问题总结</strong>：信息不对称 → 社控系统 → 十大机制 → 工程管线 → 角色分工 → 技术选型 → 动力激发 → 成熟度诊断，至此形成完整闭环。
   </div>
 </div>
 </section>
