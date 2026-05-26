@@ -276,80 +276,80 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   padding: 0.2rem 0;
 }
 
-/* ===== Horizontal Layer Flowchart (Page 6) ===== */
-.layer-flowchart { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0; }
-.hband {
-  display: flex; flex-direction: column;
+/* ===== Role Flowchart (Page 6) — clean Mermaid-style ===== */
+.role-flowchart {
+  display: flex; gap: 0;
+  margin: 2rem 0;
+  background: var(--bg-alt);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  padding: 1.2rem 1.5rem;
-  position: relative;
   overflow: hidden;
 }
-.hband::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; bottom: 0; width: 4px;
+.rf-side {
+  width: 28px; flex-shrink: 0;
+  display: flex; flex-direction: column;
+  border-right: 1px solid var(--card-border);
 }
-.hband.gold::before { background: var(--gold); }
-.hband.blue::before { background: var(--blue); }
-.hband.green::before { background: var(--green); }
-.hband .hband-name {
-  font-weight: 700; font-size: 0.9rem;
-  margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+.rf-side .rf-sect {
+  flex: 1; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 28px;
 }
-.hband.gold .hband-name { color: var(--gold); }
-.hband.blue .hband-name { color: var(--blue); }
-.hband.green .hband-name { color: var(--green); }
-.hband .hband-name .hband-theory {
-  font-weight: 400; font-size: 0.7rem; color: var(--text-muted);
+.rf-side .rf-sect::before {
+  content: ""; position: absolute;
+  left: 50%; top: 4px; bottom: 4px;
+  width: 3px; border-radius: 2px;
+  transform: translateX(-50%);
 }
-.hband .hband-row {
-  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+.rf-side .rf-sect.gold::before { background: var(--gold); }
+.rf-side .rf-sect.blue::before { background: var(--blue); }
+.rf-side .rf-sect.green::before { background: var(--green); }
+.rf-side .rf-sect + .rf-sect { border-top: 1px solid var(--card-border); }
+.rf-side .rf-lbl {
+  font-size: 0.55rem; font-weight: 600; letter-spacing: 1px;
+  writing-mode: vertical-lr; text-orientation: mixed;
 }
-.hband .hband-row:last-child { margin-bottom: 0; }
-.hband .hnode {
-  display: inline-flex; align-items: center; gap: 0.3rem;
-  background: var(--bg-alt);
+.rf-side .rf-sect.gold .rf-lbl { color: var(--gold); }
+.rf-side .rf-sect.blue .rf-lbl { color: var(--blue); }
+.rf-side .rf-sect.green .rf-lbl { color: var(--green); }
+.rf-flow {
+  flex: 1; padding: 0.8rem 1rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.rf-row {
+  display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap;
+}
+.rf-node {
+  display: inline-flex; align-items: center;
+  padding: 0.22rem 0.55rem;
   border: 1px solid var(--card-border);
-  border-radius: 6px;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.78rem;
-  white-space: nowrap;
-  transition: all 0.2s;
-}
-.hband .hnode:hover { border-color: var(--gold); }
-.hband .hnode .hnode-sub {
-  font-size: 0.65rem; color: var(--text-muted);
-  display: block;
-}
-.hband .hnode .hl { color: var(--gold); font-weight: 600; }
-.hband .harrow {
-  color: var(--text-muted); font-size: 0.7rem;
-  display: inline-flex; align-items: center; gap: 0.2rem;
-  white-space: nowrap;
-}
-.hband .harrow .arrow-sym { font-size: 1rem; color: var(--text-secondary); }
-.hband .harrow .arrow-label { font-size: 0.65rem; color: var(--text-muted); }
-.hband .harrow .arrow-double { display: flex; flex-direction: column; align-items: center; line-height: 1; font-size: 0.65rem; }
-.hband .hwrap {
-  display: inline-flex; flex-direction: column; align-items: center; gap: 0.2rem;
-}
-.hband .hnode-group {
-  display: inline-flex; flex-direction: column; gap: 0.2rem;
-  background: var(--bg-alt);
-  border: 1px solid var(--card-border);
-  border-radius: 6px;
-  padding: 0.3rem 0.6rem;
-}
-.hband .hnode-group .hnode {
-  border: none; background: transparent;
-  padding: 0.15rem 0.3rem;
+  border-radius: 5px;
+  background: var(--card);
   font-size: 0.72rem;
+  white-space: nowrap;
 }
-.hband .hnode-sub-only { font-size: 0.65rem; color: var(--text-muted); display: inline; }
+.rf-node.hl { border-color: var(--gold); }
+.rf-node.sub { font-size: 0.65rem; color: var(--text-muted); }
+.rf-node-group {
+  display: inline-flex; flex-direction: column; gap: 0.08rem;
+  border: 1px solid var(--card-border); border-radius: 5px;
+  padding: 0.1rem 0.25rem; background: var(--card);
+}
+.rf-node-group .rf-node {
+  border: none; background: transparent;
+  padding: 0.05rem 0.1rem; font-size: 0.62rem;
+}
+.rf-arrow {
+  color: var(--text-muted); font-size: 0.58rem;
+  display: inline-flex; align-items: center; gap: 0.06rem;
+  white-space: nowrap;
+}
+.rf-arrow .rf-sym { font-size: 0.8rem; color: var(--text-secondary); }
+.rf-arrow .rf-lbl { color: var(--text-muted); }
+.rf-space { display: inline-block; width: 0.8rem; }
+.rf-indent { display: inline-block; width: 4rem; }
 
+/* ===== Evaluation loop ===== */
 /* ===== Evaluation loop ===== */
 .eval-loop {
   display: flex; flex-wrap: wrap; gap: 0; justify-content: center;
@@ -549,370 +549,11 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 .core-card.blue::before { background: var(--blue); }
 .core-card.green::before { background: var(--green); }
 .core-card.amber::before { background: var(--amber); }
-.core-card .cc-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-.core-card .cc-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
-.core-card .cc-subtitle { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem; }
-.core-card .cc-body { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
-.core-card .cc-tag {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-.core-card.gold .cc-tag { background: var(--gold-glow); color: var(--gold); }
-.core-card.blue .cc-tag { background: rgba(59,130,246,0.1); color: var(--blue); }
-.core-card.green .cc-tag { background: rgba(34,197,94,0.1); color: var(--green); }
-.core-card.amber .cc-tag { background: rgba(245,158,11,0.1); color: var(--amber); }
+.core-card .cc
 
-/* ===== Maturity grid ===== */
-.maturity-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem; margin: 1.5rem 0;
-}
-.maturity-card {
-  background: var(--bg-alt); border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm); padding: 1rem;
-  text-align: center; transition: all 0.3s;
-}
-.maturity-card:hover { border-color: var(--gold); }
-.maturity-card .m-chapter { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px; }
-.maturity-card .m-name { font-size: 0.82rem; font-weight: 600; margin: 0.3rem 0; }
-.maturity-card .m-star { font-size: 1rem; }
-.maturity-card .m-desc { font-size: 0.7rem; color: var(--text-secondary); }
+... [OUTPUT TRUNCATED - 10846 chars omitted out of 60846 total] ...
 
-/* ===== Visual Keyword Mapping ===== */
-.kwmapping-wrap {
-  margin: 2rem 0;
-}
-.kwmapping-label {
-  text-align: center; font-size: 0.7rem; color: var(--text-muted);
-  margin-bottom: 1.2rem; letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.kwmapping {
-  display: flex; flex-direction: column; gap: 0;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius); overflow: hidden;
-  background: var(--bg-alt);
-}
-.kwrow {
-  display: flex; align-items: stretch;
-  border-bottom: 1px solid var(--card-border);
-  transition: all 0.3s;
-}
-.kwrow:last-child { border-bottom: none; }
-.kwrow:hover { background: rgba(212,168,83,0.02); }
-.kwbox {
-  flex: 1; padding: 1rem 1.2rem;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative;
-}
-.kwbox-no {
-  text-align: right;
-  border-right: none;
-}
-.kwbox-yes {
-  text-align: left;
-}
-.kwtag {
-  font-size: 0.65rem; font-weight: 600; letter-spacing: 1px;
-  color: var(--text-muted); margin-bottom: 0.3rem;
-}
-.kwmain {
-  font-size: 1.1rem; font-weight: 700;
-  line-height: 1.3;
-}
-.kwsub {
-  font-size: 0.72rem; color: var(--text-secondary);
-  margin-top: 0.2rem;
-}
-.kwarrow {
-  flex-shrink: 0; width: 48px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-}
-.kwarrow-line {
-  width: 100%; height: 2px;
-  background: linear-gradient(90deg, var(--card-border), var(--gold), var(--card-border));
-}
-.kwarrow-head {
-  position: absolute; right: 14px;
-  width: 8px; height: 8px;
-  border-right: 2px solid var(--gold);
-  border-top: 2px solid var(--gold);
-  transform: rotate(45deg);
-}
-.kwrow:hover .kwarrow-line {
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-}
-.kwrow:hover .kwarrow-head {
-  border-color: var(--gold-light);
-}
-
-@media (max-width: 768px) {
-  .kwrow { flex-direction: column; align-items: center; text-align: center; }
-  .kwbox-no { text-align: center; }
-  .kwbox-yes { text-align: center; }
-  .kwarrow { width: 100%; height: 24px; }
-  .kwarrow-head { right: auto; transform: rotate(135deg); top: 6px; }
-}
-
-/* ===== Visual: 十大信息机制 ===== */
-.infomech-wrap {
-  margin: 2rem 0; padding: 1.5rem;
-  background: var(--bg-alt);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.infomech-header {
-  text-align: center; margin-bottom: 1.5rem;
-}
-.infomech-chapter {
-  font-size: 0.65rem; color: var(--text-muted);
-  letter-spacing: 2px; text-transform: uppercase;
-  margin-bottom: 0.3rem;
-}
-.infomech-title {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 1.1rem; font-weight: 700;
-  color: var(--gold);
-}
-.infomech-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.6rem;
-  margin-bottom: 1.2rem;
-}
-.im-card {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 0.2rem;
-  padding: 0.8rem 0.4rem;
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
-  transition: all 0.3s;
-}
-.im-card:hover {
-  border-color: var(--text-muted);
-  transform: translateY(-2px);
-}
-.im-card .im-icon { font-size: 1.2rem; line-height: 1; }
-.im-card .im-name {
-  font-size: 0.8rem; font-weight: 600;
-  color: var(--text-primary);
-}
-.im-card .im-desc {
-  font-size: 0.6rem; color: var(--text-muted);
-  text-align: center;
-}
-.im-card-emphasis {
-  border-color: var(--gold);
-  background: linear-gradient(135deg, var(--gold-glow), var(--card));
-  position: relative;
-}
-.im-card-emphasis:hover {
-  border-color: var(--gold-light);
-  box-shadow: 0 0 20px var(--gold-glow);
-}
-.im-card-emphasis .im-name { color: var(--gold); }
-.im-badge {
-  display: inline-block;
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.55rem; font-weight: 600;
-  background: var(--gold-glow);
-  color: var(--gold);
-  border: 1px solid rgba(212,168,83,0.2);
-  margin-top: 0.1rem;
-}
-.infomech-footer {
-  text-align: center;
-}
-.infomech-flow {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 0;
-  padding: 0.8rem 0;
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
-  margin-bottom: 0.8rem;
-}
-.fm-tag {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.7rem; font-weight: 500;
-  color: var(--text-secondary);
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-.fm-tag:hover { color: var(--text-primary); background: var(--card); }
-.fm-highlight {
-  color: var(--gold) !important;
-  font-weight: 700 !important;
-}
-.fm-arrow {
-  display: inline-block;
-  padding: 0 0.3rem;
-  color: var(--text-muted);
-  font-size: 0.7rem;
-}
-.infomech-outcome {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-.infomech-outcome strong {
-  color: var(--gold);
-}
-.outcome-icon { font-size: 1.1rem; }
-
-@media (max-width: 768px) {
-  .infomech-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ===== Appendix ===== */
-.appendix {
-  padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
-}
-.appendix h2 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
-.appendix .sub {
-  color: var(--text-secondary); font-size: 0.85rem;
-  margin-bottom: 2rem;
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center; padding: 3rem 2rem;
-  color: var(--text-muted); font-size: 0.75rem;
-  border-top: 1px solid var(--card-border);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  section.page { padding: 3rem 1rem; }
-  section.page .page-inner { padding: 1.5rem; }
-  .flow-h .node { padding: 0.5rem 0.8rem; font-size: 0.7rem; }
-  .flow-h .arrow { width: 14px; }
-  .phase-body { flex-direction: column; gap: 0.5rem; }
-  .eval-step { min-width: 100px; font-size: 0.7rem; }
-  .eval-arrow { display: none; }
-  .maturity-grid { grid-template-columns: repeat(2, 1fr); }
-  .levers { grid-template-columns: 1fr; }
-  .timeline { grid-template-columns: 1fr; }
-  nav .dots a { width: 6px; height: 6px; }
-  .page-title { font-size: 1.1rem; }
-}
-
-/* ===== Keynote reveal ===== */
-@media (prefers-reduced-motion: no-preference) {
-  .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-  .fade-up.in { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== Bounce arrow ===== */
-.arrow-down {
-  text-align: center; margin-top: 0.8rem;
-}
-.arrow-down span {
-  display: inline-block; font-size: 1.2rem; color: var(--gold);
-  animation: bounce 1.5s ease-in-out infinite;
-}
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-</style>
-</head>
-<body>
-
-<!-- ===== NAV ===== -->
-<nav>
-  <div class="logo">知识工程 <span>· 实践汇报</span></div>
-  <div class="dots">
-    <a href="#p1" title="定位" style="background:var(--gold)"></a>
-    <a href="#p2" title="价值"></a>
-    <a href="#p3" title="管线"></a>
-    <a href="#p4" title="机制"></a>
-    <a href="#p5" title="架构"></a>
-    <a href="#p6" title="角色"></a>
-    <a href="#p7" title="动力"></a>
-    <a href="#p8" title="评估"></a>
-    <a href="#p9" title="行动"></a>
-  </div>
-</nav>
-
-<!-- ===== HERO ===== -->
-<header class="hero" id="top">
-  <div class="hero-badge">领域知识工程学 · 实践汇报</div>
-  <h1>知识工程理论<br>在<em>公司落地实践</em></h1>
-  <p>从「领域知识工程学」理论框架出发，构建可沉淀、可复用、可推理、可自动化服务的知识工程体系</p>
-  <div class="hero-meta">
-    <span>理论框架：罗建中《领域知识工程学》</span>
-  </div>
-  <div class="scroll-hint">
-    <span>向下滚动</span>
-    <div class="line"></div>
-  </div>
-</header>
-
-<!-- ===== PAGE 1 ===== -->
-<section class="page" id="p1">
-<div class="page-inner">
-  <div class="section-num">01</div>
-  <div class="page-title">我们做了一套「知识工程体系」<br>—— 不是知识管理平台，而是<span class="hl">社控系统</span></div>
-
-  <!-- ===== Visual Keyword Mapping ===== -->
-  <div class="kwmapping-wrap">
-    <div class="kwmapping-label">▎ 关键词一一对应</div>
-    <div class="kwmapping">
-      <!-- Row 1 -->
-      <div class="kwrow">
-        <div class="kwbox kwbox-no">
-          <div class="kwtag">❌ 不是</div>
-          <div class="kwmain" style="color:var(--red);">知识管理平台</div>
-          <div class="kwsub">× 建设项目</div>
-        </div>
-        <div class="kwarrow">
-          <div class="kwarrow-line"></div>
-          <div class="kwarrow-head"></div>
-        </div>
-        <div class="kwbox kwbox-yes">
-          <div class="kwtag">✅ 是</div>
-          <div class="kwmain" style="color:var(--green);">社控系统</div>
-          <div class="kwsub">社会组织行为自动化控制</div>
-        </div>
-      </div>
-      <!-- Row 2 -->
-      <div class="kwrow">
-        <div class="kwbox kwbox-no">
-          <div class="kwtag">❌ 不是</div>
-          <div class="kwmain" style="color:var(--red);">大模型包装</div>
-          <div class="kwsub">× 项目式交付</div>
-        </div>
-        <div class="kwarrow">
-          <div class="kwarrow-line"></div>
-          <div class="kwarrow-head"></div>
-        </div>
-        <div class="kwbox kwbox-yes">
-          <div class="kwtag">✅ 是</div>
-          <div class="kwmain" style="color:var(--green);">任务范式框架</div>
-          <div class="kwsub">信息机制纽带 · 工程化知识生产管线</div>
-        </div>
-      </div>
-      <!-- Row 3 -->
-      <div class="kwrow">
-        <div class="kwbox kwbox-no">
-          <div class="kwtag">❌ 不是</div>
-          <div class="kwmain" style="color:var(--red);">一次性</div>
-          <div class="kwsub">× 交付即结束</div>
-        </div>
-        <div class="kwarrow">
-          <div class="kwarrow-line"></div>
-          <div class="kwarrow-head"></div>
-        </div>
-        <div class="kwbox kwbox-yes">
+ kwbox-yes">
           <div class="kwtag">✅ 是</div>
           <div class="kwmain" style="color:var(--green);">持续运营体系</div>
           <div class="kwsub">项目 → 产品 → 服务 持续演进</div>
@@ -1247,82 +888,76 @@ footer {
   </table>
   </div>
 
-  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系 · 角色关系流程图</div>
-  <div class="layer-flowchart">
-
-    <!-- ===== Layer 1: 战略统筹层 ===== -->
-    <div class="hband gold">
-      <div class="hband-name">战略统筹层 <span class="hband-theory">第3章「领域限定 + 目标约束 + 问题驱动」</span></div>
-      <div class="hband-row">
-        <span class="hnode">需求汇集</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">长箭头向上</span></span>
-        <span class="hnode">产品助理</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">向上汇报</span></span>
-        <span class="hnode">产品经理<br><span class="hnode-sub">统筹全域 · 划定业务边界 · 确定任务范式</span></span>
-      </div>
-      <div class="hband-row" style="padding-left:4rem;">
-        <span class="hnode">产品助理</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">配置管理 / 考核</span></span>
-        <span class="hnode">知识运营经理 <span class="hnode-sub-only">(工程执行层)</span></span>
-      </div>
+  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系</div>
+  <div class="role-flowchart">
+    <!-- 左侧三层括弧 -->
+    <div class="rf-side">
+      <div class="rf-sect gold"><span class="rf-lbl">战略统筹层</span></div>
+      <div class="rf-sect blue"><span class="rf-lbl">工程执行层</span></div>
+      <div class="rf-sect green"><span class="rf-lbl">价值落地层</span></div>
     </div>
-
-    <!-- ===== Layer 2: 工程执行层 ===== -->
-    <div class="hband blue">
-      <div class="hband-name">工程执行层 <span class="hband-theory">第3章「双子系统」+ 第6章「工程方法」</span></div>
-      <div class="hband-row">
-        <span class="hnode-group">
-          <span class="hnode">知识生产类</span>
-          <span class="hnode">业务分析类</span>
+    <!-- 连续流程图 -->
+    <div class="rf-flow">
+      <div class="rf-row">
+        <span class="rf-node">知识生产类</span>
+        <span class="rf-arrow"><span class="rf-sym">→</span></span>
+        <span class="rf-node hl">知识运营团队</span>
+        <span class="rf-arrow"><span class="rf-sym">←</span></span>
+        <span class="rf-node">业务分析类</span>
+      </div>
+      <div class="rf-row">
+        <span class="rf-node">产品经理</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">统筹</span></span>
+        <span class="rf-node hl">知识运营团队</span>
+      </div>
+      <div class="rf-row">
+        <span class="rf-node">产品助理</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
+        <span class="rf-node">产品经理</span>
+      </div>
+      <div class="rf-row">
+        <span class="rf-node">产品助理</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">配置管理/考核</span></span>
+        <span class="rf-node">知识运营经理</span>
+      </div>
+      <div class="rf-row">
+        <span class="rf-node hl">知识运营团队</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
+        <span class="rf-node hl">知识运营经理</span>
+      </div>
+      <div class="rf-row">
+        <span class="rf-node-group">
+          <span class="rf-node">技术类工程师</span>
+          <span class="rf-node">训练类工程师</span>
         </span>
-        <span class="harrow"><span class="arrow-sym">→</span></span>
-        <span class="hnode">知识运营团队</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">向下汇报</span></span>
-        <span class="hnode" style="border-color:var(--gold);">知识运营经理</span>
-        <span class="harrow"><span class="arrow-sym">⟵</span><span class="arrow-label">向上汇报</span></span>
-        <span class="hnode">开发团队</span>
+        <span class="rf-arrow"><span class="rf-sym">→</span></span>
+        <span class="rf-node">开发团队</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
+        <span class="rf-node hl">知识运营经理</span>
       </div>
-      <div class="hband-row">
-        <span class="hnode">开发团队</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">包含</span></span>
-        <span class="hnode-group">
-          <span class="hnode">技术类工程师 <span class="hnode-sub-only">(主动系统)</span></span>
-          <span class="hnode">训练类工程师 <span class="hnode-sub-only">(对象系统)</span></span>
-        </span>
+      <div class="rf-row">
+        <span class="rf-node hl">知识运营经理</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">指导</span></span>
+        <span class="rf-node">售前顾问</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
+        <span class="rf-node">用户</span>
       </div>
-      <div class="hband-row" style="padding-left:4rem;">
-        <span class="harrow"><span class="arrow-label">配置管理 / 考核</span><span class="arrow-sym"> ⟶</span></span>
-        <span class="hnode">知识运营经理</span>
-        <span class="hnode-sub-only" style="margin-left:0.3rem;">(来自产品助理)</span>
+      <div class="rf-row">
+        <span class="rf-space"></span>
+        <span class="rf-space"></span>
+        <span class="rf-node">用户</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">落地</span></span>
+        <span class="rf-node">项目团队</span>
       </div>
-    </div>
-
-    <!-- ===== Layer 3: 价值落地层 ===== -->
-    <div class="hband green">
-      <div class="hband-name">价值落地层 <span class="hband-theory">第7章「业态创新：项目→产品→服务」</span></div>
-      <div class="hband-row">
-        <span class="hnode" style="border-color:var(--gold);">知识运营经理</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">指导</span></span>
-        <span class="hnode">售前顾问</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">汇报</span></span>
-        <span class="hnode">用户</span>
-      </div>
-      <div class="hband-row">
-        <span class="hnode">用户</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">落地(反馈/验证)</span></span>
-        <span class="hnode">项目团队</span>
-      </div>
-      <div class="hband-row">
-        <span class="hnode">知识运营团队</span>
-        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">组建</span></span>
-        <span class="hnode">项目团队</span>
-        <span class="harrow"><span class="arrow-sym">⟵</span><span class="arrow-label">组建</span></span>
-        <span class="hnode">开发团队</span>
+      <div class="rf-row">
+        <span class="rf-node hl">知识运营团队</span>
+        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">组建</span></span>
+        <span class="rf-node">项目团队</span>
+        <span class="rf-arrow"><span class="rf-sym">⟵</span><span class="rf-lbl">组建</span></span>
+        <span class="rf-node">开发团队</span>
       </div>
     </div>
-
   </div>
-
   <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
     <div class="insight-title" style="color:var(--gold);">一个额外的管理创新</div>
     <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;">我们把第7章的「三导」方法（原用于教育场景）迁移到了工程管理中：</p>
@@ -1430,11 +1065,20 @@ footer {
 </div>
 </section>
 
-<!-- ===== PAGE 9: 行动路线 ===== -->
-<section class="page" id="p9">
+<!-- ===== BRIDGE 7 → 8 ===== -->
+<div class="page-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">▎ 衔接</div>
+    <div class="bridge-text">评估闭环暴露了培训体系、实时推送等短板——核心差距在<strong>信息对称基础设施</strong>，需要<strong>三个杠杆</strong>撬动跨越，以下是具体行动方案与五项决策。</div>
+  </div>
+  <div class="bridge-arrow"></div>
+</div>
+
+<!-- ===== PAGE 8 ===== -->
+<section class="page" id="p8">
 <div class="page-inner">
-  <div class="section-num">Page 09</div>
-  <div class="page-title">行动路线与<span class="hl">五项决策</span></div>
+  <div class="section-num">08</div>
+  <div class="page-title">下一步需要<span class="hl">三个杠杆</span>撬动<br>—— 信息对称 · 知识沉淀 · 角色完整化</div>
 
   <div class="levers">
     <div class="lever-card">
