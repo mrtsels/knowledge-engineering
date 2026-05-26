@@ -737,6 +737,19 @@ footer {
   .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
   .fade-up.in { opacity: 1; transform: translateY(0); }
 }
+
+/* ===== Bounce arrow ===== */
+.arrow-down {
+  text-align: center; margin-top: 0.8rem;
+}
+.arrow-down span {
+  display: inline-block; font-size: 1.2rem; color: var(--gold);
+  animation: bounce 1.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
 </style>
 </head>
 <body>
@@ -813,7 +826,8 @@ footer {
   </div>
 
   <div class="highlight">
-    <strong>问题：信息不对称</strong>——四大痛点的根源都在信息不对称。<strong>解决：社控系统</strong>——知识工程通过一套社控系统把信息对称做到极致。下面来看这套系统的完整设计。
+    <strong>解决：社控系统</strong>——知识工程通过一套社控系统把信息对称做到极致。下面来看这套系统的完整设计。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -907,7 +921,8 @@ footer {
   </div>
 
   <div class="highlight">
-    <strong>问题：闭环如何驱动</strong>——信息对称闭环要求所有角色共享利害信息。<strong>解决：十大信息机制</strong>——这一闭环的驱动力来自对称+反馈两大控制机制。下面展开十大信息机制。
+    <strong>解决：十大信息机制</strong>——这一闭环的驱动力来自对称+反馈两大控制机制。下面展开十大信息机制。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -983,7 +998,8 @@ footer {
     </ul>
   </div>
   <div class="highlight">
-    <strong>问题：机制如何落地</strong>——十大机制解释了系统为什么能运转。<strong>解决：工程管线</strong>——知识的实际生产由一条工程化管线来承载。下面看八种方法构成的IPO闭环。
+    <strong>解决：工程管线</strong>——知识的实际生产由一条工程化管线来承载。下面看八种方法构成的IPO闭环。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -1119,7 +1135,8 @@ footer {
     </div>
   </div>
   <div class="highlight">
-    <strong>问题：谁来执行管线</strong>——八种方法定义了"做什么"。<strong>解决：六个角色</strong>——每个环节都需要对应角色来执行。下面看角色分工与三层实践体系。
+    <strong>解决：六个角色</strong>——每个环节都需要对应角色来执行。下面看角色分工与三层实践体系。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -1177,7 +1194,8 @@ footer {
     </div>
   </div>
   <div class="highlight">
-    <strong>问题：如何支撑协作</strong>——角色明确了谁来做事。<strong>解决：技术选型</strong>——知识图谱和双子系统是两条核心技术路线。下面说明选型逻辑。
+    <strong>解决：技术选型</strong>——知识图谱和双子系统是两条核心技术路线。下面说明选型逻辑。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -1230,7 +1248,8 @@ footer {
     </table>
   </div>
   <div class="highlight">
-    <strong>问题：大模型怎么落地</strong>——架构和选型解决了主干技术路线。<strong>解决：本地部署</strong>——在开源基座模型上做知识增强，嵌入知识构建·读取·交互全链路。下面来看具体方案。
+    <strong>解决：本地部署</strong>——在开源基座模型上做知识增强，嵌入知识构建·读取·交互全链路。下面来看具体方案。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -1312,7 +1331,8 @@ footer {
     </ul>
   </div>
   <div class="highlight">
-    <strong>问题：技术到位了，人愿不愿意用</strong>——本地大模型解决了能力问题。<strong>解决：内生动力</strong>——系统能力就位后，每个角色是否有动力使用和贡献？下面分析各角色状态。
+    <strong>解决：内生动力</strong>——系统能力就位后，每个角色是否有动力使用和贡献？下面分析各角色状态。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -1386,7 +1406,8 @@ footer {
     <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:0.3rem;"></span> 当前需改进环节
   </div>
   <div class="highlight">
-    <strong>问题：当前走到哪</strong>——评估闭环暴露了培训体系、实时推送等短板。<strong>解决：成熟度诊断</strong>——对照全书理论框架做整体诊断。下面来看各章节的落地程度。
+    <strong>解决：成熟度诊断</strong>——对照全书理论框架做整体诊断。下面来看各章节的落地程度。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
@@ -1408,7 +1429,8 @@ footer {
   </div>
 
   <div class="highlight">
-    核心判断：公司已经搭建了一个符合知识工程学范式的实践框架，下一步要完成从第7章到第8章的跨越——关键词是<strong>「信息对称基础设施」</strong>。<strong>问题：差距怎么补</strong>——最后给出三个抓手与五项具体决策。
+    核心判断：公司已经搭建了一个符合知识工程学范式的实践框架，下一步要完成从第7章到第8章的跨越——关键词是<strong>「信息对称基础设施」</strong>。最后给出三个抓手与五项具体决策。
+    <div class="arrow-down"><span>↓</span></div>
   </div>
 </div>
 </section>
