@@ -276,6 +276,80 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   padding: 0.2rem 0;
 }
 
+/* ===== Horizontal Layer Flowchart (Page 6) ===== */
+.layer-flowchart { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0; }
+.hband {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hband::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 4px;
+}
+.hband.gold::before { background: var(--gold); }
+.hband.blue::before { background: var(--blue); }
+.hband.green::before { background: var(--green); }
+.hband .hband-name {
+  font-weight: 700; font-size: 0.9rem;
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+}
+.hband.gold .hband-name { color: var(--gold); }
+.hband.blue .hband-name { color: var(--blue); }
+.hband.green .hband-name { color: var(--green); }
+.hband .hband-name .hband-theory {
+  font-weight: 400; font-size: 0.7rem; color: var(--text-muted);
+}
+.hband .hband-row {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.hband .hband-row:last-child { margin-bottom: 0; }
+.hband .hnode {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.hband .hnode:hover { border-color: var(--gold); }
+.hband .hnode .hnode-sub {
+  font-size: 0.65rem; color: var(--text-muted);
+  display: block;
+}
+.hband .hnode .hl { color: var(--gold); font-weight: 600; }
+.hband .harrow {
+  color: var(--text-muted); font-size: 0.7rem;
+  display: inline-flex; align-items: center; gap: 0.2rem;
+  white-space: nowrap;
+}
+.hband .harrow .arrow-sym { font-size: 1rem; color: var(--text-secondary); }
+.hband .harrow .arrow-label { font-size: 0.65rem; color: var(--text-muted); }
+.hband .harrow .arrow-double { display: flex; flex-direction: column; align-items: center; line-height: 1; font-size: 0.65rem; }
+.hband .hwrap {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 0.2rem;
+}
+.hband .hnode-group {
+  display: inline-flex; flex-direction: column; gap: 0.2rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+}
+.hband .hnode-group .hnode {
+  border: none; background: transparent;
+  padding: 0.15rem 0.3rem;
+  font-size: 0.72rem;
+}
+.hband .hnode-sub-only { font-size: 0.65rem; color: var(--text-muted); display: inline; }
+
 /* ===== Evaluation loop ===== */
 .eval-loop {
   display: flex; flex-wrap: wrap; gap: 0; justify-content: center;
@@ -444,6 +518,52 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   position: relative;
 }
 .timeline-card li::before { content: '›'; position: absolute; left: 0; color: var(--gold); }
+
+/* ===== Core Logic Modules (Page 5) ===== */
+.core-logic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin: 1.5rem 0;
+}
+.core-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.core-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.core-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.core-card.gold::before { background: var(--gold); }
+.core-card.blue::before { background: var(--blue); }
+.core-card.green::before { background: var(--green); }
+.core-card.amber::before { background: var(--amber); }
+.core-card .cc-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.core-card .cc-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+.core-card .cc-subtitle { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+.core-card .cc-body { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+.core-card .cc-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.core-card.gold .cc-tag { background: var(--gold-glow); color: var(--gold); }
+.core-card.blue .cc-tag { background: rgba(59,130,246,0.1); color: var(--blue); }
+.core-card.green .cc-tag { background: rgba(34,197,94,0.1); color: var(--green); }
+.core-card.amber .cc-tag { background: rgba(245,158,11,0.1); color: var(--amber); }
 
 /* ===== Maturity grid ===== */
 .maturity-grid {
@@ -1060,50 +1180,40 @@ footer {
   <div class="section-num">05</div>
   <div class="page-title">技术选型的核心逻辑<br>—— 为什么选<span class="hl">知识图谱</span>而非纯向量库，为什么<span class="hl">先实体创新</span>再数字化</div>
 
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>问题</th><th>我们的选择</th><th>理论依据</th></tr></thead>
-    <tbody>
-      <tr>
-        <td>为什么用<strong>知识图谱</strong>而非纯向量库？</td>
-        <td>知识图谱承载的不仅是语义相似度，更是<strong>因果关系</strong>和任务范式结构</td>
-        <td>第3章「因果确定」——解决问题需要识别因果性，而非仅靠相关性</td>
-      </tr>
-      <tr>
-        <td>为什么用<strong>双子系统</strong>架构？</td>
-        <td>任何经济活动以「主动系统」（供给侧）和「对象系统」（需求侧）强相关互作用展开</td>
-        <td>第3章「双子系统」——两系统五要素（主体、行为、客体、时间、空间）一体不可分割</td>
-      </tr>
-      <tr>
-        <td>大模型在其中扮演什么角色？</td>
-        <td>LLM不是替代知识工程，而是增强各环节——但<strong>实体创新先于数字倍增</strong></td>
-        <td>第5章核心：没有实体创新就没有数字化的价值</td>
-      </tr>
-      <tr>
-        <td>为什么重视<strong>资源预置</strong>？</td>
-        <td>不是接到需求才开发，而是在需求出现前就预置好构件和资源——<strong>工业化思想</strong></td>
-        <td>第6章「资源预置」——区别于传统IT行业的核心特征</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
-    <div class="insight-title" style="color:var(--gold);">一个额外的管理创新</div>
-    <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;">我们把第7章的「三导」方法（原用于教育场景）迁移到了工程管理中：</p>
-    <table style="font-size:0.8rem;">
-      <thead>
-        <tr><th>三导</th><th>理论定义</th><th>公司实践</th><th>对应角色</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong style="color:var(--gold)">引导</strong></td><td>引导学生自我完成条件性知识获取</td><td>产品经理引导工程师理解业务背景和用户需求，而非直接下指令</td><td>产品经理 → 开发团队</td></tr>
-        <tr><td><strong style="color:var(--gold)">指导</strong></td><td>将范式下的任务及过程模式植入</td><td>知识运营经理将知识工程方法论和工程规范植入日常工作流程</td><td>知识运营经理 → 全体</td></tr>
-        <tr><td><strong style="color:var(--gold)">制导</strong></td><td>强制性约束和反复实践，形成动力定型</td><td>产品助理的考核机制 + 项目管理流程中的评审节点——制度化的「强制」让团队形成标准工作习惯</td><td>产品助理 + 流程制度</td></tr>
-      </tbody>
-    </table>
+  <div class="flow-label">▎ 核心逻辑模块</div>
+  <div class="core-logic-grid">
+    <div class="core-card gold">
+      <div class="cc-icon">🧠</div>
+      <div class="cc-title">知识图谱</div>
+      <div class="cc-subtitle">为什么用知识图谱而非纯向量库？</div>
+      <div class="cc-body">知识图谱承载的不只是语义相似度，更是因果关系和任务范式结构。解决问题需要识别因果性，而非仅靠相关性。</div>
+      <span class="cc-tag">第3章「因果确定」</span>
+    </div>
+    <div class="core-card blue">
+      <div class="cc-icon">⚙️</div>
+      <div class="cc-title">双子系统架构</div>
+      <div class="cc-subtitle">为什么采用双子系统架构？</div>
+      <div class="cc-body">任何经济活动以「主动系统」（供给侧）和「对象系统」（需求侧）强相关互作用方式展开。两系统五要素（主体、行为、客体、时间、空间）一体不可分割。</div>
+      <span class="cc-tag">第3章「双子系统」</span>
+    </div>
+    <div class="core-card green">
+      <div class="cc-icon">🤖</div>
+      <div class="cc-title">大模型增强</div>
+      <div class="cc-subtitle">大模型在其中扮演什么角色？</div>
+      <div class="cc-body">LLM不是替代知识工程，而是增强各环节（抽取、融合、问答）。但关键顺序不能颠倒：先有实体创新方案，再做数字化倍增。</div>
+      <span class="cc-tag">第5章核心</span>
+    </div>
+    <div class="core-card amber">
+      <div class="cc-icon">🏭</div>
+      <div class="cc-title">工业化资源配置</div>
+      <div class="cc-subtitle">为什么重视资源预置？</div>
+      <div class="cc-body">不是接到需求才开发，而是在需求出现前就预置好构件和资源。这是区别于传统IT行业的核心特征——工业化思维取代手工作坊模式。</div>
+      <span class="cc-tag">第6章「资源预置」</span>
+    </div>
   </div>
 
   <div class="highlight">
-    <strong>问题：技术路线定了，谁来落地</strong>——架构选型明确了主干技术路线，但需要对应角色执行。
+    <strong>四个选择构成了核心技术路线骨架</strong>——接下来需要对应的角色体系来承载和落地。
   </div>
 </div>
 </section>
@@ -1112,7 +1222,7 @@ footer {
 <div class="page-bridge">
   <div class="bridge-inner">
     <div class="bridge-label">▎ 衔接</div>
-    <div class="bridge-text">技术路线确定后，需要对应角色来落地——理论上的<span class="hl">六类供给侧岗位</span>在公司都有对应，其中<strong>产品助理</strong>是最被低估的节点。</div>
+    <div class="bridge-text">核心技术路线确定后，由供给侧六类岗位承载落地——每个角色不仅各司其职，还通过<span class="hl">「三导」管理方法论</span>协同运作。</div>
   </div>
   <div class="bridge-arrow"></div>
 </div>
@@ -1137,37 +1247,95 @@ footer {
   </table>
   </div>
 
-  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系</div>
-  <div class="layer-system">
-    <div class="layer" style="border-color:rgba(212,168,83,0.3);">
-      <div class="layer-name">战略统筹层</div>
-      <div class="layer-items">
-        <span class="item">产品经理 —— 划定业务边界、确定任务范式</span>
-        <span class="item">产品助理 —— 量化目标、整编需求、配置管理</span>
-        <span class="item">一线需求 —— 长箭头向上传递，确保信息对称</span>
+  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系 · 角色关系流程图</div>
+  <div class="layer-flowchart">
+
+    <!-- ===== Layer 1: 战略统筹层 ===== -->
+    <div class="hband gold">
+      <div class="hband-name">战略统筹层 <span class="hband-theory">第3章「领域限定 + 目标约束 + 问题驱动」</span></div>
+      <div class="hband-row">
+        <span class="hnode">需求汇集</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">长箭头向上</span></span>
+        <span class="hnode">产品助理</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">向上汇报</span></span>
+        <span class="hnode">产品经理<br><span class="hnode-sub">统筹全域 · 划定业务边界 · 确定任务范式</span></span>
       </div>
-      <div class="layer-theory">第3章「领域限定 + 目标约束 + 问题驱动」</div>
-    </div>
-    <div class="layer-connector">▼</div>
-    <div class="layer" style="border-color:rgba(59,130,246,0.3);">
-      <div class="layer-name">工程执行层</div>
-      <div class="layer-items">
-        <span class="item">技术类工程师（系统构建）—— 主动系统</span>
-        <span class="item">训练类工程师（模型/算法训练）—— 对象系统</span>
-        <span class="item">汇报线汇聚到知识运营经理 —— 双线对齐</span>
+      <div class="hband-row" style="padding-left:4rem;">
+        <span class="hnode">产品助理</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">配置管理 / 考核</span></span>
+        <span class="hnode">知识运营经理 <span class="hnode-sub-only">(工程执行层)</span></span>
       </div>
-      <div class="layer-theory">第3章「双子系统」+ 第6章「工程方法」</div>
     </div>
-    <div class="layer-connector">▼</div>
-    <div class="layer" style="border-color:rgba(34,197,94,0.3);">
-      <div class="layer-name">价值落地层</div>
-      <div class="layer-items">
-        <span class="item">项目团队 → 交付用户</span>
-        <span class="item">售前顾问 → 桥梁（汇报+指导+反馈）</span>
-        <span class="item">反馈回知识运营经理 → 迭代闭环</span>
+
+    <!-- ===== Layer 2: 工程执行层 ===== -->
+    <div class="hband blue">
+      <div class="hband-name">工程执行层 <span class="hband-theory">第3章「双子系统」+ 第6章「工程方法」</span></div>
+      <div class="hband-row">
+        <span class="hnode-group">
+          <span class="hnode">知识生产类</span>
+          <span class="hnode">业务分析类</span>
+        </span>
+        <span class="harrow"><span class="arrow-sym">→</span></span>
+        <span class="hnode">知识运营团队</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">向下汇报</span></span>
+        <span class="hnode" style="border-color:var(--gold);">知识运营经理</span>
+        <span class="harrow"><span class="arrow-sym">⟵</span><span class="arrow-label">向上汇报</span></span>
+        <span class="hnode">开发团队</span>
       </div>
-      <div class="layer-theory">第7章「业态创新：项目→产品→服务」</div>
+      <div class="hband-row">
+        <span class="hnode">开发团队</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">包含</span></span>
+        <span class="hnode-group">
+          <span class="hnode">技术类工程师 <span class="hnode-sub-only">(主动系统)</span></span>
+          <span class="hnode">训练类工程师 <span class="hnode-sub-only">(对象系统)</span></span>
+        </span>
+      </div>
+      <div class="hband-row" style="padding-left:4rem;">
+        <span class="harrow"><span class="arrow-label">配置管理 / 考核</span><span class="arrow-sym"> ⟶</span></span>
+        <span class="hnode">知识运营经理</span>
+        <span class="hnode-sub-only" style="margin-left:0.3rem;">(来自产品助理)</span>
+      </div>
     </div>
+
+    <!-- ===== Layer 3: 价值落地层 ===== -->
+    <div class="hband green">
+      <div class="hband-name">价值落地层 <span class="hband-theory">第7章「业态创新：项目→产品→服务」</span></div>
+      <div class="hband-row">
+        <span class="hnode" style="border-color:var(--gold);">知识运营经理</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">指导</span></span>
+        <span class="hnode">售前顾问</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">汇报</span></span>
+        <span class="hnode">用户</span>
+      </div>
+      <div class="hband-row">
+        <span class="hnode">用户</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">落地(反馈/验证)</span></span>
+        <span class="hnode">项目团队</span>
+      </div>
+      <div class="hband-row">
+        <span class="hnode">知识运营团队</span>
+        <span class="harrow"><span class="arrow-sym">⟶</span><span class="arrow-label">组建</span></span>
+        <span class="hnode">项目团队</span>
+        <span class="harrow"><span class="arrow-sym">⟵</span><span class="arrow-label">组建</span></span>
+        <span class="hnode">开发团队</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
+    <div class="insight-title" style="color:var(--gold);">一个额外的管理创新</div>
+    <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.8rem;">我们把第7章的「三导」方法（原用于教育场景）迁移到了工程管理中：</p>
+    <table style="font-size:0.8rem;">
+      <thead>
+        <tr><th>三导</th><th>理论定义</th><th>公司实践</th><th>对应角色</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--gold)">引导</strong></td><td>引导学生自我完成条件性知识获取</td><td>产品经理引导工程师理解业务背景和用户需求，而非直接下指令</td><td>产品经理 → 开发团队</td></tr>
+        <tr><td><strong style="color:var(--gold)">指导</strong></td><td>将范式下的任务及过程模式植入</td><td>知识运营经理将知识工程方法论和工程规范植入日常工作流程</td><td>知识运营经理 → 全体</td></tr>
+        <tr><td><strong style="color:var(--gold)">制导</strong></td><td>强制性约束和反复实践，形成动力定型</td><td>产品助理的考核机制 + 项目管理流程中的评审节点——制度化的「强制」让团队形成标准工作习惯</td><td>产品助理 + 流程制度</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="highlight">
