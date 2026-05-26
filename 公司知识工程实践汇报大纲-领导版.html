@@ -699,6 +699,128 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   .ipo-flow-wrap .flow-h .arrow { width: 8px; }
 }
 
+/* ===== Vertical IPO Flow ===== */
+.ipo-v-flow { margin: 2rem 0; }
+.ipo-v-step {
+  display: flex; gap: 1.2rem;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+  transition: all 0.3s;
+  position: relative;
+}
+.ipo-v-step:hover { border-color: var(--gold); }
+.ipo-v-step + .ipo-v-arrow { margin: 0.2rem auto; }
+.ipo-v-step.input-step { border-left: 3px solid var(--blue); }
+.ipo-v-step.process-step { border-left: 3px solid var(--gold); }
+.ipo-v-step.output-step { border-left: 3px solid var(--green); }
+
+.ipo-v-side {
+  flex-shrink: 0; width: 60px; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-start; gap: 0.3rem; padding-top: 0.2rem;
+}
+.ipo-v-side .phase-icon {
+  font-size: 1.1rem; font-weight: 700; letter-spacing: 1px;
+}
+.ipo-v-side .phase-icon.input { color: var(--blue); }
+.ipo-v-side .phase-icon.process { color: var(--gold); }
+.ipo-v-side .phase-icon.output { color: var(--green); }
+.ipo-v-side .phase-layer {
+  font-size: 0.6rem; color: var(--text-muted);
+  writing-mode: vertical-rl; letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.ipo-v-main { flex: 1; min-width: 0; }
+.ipo-v-methods {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 0;
+  margin-bottom: 0.6rem;
+}
+.ipo-v-method-box {
+  padding: 0.35rem 0.7rem; border-radius: 4px;
+  font-size: 0.78rem; font-weight: 600; text-align: center;
+  white-space: nowrap;
+}
+.ipo-v-method-box.v-input {
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: var(--blue);
+}
+.ipo-v-method-box.v-process {
+  background: var(--gold-glow);
+  border: 1px solid rgba(212,168,83,0.3);
+  color: var(--gold);
+}
+.ipo-v-method-box.v-output {
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: var(--green);
+}
+.ipo-v-method-arrow {
+  flex-shrink: 0; width: 20px; position: relative; height: 1px;
+  margin: 0 2px;
+}
+.ipo-v-method-arrow::before {
+  content: ''; display: block; width: 100%; height: 1px;
+  background: linear-gradient(90deg, var(--card-border), var(--gold), var(--card-border));
+}
+.ipo-v-method-arrow::after {
+  content: ''; position: absolute; right: 0; top: -2.5px;
+  width: 5px; height: 5px;
+  border-right: 1.5px solid var(--gold);
+  border-top: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+}
+.ipo-v-detail {
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem;
+  font-size: 0.7rem; color: var(--text-secondary);
+}
+.ipo-v-detail-item { display: flex; align-items: flex-start; gap: 0.4rem; }
+.ipo-v-detail-label {
+  flex-shrink: 0; color: var(--text-muted); font-weight: 500;
+  font-size: 0.65rem; letter-spacing: 0.5px;
+}
+.ipo-v-detail-tags {
+  display: flex; flex-wrap: wrap; gap: 0.2rem;
+}
+.ipo-v-detail-tag {
+  padding: 0.05rem 0.35rem; border-radius: 3px;
+  font-size: 0.6rem; white-space: nowrap; line-height: 1.5;
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.1);
+  color: var(--text-secondary);
+}
+.ipo-v-detail-scene {
+  padding: 0.05rem 0.35rem; border-radius: 3px;
+  font-size: 0.6rem; white-space: nowrap; line-height: 1.5;
+  background: rgba(212,168,83,0.05);
+  border: 1px solid rgba(212,168,83,0.08);
+  color: var(--text-muted);
+}
+
+.ipo-v-arrow {
+  display: flex; justify-content: center; align-items: center;
+  height: 28px; position: relative;
+}
+.ipo-v-arrow::before {
+  content: ''; width: 1px; height: 100%;
+  background: linear-gradient(var(--card-border), var(--gold), var(--card-border));
+}
+.ipo-v-arrow::after {
+  content: ''; position: absolute; bottom: 2px;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid var(--gold);
+  border-bottom: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 640px) {
+  .ipo-v-step { flex-direction: column; gap: 0.6rem; }
+  .ipo-v-side { width: auto; flex-direction: row; gap: 0.5rem; padding-top: 0; }
+  .ipo-v-side .phase-layer { writing-mode: horizontal-tb; }
+}
+
 /* ===== Appendix ===== */
 .appendix {
   padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
@@ -994,124 +1116,165 @@ footer {
   <div class="section-num">Page 04</div>
   <div class="page-title">知识生产管线：<span class="hl">八种方法构成IPO闭环</span></div>
 
-  <!-- ===== IPO Flow with Tags ===== -->
-  <div class="ipo-flow-wrap">
-    <div class="flow-label">▎ 八种生产方法 · IPO 闭环</div>
+  <!-- ===== Vertical IPO Flow ===== -->
+  <div class="ipo-v-flow">
+    <div class="flow-label" style="margin-bottom:1.5rem;">▎ 八种生产方法 · IPO 闭环 — 竖向工程管线</div>
 
-    <!-- INPUT -->
-    <div class="phase-group">
-      <div class="phase-header input">▶ 输入 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识获取</span></div>
-      <div class="phase-body">
-        <div class="ipo-node">
-          <div class="ipo-node-box ipo-input-box">形式化搜集</div>
-          <div class="ipo-tags">
-            <span class="ipo-tag">NLP抽取</span>
-            <span class="ipo-tag">多模态解析</span>
-            <span class="ipo-tag">人机协同标注</span>
-          </div>
-          <div class="ipo-scenes">
-            <span class="ipo-scene">📄 文档结构化</span>
-            <span class="ipo-scene">💬 对话知识抽取</span>
-          </div>
-        </div>
+    <!-- STEP 1: 输入 — 知识获取 -->
+    <div class="ipo-v-step input-step">
+      <div class="ipo-v-side">
+        <div class="phase-icon input">输入</div>
+        <div class="phase-layer">知识获取</div>
       </div>
-    </div>
-
-    <!-- PROCESS -->
-    <div class="phase-group">
-      <div class="phase-header process">▶ 处理 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识表示 · 知识融合 · 知识推理</span></div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">主题化标引</div>
-            <div class="ipo-cap">知识表示</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">本体/模式设计</span>
-              <span class="ipo-tag">实体关系定义</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🏭 业务领域建模</span>
+      <div class="ipo-v-main">
+        <div class="ipo-v-methods">
+          <span class="ipo-v-method-box v-input">形式化搜集</span>
+        </div>
+        <div class="ipo-v-detail">
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">核心能力</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-tag">NLP抽取</span>
+              <span class="ipo-v-detail-tag">多模态解析</span>
+              <span class="ipo-v-detail-tag">人机协同标注</span>
             </div>
           </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">逻辑化存储</div>
-            <div class="ipo-cap">知识表示</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">本体/模式设计</span>
-              <span class="ipo-tag">实体关系定义</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🏭 业务领域建模</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">关联化分析</div>
-            <div class="ipo-cap">知识融合</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">实体对齐</span>
-              <span class="ipo-tag">冲突消解</span>
-              <span class="ipo-tag">质量评估</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🔗 多源数据整合</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-process-box">数量化计算</div>
-            <div class="ipo-cap">知识推理</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">规则推理</span>
-              <span class="ipo-tag">图推理</span>
-              <span class="ipo-tag">LLM增强推理</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">🔍 根因分析</span>
-              <span class="ipo-scene">📊 风险预测</span>
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">覆盖场景</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-scene">📄 文档结构化</span>
+              <span class="ipo-v-detail-scene">💬 对话知识抽取</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- OUTPUT -->
-    <div class="phase-group">
-      <div class="phase-header output">▶ 输出 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识服务</span></div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-output-box">结构化表达</div>
-            <div class="ipo-cap">知识服务</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">语义搜索</span>
-              <span class="ipo-tag">智能问答</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">👤 一线员工自助查询</span>
-            </div>
-          </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-output-box">反馈化控制</div>
-            <div class="ipo-cap" style="color:var(--text-muted);">闭环</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">知识推荐</span>
-            </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">👤 一线员工自助查询</span>
+    <div class="ipo-v-arrow"></div>
+
+    <!-- STEP 2: 处理 — 知识表示 -->
+    <div class="ipo-v-step process-step">
+      <div class="ipo-v-side">
+        <div class="phase-icon process">处理</div>
+        <div class="phase-layer">知识表示</div>
+      </div>
+      <div class="ipo-v-main">
+        <div class="ipo-v-methods">
+          <span class="ipo-v-method-box v-process">主题化标引</span>
+          <span class="ipo-v-method-arrow"></span>
+          <span class="ipo-v-method-box v-process">逻辑化存储</span>
+        </div>
+        <div class="ipo-v-detail">
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">核心能力</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-tag">本体/模式设计</span>
+              <span class="ipo-v-detail-tag">实体关系定义</span>
             </div>
           </div>
-          <div class="arrow"></div>
-          <div class="ipo-node ipo-node-inline">
-            <div class="ipo-node-box ipo-output-box">可视化呈现</div>
-            <div class="ipo-cap">知识服务</div>
-            <div class="ipo-tags ipo-tags-sm">
-              <span class="ipo-tag">报告生成</span>
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">覆盖场景</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-scene">🏭 业务领域建模</span>
             </div>
-            <div class="ipo-scenes ipo-scenes-sm">
-              <span class="ipo-scene">👤 一线员工自助查询</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ipo-v-arrow"></div>
+
+    <!-- STEP 3: 处理 — 知识融合 -->
+    <div class="ipo-v-step process-step">
+      <div class="ipo-v-side">
+        <div class="phase-icon process">处理</div>
+        <div class="phase-layer">知识融合</div>
+      </div>
+      <div class="ipo-v-main">
+        <div class="ipo-v-methods">
+          <span class="ipo-v-method-box v-process">关联化分析</span>
+        </div>
+        <div class="ipo-v-detail">
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">核心能力</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-tag">实体对齐</span>
+              <span class="ipo-v-detail-tag">冲突消解</span>
+              <span class="ipo-v-detail-tag">质量评估</span>
+            </div>
+          </div>
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">覆盖场景</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-scene">🔗 多源数据整合</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ipo-v-arrow"></div>
+
+    <!-- STEP 4: 处理 — 知识推理 -->
+    <div class="ipo-v-step process-step">
+      <div class="ipo-v-side">
+        <div class="phase-icon process">处理</div>
+        <div class="phase-layer">知识推理</div>
+      </div>
+      <div class="ipo-v-main">
+        <div class="ipo-v-methods">
+          <span class="ipo-v-method-box v-process">数量化计算</span>
+        </div>
+        <div class="ipo-v-detail">
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">核心能力</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-tag">规则推理</span>
+              <span class="ipo-v-detail-tag">图推理</span>
+              <span class="ipo-v-detail-tag">LLM增强推理</span>
+            </div>
+          </div>
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">覆盖场景</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-scene">🔍 根因分析</span>
+              <span class="ipo-v-detail-scene">📊 风险预测</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ipo-v-arrow"></div>
+
+    <!-- STEP 5: 输出 — 知识服务 -->
+    <div class="ipo-v-step output-step">
+      <div class="ipo-v-side">
+        <div class="phase-icon output">输出</div>
+        <div class="phase-layer">知识服务</div>
+      </div>
+      <div class="ipo-v-main">
+        <div class="ipo-v-methods">
+          <span class="ipo-v-method-box v-output">结构化表达</span>
+          <span class="ipo-v-method-arrow"></span>
+          <span class="ipo-v-method-box v-output">反馈化控制</span>
+          <span class="ipo-v-method-arrow"></span>
+          <span class="ipo-v-method-box v-output">可视化呈现</span>
+        </div>
+        <div class="ipo-v-detail">
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">核心能力</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-tag">语义搜索</span>
+              <span class="ipo-v-detail-tag">智能问答</span>
+              <span class="ipo-v-detail-tag">知识推荐</span>
+              <span class="ipo-v-detail-tag">报告生成</span>
+            </div>
+          </div>
+          <div class="ipo-v-detail-item">
+            <span class="ipo-v-detail-label">覆盖场景</span>
+            <div class="ipo-v-detail-tags">
+              <span class="ipo-v-detail-scene">👤 一线员工自助查询</span>
             </div>
           </div>
         </div>
