@@ -507,6 +507,24 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   border-radius: 4px; background: var(--gold-glow);
 }
 
+/* ===== Pain Cards (Page 2) ===== */
+.pain-cards {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem; margin: 1.5rem 0;
+}
+.pain-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 1rem;
+  display: flex; flex-direction: column; gap: 0.3rem;
+  transition: all 0.3s;
+}
+.pain-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+.pain-icon { font-size: 1.3rem; }
+.pain-name { font-size: 0.9rem; font-weight: 700; }
+.pain-desc { font-size: 0.72rem; color: var(--text-secondary); line-height: 1.5; }
+.pain-sol { font-size: 0.72rem; color: var(--text-primary); font-weight: 500; }
+.pain-badge { margin-top: 0.2rem; }
+
 /* ===== Decision box ===== */
 .decisions { margin: 1.5rem 0; }
 .decision-item {
@@ -967,73 +985,34 @@ footer {
   <div class="section-num">02</div>
   <div class="page-title">知识工程应对了<span class="hl">四个可能出现的业务痛点</span><br>—— 专家流失 · 信息孤岛 · 需求失真 · 决策盲区</div>
 
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>业务痛点</th><th>可能出现的状态</th><th>知识工程介入后</th><th>量化成果</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>专家经验流失</strong></td>
-        <td>可能出现：老师傅带新人周期长、文档散落、人员变动后知识断层</td>
-        <td>知识图谱沉淀经验，智能辅助问答</td>
-        <td><span class="badge badge-green">新人独立上岗周期缩短</span></td>
-      </tr>
-      <tr>
-        <td><strong>跨项目信息孤岛</strong></td>
-        <td>可能出现：项目A踩过的坑项目B接着踩，共性需求重复开发</td>
-        <td>统一知识底座、预置件复用</td>
-        <td><span class="badge badge-green">沟通成本降低</span></td>
-      </tr>
-      <tr>
-        <td><strong>一线需求失真</strong></td>
-        <td>可能出现：需求层层传递后偏离原意，做出功能用户不用</td>
-        <td>产品助理整编一线需求 + 产品经理统筹</td>
-        <td><span class="badge badge-green">需求交付准确率提升</span></td>
-      </tr>
-      <tr>
-        <td><strong>决策缺乏全局视角</strong></td>
-        <td>可能出现：凭个人经验判断，信息掌握不全面</td>
-        <td>信息对称 + 知识推理辅助决策</td>
-        <td><span class="badge badge-green">决策效率提升</span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-
-  <!-- ===== 底层逻辑可视化：十大信息机制 ===== -->
-  <div class="infomech-wrap">
-    <div class="infomech-header">
-      <div class="infomech-chapter">《领域知识工程学》第2章</div>
-      <div class="infomech-title">底层逻辑 · 十大信息机制</div>
+  <div class="pain-cards">
+    <div class="pain-card" style="border-color:rgba(212,168,83,0.3);">
+      <div class="pain-icon">🧑‍🏫</div>
+      <div class="pain-name">专家经验流失</div>
+      <div class="pain-desc">老师傅带新人周期长、文档散落、人员变动后知识断层</div>
+      <div class="pain-sol">知识图谱沉淀经验，智能辅助问答</div>
+      <div class="pain-badge"><span class="badge badge-green">新人独立上岗周期缩短</span></div>
     </div>
-    <div class="infomech-grid">
-      <div class="im-card"><span class="im-icon">🏷️</span><span class="im-name">标识</span><span class="im-desc">唯一识别每个实体</span></div>
-      <div class="im-card"><span class="im-icon">📝</span><span class="im-name">留痕</span><span class="im-desc">行为轨迹可追溯</span></div>
-      <div class="im-card"><span class="im-icon">🔓</span><span class="im-name">公开</span><span class="im-desc">信息透明可及</span></div>
-      <div class="im-card"><span class="im-icon">🔗</span><span class="im-name">共享</span><span class="im-desc">跨角色互通</span></div>
-      <div class="im-card"><span class="im-icon">📊</span><span class="im-name">汇聚</span><span class="im-desc">多源信息集中</span></div>
-      <div class="im-card"><span class="im-icon">🛡️</span><span class="im-name">安全</span><span class="im-desc">权限与合规管控</span></div>
-      <div class="im-card"><span class="im-icon">⚙️</span><span class="im-name">预置</span><span class="im-desc">模板/规则预制</span></div>
-      <div class="im-card"><span class="im-icon">🧪</span><span class="im-name">仿真</span><span class="im-desc">虚拟推演验证</span></div>
-      <div class="im-card im-card-emphasis"><span class="im-icon">⚖️</span><span class="im-name">对称</span><span class="im-desc">决策信息对等</span><span class="im-badge">控制类</span></div>
-      <div class="im-card im-card-emphasis"><span class="im-icon">🔄</span><span class="im-name">反馈</span><span class="im-desc">结果驱动调整</span><span class="im-badge">控制类</span></div>
+    <div class="pain-card" style="border-color:rgba(59,130,246,0.3);">
+      <div class="pain-icon">🏝️</div>
+      <div class="pain-name">跨项目信息孤岛</div>
+      <div class="pain-desc">项目A踩过的坑项目B接着踩，共性需求重复开发</div>
+      <div class="pain-sol">统一知识底座、预置件复用</div>
+      <div class="pain-badge"><span class="badge badge-green">沟通成本降低</span></div>
     </div>
-    <div class="infomech-footer">
-      <div class="infomech-flow">
-        <span class="fm-tag">标识</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">留痕</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">公开</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">共享</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">汇聚</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">安全</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">预置</span><span class="fm-arrow">→</span>
-        <span class="fm-tag">仿真</span><span class="fm-arrow">→</span>
-        <span class="fm-tag fm-highlight">对称</span><span class="fm-arrow">→</span>
-        <span class="fm-tag fm-highlight">反馈</span>
-      </div>
-      <div class="infomech-outcome">
-        <span class="outcome-icon">🎯</span>
-        <span>让<strong>每个角色</strong>在决策时掌握<strong>足够充分的利害信息</strong></span>
-      </div>
+    <div class="pain-card" style="border-color:rgba(245,158,11,0.3);">
+      <div class="pain-icon">📡</div>
+      <div class="pain-name">一线需求失真</div>
+      <div class="pain-desc">需求层层传递后偏离原意，做出功能用户不用</div>
+      <div class="pain-sol">产品助理整编 + 产品经理统筹</div>
+      <div class="pain-badge"><span class="badge badge-green">需求交付准确率提升</span></div>
+    </div>
+    <div class="pain-card" style="border-color:rgba(239,68,68,0.3);">
+      <div class="pain-icon">👁️</div>
+      <div class="pain-name">决策缺乏全局视角</div>
+      <div class="pain-desc">凭个人经验判断，信息掌握不全面</div>
+      <div class="pain-sol">信息对称 + 知识推理辅助决策</div>
+      <div class="pain-badge"><span class="badge badge-green">决策效率提升</span></div>
     </div>
   </div>
 
@@ -1114,16 +1093,16 @@ footer {
   <table>
     <thead><tr><th>机制</th><th>分类</th><th>在公司实践中的体现</th></tr></thead>
     <tbody>
-      <tr><td><strong style="color:var(--blue)">标识</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品助理的配置管理——每项需求、每个任务、每个角色唯一标识</td></tr>
-      <tr><td><strong style="color:var(--blue)">留痕</strong></td><td><span class="badge badge-blue">感知</span></td><td>一线需求汇集记录、开发过程痕迹、用户反馈记录——以<strong>痕迹信息</strong>为主，减少填报失真</td></tr>
-      <tr><td><strong style="color:var(--blue)">公开</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品目标、考核标准、项目进度的透明化</td></tr>
-      <tr><td><strong style="color:var(--blue)">共享</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品经理 ↔ 开发团队 ↔ 项目团队之间的信息协同，打破孤岛</td></tr>
-      <tr><td><strong style="color:var(--blue)">汇聚</strong></td><td><span class="badge badge-blue">感知</span></td><td>一线需求从分散到集中，被产品助理整编后汇聚到产品经理</td></tr>
-      <tr><td><strong style="color:var(--blue)">安全</strong></td><td><span class="badge badge-blue">感知</span></td><td>公司内部信息权限管理——法权保护（主权、产权、人权）</td></tr>
-      <tr><td><strong style="color:var(--gold)">预置</strong></td><td><span class="badge badge-gold">认知</span></td><td>产品模板、开发框架、训练模型等预置知识资产——需求出现前就准备好构件</td></tr>
-      <tr><td><strong style="color:var(--gold)">仿真</strong></td><td><span class="badge badge-gold">认知</span></td><td>训练类工程师的模型仿真——在部署前验证效果</td></tr>
-      <tr style="background:var(--gold-glow);"><td><strong style="color:var(--gold)">对称</strong></td><td><span class="badge badge-gold">控制</span></td><td><strong>最关键的机制</strong>——产品经理统筹全局，一线需求长箭头向上，售前顾问将用户实情回传</td></tr>
-      <tr><td><strong style="color:var(--gold)">反馈</strong></td><td><span class="badge badge-gold">控制</span></td><td>用户→售前顾问→知识运营经理→开发团队→迭代→用户的完整闭环</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🏷️</span> <strong style="color:var(--blue)">标识</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品助理的配置管理——每项需求、每个任务、每个角色唯一标识</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">📝</span> <strong style="color:var(--blue)">留痕</strong></td><td><span class="badge badge-blue">感知</span></td><td>一线需求汇集记录、开发过程痕迹、用户反馈记录——以<strong>痕迹信息</strong>为主</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🔓</span> <strong style="color:var(--blue)">公开</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品目标、考核标准、项目进度的透明化</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🔗</span> <strong style="color:var(--blue)">共享</strong></td><td><span class="badge badge-blue">感知</span></td><td>产品经理 ↔ 开发团队 ↔ 项目团队之间的信息协同，打破孤岛</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">📊</span> <strong style="color:var(--blue)">汇聚</strong></td><td><span class="badge badge-blue">感知</span></td><td>一线需求从分散到集中，被产品助理整编后汇聚到产品经理</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🛡️</span> <strong style="color:var(--blue)">安全</strong></td><td><span class="badge badge-blue">感知</span></td><td>公司内部信息权限管理——法权保护（主权、产权、人权）</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">⚙️</span> <strong style="color:var(--gold)">预置</strong></td><td><span class="badge badge-gold">认知</span></td><td>产品模板、开发框架、训练模型等预置知识资产——需求出现前就准备好构件</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🧪</span> <strong style="color:var(--gold)">仿真</strong></td><td><span class="badge badge-gold">认知</span></td><td>训练类工程师的模型仿真——在部署前验证效果</td></tr>
+      <tr style="background:var(--gold-glow);"><td><span style="font-size:1rem;margin-right:0.3rem;">⚖️</span> <strong style="color:var(--gold)">对称</strong></td><td><span class="badge badge-gold">控制</span></td><td><strong>最关键的机制</strong>——产品经理统筹全局，一线需求长箭头向上，售前顾问将用户实情回传</td></tr>
+      <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🔄</span> <strong style="color:var(--gold)">反馈</strong></td><td><span class="badge badge-gold">控制</span></td><td>用户→售前顾问→知识运营经理→开发团队→迭代→用户的完整闭环</td></tr>
     </tbody>
   </table>
   </div>
