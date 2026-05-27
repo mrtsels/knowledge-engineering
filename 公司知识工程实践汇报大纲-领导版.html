@@ -975,12 +975,12 @@ footer {
 <div class="tab-bar">
   <span class="tab-logo">知识工程</span>
   <div class="tab-group">
-    <button class="tab-btn active" onclick="switchTab('practice')">实践</button>
-    <button class="tab-btn" onclick="switchTab('theory')">理论</button>
+    <button class="tab-btn active" onclick="switchTab('theory')">理论</button>
+    <button class="tab-btn" onclick="switchTab('practice')">实践</button>
   </div>
 </div>
 
-<div class="tab-practice active">
+<div class="tab-practice">
 
 <!-- ===== NAV ===== -->
 
@@ -1581,7 +1581,7 @@ footer {
 </div>
 
 <!-- ===== THEORY TAB ===== -->
-<div class="tab-theory">
+<div class="tab-theory active">
 
 <!-- Hero -->
 <section class="page" style="min-height:85vh;display:flex;flex-direction:column;justify-content:center;">
@@ -2157,55 +2157,7 @@ flowchart LR
 </div>
 </section>
 
-<!-- ===== 全书总览 ===== -->
-<section class="page" id="theory-summary">
-<div class="page-inner">
-<div class="section-num">✦</div>
-<h2 class="page-title">全书从认识世界到改造世界<span class="hl">构建完整闭环</span></h2>
-
-<div class="mermaid-wrap">
-<div class="mermaid">
-flowchart TD
-  C1["第1章 理论体系<br/>总纲·是什么·怎么研究"] --> C2["第2章 信息机制<br/>十大机制·感知→认知→控制"]
-  C2 --> C3["第3章 任务范式<br/>七大顶层概念·理论核心"]
-  C3 --> C4["第4章 范式演化<br/>本体构建·抽象→具体"]
-  C4 --> C5["第5章 工程创意<br/>问题三维度·微创新/深度创新"]
-  C5 --> C6["第6章 工程方法<br/>八种生产方法·产品化"]
-  C6 --> C7["第7章 实训实战<br/>人才培养·开源空间·新业态"]
-  C7 --> C8["第8章 超级应用<br/>COVID-19·全景实战演示"]
-  style C1 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
-  style C2 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
-  style C3 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
-  style C4 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
-  style C5 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
-  style C6 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
-  style C7 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
-  style C8 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
 </div>
-</div>
-
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-top:1.5rem;">
-  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
-    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">认识世界</div>
-    <div style="font-size:0.65rem;color:var(--text-muted);">第1-3章<br>理论构建</div>
-  </div>
-  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
-    <div style="font-size:0.7rem;font-weight:600;color:var(--gold);">中介转换</div>
-    <div style="font-size:0.65rem;color:var(--text-muted);">第4章<br>抽象→具体</div>
-  </div>
-  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
-    <div style="font-size:0.7rem;font-weight:600;color:var(--green);">改造世界</div>
-    <div style="font-size:0.65rem;color:var(--text-muted);">第5-6章<br>创意→产品</div>
-  </div>
-  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
-    <div style="font-size:0.7rem;font-weight:600;color:var(--red);">传播应用</div>
-    <div style="font-size:0.65rem;color:var(--text-muted);">第7-8章<br>人才→实战</div>
-  </div>
-</div>
-
-</div>
-</section>
-
 </div>
 
 <!-- ===== FOOTER ===== -->
@@ -2219,13 +2171,13 @@ flowchart TD
 function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-practice, .tab-theory').forEach(d => d.classList.remove('active'));
-  if (tab === 'practice') {
+  if (tab === 'theory') {
     document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
-    document.querySelector('.tab-practice').classList.add('active');
-  } else {
-    document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
     document.querySelector('.tab-theory').classList.add('active');
     renderMermaid('.tab-theory');
+  } else {
+    document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+    document.querySelector('.tab-practice').classList.add('active');
   }
   window.scrollTo(0, 0);
 }
