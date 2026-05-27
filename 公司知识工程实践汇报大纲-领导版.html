@@ -487,6 +487,51 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   background: var(--gold-glow); display: inline-block;
 }
 
+/* ===== Role Map (Page 6) ===== */
+.role-map {
+  display: flex; gap: 1.5rem; margin: 1.5rem 0;
+  align-items: stretch;
+}
+.rm-left {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  justify-content: center; flex-shrink: 0;
+}
+.rm-label-row {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.rm-label {
+  display: inline-block; padding: 0.35rem 0.7rem;
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 6px; font-size: 0.78rem; font-weight: 600;
+  white-space: nowrap; text-align: right; min-width: 80px;
+}
+.rm-hl .rm-label { border-color: var(--gold); background: var(--gold-glow); color: var(--gold); }
+.rm-arr { color: var(--gold); font-size: 1.1rem; font-weight: 700; }
+.rm-spacer { height: 0.3rem; }
+.rm-right {
+  flex: 1; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.rm-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); padding: 0.8rem 1rem;
+  transition: all 0.3s;
+}
+.rm-card:hover { transform: translateX(3px); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+.rm-card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.1rem; }
+.rm-card-sub { font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+.rm-card-dots { display: flex; flex-direction: column; gap: 0.15rem; }
+.rm-dot {
+  font-size: 0.72rem; color: var(--text-secondary);
+  padding-left: 0.6rem; position: relative;
+}
+.rm-dot::before { content: '›'; position: absolute; left: 0; color: var(--gold); }
+.rm-badge {
+  display: inline-block; margin-top: 0.4rem;
+  font-size: 0.65rem; font-weight: 700; color: var(--gold);
+  padding: 0.1rem 0.4rem; border-radius: 4px;
+  background: rgba(212,168,83,0.15);
+}
+
 /* ===== Paradigm Cards (Page 8) ===== */
 .paradigm-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -1194,83 +1239,78 @@ footer {
   <div class="section-num">06</div>
   <div class="page-title">六类「供给侧岗位」在公司都有对应，<span class="hl">产品助理</span>是最被低估的关键节点</div>
 
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>理论角色</th><th>公司对应</th><th>核心职责</th><th>对应说明</th></tr></thead>
-    <tbody>
-      <tr><td><strong>创意设计师</strong></td><td>产品经理（统筹全局）</td><td>提出创意、指导设计、对产品负总责</td><td>从问题出发，完成任务范式的顶层定义</td></tr>
-      <tr><td><strong>产品集成师</strong></td><td>产品经理（统筹全局）</td><td>管理设计任务、组织团队、推进工作</td><td>同一角色的管理维度</td></tr>
-      <tr><td><strong>领域运营师</strong></td><td>知识运营经理</td><td>连通设计团队与市场用户，制定运营战略</td><td>对接开发业务方向，连接售前顾问和用户反馈</td></tr>
-      <tr><td><strong>功能设计师</strong></td><td>技术类工程师</td><td>执行顶层设计、详细设计、原型设计</td><td>将产品创意转化为可执行技术方案</td></tr>
-      <tr><td><strong>知识萃取师</strong></td><td>知识运营经理（兼任）</td><td>信息资源分析和知识提炼，构建知识本体</td><td>从业务和用户反馈中萃取可复用知识</td></tr>
-      <tr style="background:var(--gold-glow);"><td><strong>情报整编师</strong></td><td><strong style="color:var(--gold)">产品助理</strong></td><td>从一线搜集需求信息并进行初级加工</td><td><strong>最被低估但最关键的角色</strong>，一线需求汇集、配置管理、考核整编</td></tr>
-    </tbody>
-  </table>
-  </div>
+  <div class="role-map">
+    <!-- Left Column: Theory Labels -->
+    <div class="rm-left">
+      <div class="rm-label-row">
+        <span class="rm-label">创意设计师</span>
+        <span class="rm-arr">→</span>
+      </div>
+      <div class="rm-label-row">
+        <span class="rm-label">产品集成师</span>
+        <span class="rm-arr">→</span>
+      </div>
+      <div class="rm-spacer"></div>
+      <div class="rm-label-row">
+        <span class="rm-label">领域运营师</span>
+        <span class="rm-arr">→</span>
+      </div>
+      <div class="rm-label-row">
+        <span class="rm-label">知识萃取师</span>
+        <span class="rm-arr">→</span>
+      </div>
+      <div class="rm-spacer"></div>
+      <div class="rm-label-row">
+        <span class="rm-label">功能设计师</span>
+        <span class="rm-arr">→</span>
+      </div>
+      <div class="rm-spacer"></div>
+      <div class="rm-label-row rm-hl">
+        <span class="rm-label">情报整编师</span>
+        <span class="rm-arr">→</span>
+      </div>
+    </div>
 
-  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系 · 流程图</div>
-  <div class="mermaid-wrap">
-    <div class="mermaid">
-flowchart LR
-    %% 节点的定义
-    A[知识生产类]
-    B[业务分析类]
-    C[知识运营团队]
-    D[产品经理]
-    E[产品助理]
-    F[知识运营经理]
-    G[开发团队]
-    H[技术类工程师]
-    I[训练类工程师]
-    J[售前顾问]
-    K[用户]
-    L[项目团队]
+    <!-- Right Column: Job Cards -->
+    <div class="rm-right">
+      <div class="rm-card" style="border-color:rgba(212,168,83,0.3);">
+        <div class="rm-card-title" style="color:var(--gold);">产品经理</div>
+        <div class="rm-card-sub">统筹全局</div>
+        <div class="rm-card-dots">
+          <div class="rm-dot">提出创意、指导设计、对产品负总责</div>
+          <div class="rm-dot">管理设计任务、组织团队、推进工作</div>
+          <div class="rm-dot">从问题出发，完成任务范式顶层定义</div>
+        </div>
+      </div>
 
-    %% 外部输入
-    A -->|输入| C
-    B -->|输入| C
+      <div class="rm-card" style="border-color:var(--blue);">
+        <div class="rm-card-title" style="color:var(--blue);">知识运营经理</div>
+        <div class="rm-card-sub">兼任知识萃取</div>
+        <div class="rm-card-dots">
+          <div class="rm-dot">连通设计与市场，制定运营战略</div>
+          <div class="rm-dot">信息资源分析、知识提炼、本体构建</div>
+          <div class="rm-dot">对接开发方向，连接售前与用户反馈</div>
+        </div>
+      </div>
 
-    %% 产品管理层
-    E -->|汇报| D
-    E -->|配置管理/考核| F
-    C -->|汇报| F
+      <div class="rm-card" style="border-color:var(--green);">
+        <div class="rm-card-title" style="color:var(--green);">开发团队</div>
+        <div class="rm-card-sub">技术类 + 训练类工程师</div>
+        <div class="rm-card-dots">
+          <div class="rm-dot">执行顶层设计、详细设计、原型设计</div>
+          <div class="rm-dot">将产品创意转化为可执行技术方案</div>
+        </div>
+      </div>
 
-    %% 需求汇集
-    E -.->|需求汇集| E_Note[需求汇集<br/>来自底层/外部]
-
-    %% 开发团队
-    H & I --> G
-    G -->|汇报| F
-
-    %% 交付链路
-    F -->|指导| J
-    J -->|汇报| K
-    K -->|落地| L
-
-    %% 组建关系
-    C -->|组建| L
-    G -->|组建| L
-
-    %% 统筹
-    D -->|统筹| C
-
-    %% 开发团队子节点
-    G --- G_Sub[技术类工程师 训练类工程师]
-
-    style C fill:#1a2740,stroke:#d4a853,color:#f0d68a
-    style F fill:#1a2740,stroke:#d4a853,color:#f0d68a
-    style D fill:#141e33,stroke:#d4a853,color:#f0f4f8
-    style E fill:#141e33,stroke:#d4a853,color:#f0f4f8
-    style A fill:#141e33,stroke:#d4a853,color:#f0f4f8
-    style B fill:#141e33,stroke:#d4a853,color:#f0f4f8
-    style H fill:#141e33,stroke:#3b82f6,color:#f0f4f8
-    style I fill:#141e33,stroke:#3b82f6,color:#f0f4f8
-    style G fill:#141e33,stroke:#3b82f6,color:#f0f4f8
-    style J fill:#141e33,stroke:#22c55e,color:#f0f4f8
-    style K fill:#141e33,stroke:#22c55e,color:#f0f4f8
-    style L fill:#1a2740,stroke:#22c55e,color:#f0d68a
-    style E_Note fill:#1e3a6a,stroke:#3b82f6,stroke-dasharray: 4 3,color:#8899b0
-    style G_Sub fill:#111827,stroke:#3b82f6,stroke-dasharray: 3 3,color:#8899b0
+      <div class="rm-card rm-card-hl" style="border-color:var(--gold);background:var(--gold-glow);">
+        <div class="rm-card-title" style="color:var(--gold);">产品助理</div>
+        <div class="rm-card-sub">情报整编师</div>
+        <div class="rm-card-dots">
+          <div class="rm-dot">从一线搜集需求信息并进行初级加工</div>
+          <div class="rm-dot">需求汇集、配置管理、考核整编</div>
+        </div>
+        <div class="rm-badge">最被低估的关键节点</div>
+      </div>
     </div>
   </div>
   <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
