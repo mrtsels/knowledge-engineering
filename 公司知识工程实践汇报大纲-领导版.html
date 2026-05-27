@@ -1737,27 +1737,43 @@ flowchart LR
 </table>
 </div>
 
-<!-- 树状结构：双子系统 → 五要素 → 问题三层 -->
-<div class="mermaid-wrap" style="margin-top:2rem;">
-<div class="mermaid">
-flowchart LR
-  subgraph SZ["双子系统"]
-    ZD["主动系统<br/><span style='font-size:0.75rem'>施行·监测·决策·执行·监督</span>"]
-    DX["对象系统<br/><span style='font-size:0.75rem'>诉求·改变状态</span>"]
-  end
-  subgraph WYS["五要素"]
-    ZT["主体<br/><span style='font-size:0.75rem'>法人+自然人</span>"]
-    XW["行为<br/><span style='font-size:0.75rem'>生物本能+社会组织</span>"]
-    KT["客体<br/><span style='font-size:0.75rem'>物质+非物质资源</span>"]
-    SJ["时间<br/><span style='font-size:0.75rem'>时点·时段·周期·频率</span>"]
-    KJ["空间<br/><span style='font-size:0.75rem'>实体+数字</span>"]
-  end
-  subgraph WT["问题三层"]
-    XX["现象<br/><span style='font-size:0.75rem'>可感知表象 → 治标</span>"]
-    GY["根源<br/><span style='font-size:0.75rem'>直接原因 → 治本</span>"]
-    ZJ["症结<br/><span style='font-size:0.75rem'>利益机制 → 根治</span>"]
-  end
+<!-- 原生树状结构：双子系统 → 五要素 → 问题三层 -->
+<div style="margin-top:2rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;">
+
+<div style="flex:1;min-width:180px;max-width:280px;background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+  <div style="text-align:center;font-size:0.75rem;font-weight:700;color:var(--gold);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--card-border);">双子系统</div>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;">
+    <div style="border:1px solid var(--blue);border-radius:6px;padding:0.5rem;text-align:center;font-size:0.72rem;background:rgba(59,130,246,0.06);">
+      <div style="font-weight:600;color:var(--blue);">主动系统</div>
+      <div style="color:var(--text-muted);font-size:0.65rem;">施行·监测·决策·执行·监督</div>
+    </div>
+    <div style="border:1px solid var(--amber);border-radius:6px;padding:0.5rem;text-align:center;font-size:0.72rem;background:rgba(245,158,11,0.06);">
+      <div style="font-weight:600;color:var(--amber);">对象系统</div>
+      <div style="color:var(--text-muted);font-size:0.65rem;">诉求·改变状态</div>
+    </div>
+  </div>
 </div>
+
+<div style="flex:1;min-width:180px;max-width:280px;background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+  <div style="text-align:center;font-size:0.75rem;font-weight:700;color:var(--gold);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--card-border);">五要素</div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;">
+    <div style="border-left:2px solid var(--blue);padding:0.3rem 0.6rem;font-size:0.7rem;"><strong style="color:var(--blue);">主体</strong> <span style="color:var(--text-muted);">法人+自然人</span></div>
+    <div style="border-left:2px solid var(--gold);padding:0.3rem 0.6rem;font-size:0.7rem;"><strong style="color:var(--gold);">行为</strong> <span style="color:var(--text-muted);">生物本能+社会组织</span></div>
+    <div style="border-left:2px solid var(--green);padding:0.3rem 0.6rem;font-size:0.7rem;"><strong style="color:var(--green);">客体</strong> <span style="color:var(--text-muted);">物质+非物质资源</span></div>
+    <div style="border-left:2px solid var(--amber);padding:0.3rem 0.6rem;font-size:0.7rem;"><strong style="color:var(--amber);">时间</strong> <span style="color:var(--text-muted);">时点·时段·周期·频率</span></div>
+    <div style="border-left:2px solid var(--red);padding:0.3rem 0.6rem;font-size:0.7rem;"><strong style="color:var(--red);">空间</strong> <span style="color:var(--text-muted);">实体+数字</span></div>
+  </div>
+</div>
+
+<div style="flex:1;min-width:180px;max-width:280px;background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+  <div style="text-align:center;font-size:0.75rem;font-weight:700;color:var(--gold);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--card-border);">问题三层</div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;">
+    <div style="border:1px solid rgba(245,158,11,0.3);background:rgba(245,158,11,0.06);border-radius:6px;padding:0.4rem 0.6rem;text-align:center;font-size:0.7rem;"><strong style="color:var(--amber);">现象</strong> <span style="color:var(--text-muted);">→ 治标</span></div>
+    <div style="border:1px solid rgba(59,130,246,0.3);background:rgba(59,130,246,0.06);border-radius:6px;padding:0.4rem 0.6rem;text-align:center;font-size:0.7rem;"><strong style="color:var(--blue);">根源</strong> <span style="color:var(--text-muted);">→ 治本</span></div>
+    <div style="border:1px solid rgba(239,68,68,0.3);background:rgba(239,68,68,0.06);border-radius:6px;padding:0.4rem 0.6rem;text-align:center;font-size:0.7rem;"><strong style="color:var(--red);">症结</strong> <span style="color:var(--text-muted);">→ 根治</span></div>
+  </div>
+</div>
+
 </div>
 
 </div>
