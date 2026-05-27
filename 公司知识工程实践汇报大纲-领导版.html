@@ -79,7 +79,7 @@ body::before {
 
 /* ===== Navigation ===== */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 32px; left: 0; right: 0; z-index: 100;
   backdrop-filter: blur(20px);
   background: rgba(10,14,23,0.85);
   border-bottom: 1px solid var(--card-border);
@@ -100,7 +100,7 @@ nav .dots a:hover, nav .dots a.active { background: var(--gold); transform: scal
 .hero {
   min-height: 100vh; display: flex; flex-direction: column;
   justify-content: center; align-items: center;
-  text-align: center; padding: 6rem 2rem 4rem;
+  text-align: center; padding: 7rem 2rem 4rem;
   position: relative;
 }
 .hero::after {
@@ -897,6 +897,7 @@ footer {
   .timeline { grid-template-columns: 1fr; }
   nav .dots a { width: 6px; height: 6px; }
   .page-title { font-size: 1.1rem; }
+  .tab-title { display: none; }
 }
 
 /* ===== Keynote reveal ===== */
@@ -917,9 +918,56 @@ footer {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
 }
+
+/* ===== Tab bar ===== */
+.tab-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; gap: 0;
+  height: 32px; padding: 0 1.5rem;
+  background: rgba(10,14,23,0.95);
+  border-bottom: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+}
+.tab-btn {
+  padding: 0.2rem 1rem; font-size: 0.72rem; font-weight: 600;
+  color: var(--text-muted); cursor: pointer;
+  border: none; background: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.tab-btn:hover { color: var(--text-secondary); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-title {
+  font-size: 0.65rem; color: var(--text-muted);
+  margin-left: auto; letter-spacing: 1px;
+}
+
+/* Theory placeholder */
+.tab-theory {
+  display: none;
+}
+.tab-theory.active {
+  display: block;
+}
+.tab-practice {
+  display: none;
+}
+.tab-practice.active {
+  display: block;
+}
 </style>
 </head>
 <body>
+
+<!-- ===== TAB BAR ===== -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('practice')">实践</button>
+  <button class="tab-btn" onclick="switchTab('theory')">理论</button>
+  <span class="tab-title">知识工程在公司落地</span>
+</div>
+
+<div class="tab-practice active">
 
 <!-- ===== NAV ===== -->
 <nav>
@@ -1530,6 +1578,19 @@ footer {
   </div>
 </section>
 
+</div>
+
+<!-- ===== THEORY PLACEHOLDER ===== -->
+<div class="tab-theory">
+  <section class="page" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;">
+    <div class="page-inner" style="max-width:600px;background:transparent;border:none;box-shadow:none;">
+      <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">📖</div>
+      <div style="font-size:1.2rem;color:var(--text-muted);margin-bottom:0.5rem;">理论内容准备中</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);opacity:0.5;">罗建中《领域知识工程学》第2-8章理论框架</div>
+    </div>
+  </section>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   知识工程理论在公司落地实践 · 领导汇报大纲<br>
@@ -1538,6 +1599,18 @@ footer {
 
 <!-- ===== Scroll Reveal ===== -->
 <script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-practice, .tab-theory').forEach(d => d.classList.remove('active'));
+  if (tab === 'practice') {
+    document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+    document.querySelector('.tab-practice').classList.add('active');
+  } else {
+    document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+    document.querySelector('.tab-theory').classList.add('active');
+  }
+  window.scrollTo(0, 0);
+}
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
