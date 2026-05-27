@@ -79,7 +79,7 @@ body::before {
 
 /* ===== Navigation ===== */
 nav {
-  position: fixed; top: 32px; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 48px; left: 0; right: 0; z-index: 100;
   backdrop-filter: blur(20px);
   background: rgba(10,14,23,0.85);
   border-bottom: 1px solid var(--card-border);
@@ -100,7 +100,7 @@ nav .dots a:hover, nav .dots a.active { background: var(--gold); transform: scal
 .hero {
   min-height: 100vh; display: flex; flex-direction: column;
   justify-content: center; align-items: center;
-  text-align: center; padding: 7rem 2rem 4rem;
+  text-align: center; padding: 8rem 2rem 4rem;
   position: relative;
 }
 .hero::after {
@@ -897,7 +897,7 @@ footer {
   .timeline { grid-template-columns: 1fr; }
   nav .dots a { width: 6px; height: 6px; }
   .page-title { font-size: 1.1rem; }
-  .tab-title { display: none; }
+  .tab-logo { display: none; }
 }
 
 /* ===== Keynote reveal ===== */
@@ -922,26 +922,30 @@ footer {
 /* ===== Tab bar ===== */
 .tab-bar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; gap: 0;
-  height: 32px; padding: 0 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  height: 48px; padding: 0 1.5rem;
   background: rgba(10,14,23,0.95);
   border-bottom: 1px solid var(--card-border);
   backdrop-filter: blur(10px);
 }
+.tab-logo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1rem; font-weight: 900;
+  color: var(--gold); letter-spacing: 1px;
+  position: absolute; left: 1.5rem;
+}
+.tab-group {
+  display: flex; gap: 0.3rem;
+}
 .tab-btn {
-  padding: 0.2rem 1rem; font-size: 0.72rem; font-weight: 600;
+  padding: 0.2rem 1rem; font-size: 0.78rem; font-weight: 600;
   color: var(--text-muted); cursor: pointer;
   border: none; background: transparent;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s;
+  border-radius: 6px; transition: all 0.3s;
   letter-spacing: 0.5px;
 }
-.tab-btn:hover { color: var(--text-secondary); }
-.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-.tab-title {
-  font-size: 0.65rem; color: var(--text-muted);
-  margin-left: auto; letter-spacing: 1px;
-}
+.tab-btn:hover { color: var(--text-secondary); background: rgba(255,255,255,0.04); }
+.tab-btn.active { color: var(--gold); background: var(--gold-glow); }
 
 /* Theory placeholder */
 .tab-theory {
@@ -962,9 +966,11 @@ footer {
 
 <!-- ===== TAB BAR ===== -->
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('practice')">实践</button>
-  <button class="tab-btn" onclick="switchTab('theory')">理论</button>
-  <span class="tab-title">知识工程在公司落地</span>
+  <span class="tab-logo">知识工程</span>
+  <div class="tab-group">
+    <button class="tab-btn active" onclick="switchTab('practice')">实践</button>
+    <button class="tab-btn" onclick="switchTab('theory')">理论</button>
+  </div>
 </div>
 
 <div class="tab-practice active">
