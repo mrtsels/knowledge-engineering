@@ -84,11 +84,9 @@ nav {
   background: rgba(10,14,23,0.85);
   border-bottom: 1px solid var(--card-border);
   padding: 0 2rem;
-  height: 52px;
-  display: flex; align-items: center; justify-content: space-between;
+  height: 40px;
+  display: flex; align-items: center; justify-content: center;
 }
-nav .logo { font-weight: 600; font-size: 0.9rem; color: var(--gold); letter-spacing: 0.5px; }
-nav .logo span { color: var(--text-muted); font-weight: 300; }
 nav .dots { display: flex; gap: 6px; }
 nav .dots a {
   display: block; width: 8px; height: 8px; border-radius: 50%;
@@ -100,7 +98,7 @@ nav .dots a:hover, nav .dots a.active { background: var(--gold); transform: scal
 .hero {
   min-height: 100vh; display: flex; flex-direction: column;
   justify-content: center; align-items: center;
-  text-align: center; padding: 8rem 2rem 4rem;
+  text-align: center; padding: 7.5rem 2rem 4rem;
   position: relative;
 }
 .hero::after {
@@ -977,7 +975,6 @@ footer {
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="logo">知识工程 <span>· 实践汇报</span></div>
   <div class="dots">
     <a href="#p1" title="定位" style="background:var(--gold)"></a>
     <a href="#p2" title="价值"></a>
