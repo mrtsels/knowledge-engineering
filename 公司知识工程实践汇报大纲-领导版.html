@@ -1909,19 +1909,30 @@ flowchart LR
 <div class="mermaid-wrap">
 <div class="mermaid">
 flowchart LR
-  subgraph Input["输入"]
+  subgraph Input["▎输入"]
     SS1["形式化搜集"]
   end
-  subgraph Process["处理"]
+  subgraph Process["▎处理"]
     SS2["主题化标引"] --> SS3["逻辑化存储"]
     SS3 --> SS4["关联化分析"]
     SS4 --> SS5["数量化计算"]
   end
-  subgraph Output["输出"]
+  subgraph Output["▎输出"]
     SS6["结构化表达"] --> SS7["反馈化控制"]
     SS7 --> SS8["可视化呈现"]
   end
   Input --> Process --> Output
+  style Input fill:#0d1f3d,stroke:#3b82f6,color:#3b82f6
+  style Process fill:#1a1f15,stroke:#d4a853,color:#d4a853
+  style Output fill:#0d1f1a,stroke:#22c55e,color:#22c55e
+  style SS1 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style SS2 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style SS3 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style SS4 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style SS5 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style SS6 fill:#14301e,stroke:#22c55e,color:#f0f4f8
+  style SS7 fill:#14301e,stroke:#22c55e,color:#f0f4f8
+  style SS8 fill:#14301e,stroke:#22c55e,color:#f0f4f8
 </div>
 </div>
 
