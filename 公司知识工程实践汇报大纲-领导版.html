@@ -6,7 +6,31 @@
 <title>知识工程理论在公司落地实践 — 汇报大纲</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({
+  startOnLoad: true,
+  theme: 'dark',
+  themeVariables: {
+    fontFamily: '"Noto Sans SC", sans-serif',
+    fontSize: '14px',
+    primaryColor: '#1a2740',
+    primaryBorderColor: '#d4a853',
+    primaryTextColor: '#f0f4f8',
+    lineColor: '#8899b0',
+    secondaryColor: '#141e33',
+    tertiaryColor: '#111827',
+    clusterBkg: 'transparent',
+    clusterBorder: '#1e2d48',
+    edgeLabelBackground: '#141e33',
+    nodeBorder: '#1e2d48',
+  },
+  flowchart: {
+    htmlLabels: true,
+    curve: 'basis',
+    padding: 12,
+  }
+});</script>
 <style>
 :root {
   --bg: #0a0e17;
@@ -220,6 +244,18 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 .flow-h .arrow.dashed::before { background: repeating-linear-gradient(90deg, var(--card-border) 0, var(--card-border) 4px, transparent 4px, transparent 8px); }
 .flow-h .arrow.dashed::after { border-color: var(--text-muted); }
 
+/* IPO flow tags */
+.cap-tag {
+  position: absolute; bottom:-18px; left:50%; transform:translateX(-50%);
+  font-size:0.6rem; line-height:1; white-space:nowrap;
+  padding:0.1rem 0.4rem; border-radius:3px;
+  border:1px solid rgba(212,168,83,0.25);
+  color:var(--gold); background:var(--bg-alt);
+  pointer-events:none;
+}
+.node { position: relative; }
+.ipo-tag { flex-shrink: 0; }
+
 /* Special feedback arrow */
 .feedback-loop {
   display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
@@ -276,78 +312,22 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   padding: 0.2rem 0;
 }
 
-/* ===== Role Flowchart (Page 6) — clean Mermaid-style ===== */
-.role-flowchart {
-  display: flex; gap: 0;
+/* ===== Role Flowchart (Page 6) — clean Mermaid-style network ===== */
+/* ===== Mermaid Flowchart (Page 6) ===== */
+.mermaid-wrap {
   margin: 2rem 0;
   background: var(--bg-alt);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  overflow: hidden;
+  padding: 1.5rem 0.5rem;
+  overflow-x: auto;
 }
-.rf-side {
-  width: 28px; flex-shrink: 0;
-  display: flex; flex-direction: column;
-  align-items: center;
-  border-right: 1px solid var(--card-border);
-  position: relative;
+.mermaid-wrap .mermaid {
+  display: flex; justify-content: center;
 }
-.rf-side .rf-line {
-  position: absolute;
-  left: 50%; top: 8px; bottom: 8px;
-  width: 3px; border-radius: 2px;
-  background: linear-gradient(var(--gold) 0%, var(--gold) 33%, var(--blue) 33%, var(--blue) 66%, var(--green) 66%, var(--green) 100%);
-  transform: translateX(-50%);
+.mermaid-wrap svg {
+  max-width: 100%; height: auto;
 }
-.rf-side .rf-labels {
-  display: flex; flex-direction: column;
-  flex: 1; padding: 0.5rem 0;
-}
-.rf-side .rf-label {
-  flex: 1;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.55rem; font-weight: 600; letter-spacing: 1px;
-  writing-mode: vertical-lr; text-orientation: mixed;
-}
-.rf-side .rf-label.gold { color: var(--gold); }
-.rf-side .rf-label.blue { color: var(--blue); }
-.rf-side .rf-label.green { color: var(--green); }
-.rf-flow {
-  flex: 1; padding: 0.8rem 1rem;
-  display: flex; flex-direction: column; gap: 0.4rem;
-}
-.rf-row {
-  display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap;
-}
-.rf-node {
-  display: inline-flex; align-items: center;
-  padding: 0.22rem 0.55rem;
-  border: 1px solid var(--card-border);
-  border-radius: 5px;
-  background: var(--card);
-  font-size: 0.72rem;
-  white-space: nowrap;
-}
-.rf-node.hl { border-color: var(--gold); }
-.rf-node.sub { font-size: 0.65rem; color: var(--text-muted); }
-.rf-node-group {
-  display: inline-flex; flex-direction: column; gap: 0.08rem;
-  border: 1px solid var(--card-border); border-radius: 5px;
-  padding: 0.1rem 0.25rem; background: var(--card);
-}
-.rf-node-group .rf-node {
-  border: none; background: transparent;
-  padding: 0.05rem 0.1rem; font-size: 0.62rem;
-}
-.rf-arrow {
-  color: var(--text-muted); font-size: 0.58rem;
-  display: inline-flex; align-items: center; gap: 0.06rem;
-  white-space: nowrap;
-}
-.rf-arrow .rf-sym { font-size: 0.8rem; color: var(--text-secondary); }
-.rf-arrow .rf-lbl { color: var(--text-muted); }
-.rf-space { display: inline-block; width: 0.8rem; }
-.rf-indent { display: inline-block; width: 4rem; }
 
 /* ===== Evaluation loop ===== */
 /* ===== Evaluation loop ===== */
@@ -549,11 +529,369 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 .core-card.blue::before { background: var(--blue); }
 .core-card.green::before { background: var(--green); }
 .core-card.amber::before { background: var(--amber); }
-.core-card .cc
+.core-card .cc-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.core-card .cc-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+.core-card .cc-subtitle { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+.core-card .cc-body { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+.core-card .cc-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.core-card.gold .cc-tag { background: var(--gold-glow); color: var(--gold); }
+.core-card.blue .cc-tag { background: rgba(59,130,246,0.1); color: var(--blue); }
+.core-card.green .cc-tag { background: rgba(34,197,94,0.1); color: var(--green); }
+.core-card.amber .cc-tag { background: rgba(245,158,11,0.1); color: var(--amber); }
 
-... [OUTPUT TRUNCATED - 10846 chars omitted out of 60846 total] ...
+/* ===== Maturity grid ===== */
+.maturity-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem; margin: 1.5rem 0;
+}
+.maturity-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); padding: 1rem;
+  text-align: center; transition: all 0.3s;
+}
+.maturity-card:hover { border-color: var(--gold); }
+.maturity-card .m-chapter { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px; }
+.maturity-card .m-name { font-size: 0.82rem; font-weight: 600; margin: 0.3rem 0; }
+.maturity-card .m-star { font-size: 1rem; }
+.maturity-card .m-desc { font-size: 0.7rem; color: var(--text-secondary); }
 
- kwbox-yes">
+/* ===== Visual Keyword Mapping ===== */
+.kwmapping-wrap {
+  margin: 2rem 0;
+}
+.kwmapping-label {
+  text-align: center; font-size: 0.7rem; color: var(--text-muted);
+  margin-bottom: 1.2rem; letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.kwmapping {
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-alt);
+}
+.kwrow {
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid var(--card-border);
+  transition: all 0.3s;
+}
+.kwrow:last-child { border-bottom: none; }
+.kwrow:hover { background: rgba(212,168,83,0.02); }
+.kwbox {
+  flex: 1; padding: 1rem 1.2rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+}
+.kwbox-no {
+  text-align: right;
+  border-right: none;
+}
+.kwbox-yes {
+  text-align: left;
+}
+.kwtag {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 1px;
+  color: var(--text-muted); margin-bottom: 0.3rem;
+}
+.kwmain {
+  font-size: 1.1rem; font-weight: 700;
+  line-height: 1.3;
+}
+.kwsub {
+  font-size: 0.72rem; color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+.kwarrow {
+  flex-shrink: 0; width: 48px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.kwarrow-line {
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--card-border), var(--gold), var(--card-border));
+}
+.kwarrow-head {
+  position: absolute; right: 14px;
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--gold);
+  border-top: 2px solid var(--gold);
+  transform: rotate(45deg);
+}
+.kwrow:hover .kwarrow-line {
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+.kwrow:hover .kwarrow-head {
+  border-color: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+  .kwrow { flex-direction: column; align-items: center; text-align: center; }
+  .kwbox-no { text-align: center; }
+  .kwbox-yes { text-align: center; }
+  .kwarrow { width: 100%; height: 24px; }
+  .kwarrow-head { right: auto; transform: rotate(135deg); top: 6px; }
+}
+
+/* ===== Visual: 十大信息机制 ===== */
+.infomech-wrap {
+  margin: 2rem 0; padding: 1.5rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.infomech-header {
+  text-align: center; margin-bottom: 1.5rem;
+}
+.infomech-chapter {
+  font-size: 0.65rem; color: var(--text-muted);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.infomech-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--gold);
+}
+.infomech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.im-card {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.2rem;
+  padding: 0.8rem 0.4rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s;
+}
+.im-card:hover {
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
+}
+.im-card .im-icon { font-size: 1.2rem; line-height: 1; }
+.im-card .im-name {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--text-primary);
+}
+.im-card .im-desc {
+  font-size: 0.6rem; color: var(--text-muted);
+  text-align: center;
+}
+.im-card-emphasis {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, var(--gold-glow), var(--card));
+  position: relative;
+}
+.im-card-emphasis:hover {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+.im-card-emphasis .im-name { color: var(--gold); }
+.im-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.55rem; font-weight: 600;
+  background: var(--gold-glow);
+  color: var(--gold);
+  border: 1px solid rgba(212,168,83,0.2);
+  margin-top: 0.1rem;
+}
+.infomech-footer {
+  text-align: center;
+}
+.infomech-flow {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 0;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0.8rem;
+}
+.fm-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem; font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.fm-tag:hover { color: var(--text-primary); background: var(--card); }
+.fm-highlight {
+  color: var(--gold) !important;
+  font-weight: 700 !important;
+}
+.fm-arrow {
+  display: inline-block;
+  padding: 0 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+.infomech-outcome {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.infomech-outcome strong {
+  color: var(--gold);
+}
+.outcome-icon { font-size: 1.1rem; }
+
+@media (max-width: 768px) {
+  .infomech-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Appendix ===== */
+.appendix {
+  padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
+}
+.appendix h2 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.appendix .sub {
+  color: var(--text-secondary); font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center; padding: 3rem 2rem;
+  color: var(--text-muted); font-size: 0.75rem;
+  border-top: 1px solid var(--card-border);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  section.page { padding: 3rem 1rem; }
+  section.page .page-inner { padding: 1.5rem; }
+  .flow-h .node { padding: 0.5rem 0.8rem; font-size: 0.7rem; }
+  .flow-h .arrow { width: 14px; }
+  .phase-body { flex-direction: column; gap: 0.5rem; }
+  .eval-step { min-width: 100px; font-size: 0.7rem; }
+  .eval-arrow { display: none; }
+  .maturity-grid { grid-template-columns: repeat(2, 1fr); }
+  .levers { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; }
+  nav .dots a { width: 6px; height: 6px; }
+  .page-title { font-size: 1.1rem; }
+}
+
+/* ===== Keynote reveal ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Bounce arrow ===== */
+.arrow-down {
+  text-align: center; margin-top: 0.8rem;
+}
+.arrow-down span {
+  display: inline-block; font-size: 1.2rem; color: var(--gold);
+  animation: bounce 1.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="logo">知识工程 <span>· 实践汇报</span></div>
+  <div class="dots">
+    <a href="#p1" title="定位" style="background:var(--gold)"></a>
+    <a href="#p2" title="价值"></a>
+    <a href="#p3" title="管线"></a>
+    <a href="#p4" title="机制"></a>
+    <a href="#p5" title="架构"></a>
+    <a href="#p6" title="角色"></a>
+    <a href="#p7" title="动力"></a>
+    <a href="#p8" title="杠杆"></a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-badge">领域知识工程学 · 实践汇报</div>
+  <h1>知识工程理论<br>在<em>公司落地实践</em></h1>
+  <p>从「领域知识工程学」理论框架出发，构建可沉淀、可复用、可推理、可自动化服务的知识工程体系</p>
+  <div class="hero-meta">
+    <span>理论框架：罗建中《领域知识工程学》</span>
+  </div>
+  <div class="scroll-hint">
+    <span>向下滚动</span>
+    <div class="line"></div>
+  </div>
+</header>
+
+<!-- ===== PAGE 1 ===== -->
+<section class="page" id="p1">
+<div class="page-inner">
+  <div class="section-num">01</div>
+  <div class="page-title">我们做了一套「知识工程体系」<br>—— 不是知识管理平台，而是<span class="hl">社控系统</span></div>
+
+  <!-- ===== Visual Keyword Mapping ===== -->
+  <div class="kwmapping-wrap">
+    <div class="kwmapping-label">▎ 关键词一一对应</div>
+    <div class="kwmapping">
+      <!-- Row 1 -->
+      <div class="kwrow">
+        <div class="kwbox kwbox-no">
+          <div class="kwtag">❌ 不是</div>
+          <div class="kwmain" style="color:var(--red);">知识管理平台</div>
+          <div class="kwsub">× 建设项目</div>
+        </div>
+        <div class="kwarrow">
+          <div class="kwarrow-line"></div>
+          <div class="kwarrow-head"></div>
+        </div>
+        <div class="kwbox kwbox-yes">
+          <div class="kwtag">✅ 是</div>
+          <div class="kwmain" style="color:var(--green);">社控系统</div>
+          <div class="kwsub">社会组织行为自动化控制</div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="kwrow">
+        <div class="kwbox kwbox-no">
+          <div class="kwtag">❌ 不是</div>
+          <div class="kwmain" style="color:var(--red);">大模型包装</div>
+          <div class="kwsub">× 项目式交付</div>
+        </div>
+        <div class="kwarrow">
+          <div class="kwarrow-line"></div>
+          <div class="kwarrow-head"></div>
+        </div>
+        <div class="kwbox kwbox-yes">
+          <div class="kwtag">✅ 是</div>
+          <div class="kwmain" style="color:var(--green);">任务范式框架</div>
+          <div class="kwsub">信息机制纽带 · 工程化知识生产管线</div>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="kwrow">
+        <div class="kwbox kwbox-no">
+          <div class="kwtag">❌ 不是</div>
+          <div class="kwmain" style="color:var(--red);">一次性</div>
+          <div class="kwsub">× 交付即结束</div>
+        </div>
+        <div class="kwarrow">
+          <div class="kwarrow-line"></div>
+          <div class="kwarrow-head"></div>
+        </div>
+        <div class="kwbox kwbox-yes">
           <div class="kwtag">✅ 是</div>
           <div class="kwmain" style="color:var(--green);">持续运营体系</div>
           <div class="kwsub">项目 → 产品 → 服务 持续演进</div>
@@ -591,11 +929,9 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   </div>
 </div>
 </section>
-
 <!-- ===== BRIDGE 1 → 2 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text">这套<strong>社控系统</strong>解决了信息不对称问题——<span class="hl">四大业务痛点</span>正是这一系统要逐一应对的具体场景。</div>
   </div>
   <div class="bridge-arrow"></div>
@@ -686,7 +1022,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 <!-- ===== BRIDGE 2 → 3 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text"><strong>十大信息机制</strong>为四个痛点提供了统一的底层逻辑——而知识的实际生产，需要靠一条完整的<span class="hl">工程管线</span>来承载。</div>
   </div>
   <div class="bridge-arrow"></div>
@@ -700,55 +1035,40 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 
   <div class="table-wrap">
   <table>
-    <thead><tr><th>能力层</th><th>核心能力</th><th>理论对应</th><th>成熟度</th><th>覆盖场景</th><th>IPO对应</th></tr></thead>
+    <thead><tr><th>能力层</th><th>核心能力</th><th>覆盖场景</th><th>IPO对应</th></tr></thead>
     <tbody>
-      <tr><td><strong>知识获取</strong></td><td>NLP抽取、多模态解析、人机协同标注</td><td>第4章「信息能力」+ 第6章「形式化搜集」</td><td>★★★☆☆</td><td>文档结构化、对话知识抽取</td><td><span class="badge badge-blue" style="font-size:0.75rem;">输入</span> 形式化搜集</td></tr>
-      <tr><td><strong>知识表示</strong></td><td>本体/模式设计、实体关系定义</td><td>第4章「本体构建」</td><td>★★★★☆</td><td>业务领域建模</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 主题化标引 · 逻辑化存储</td></tr>
-      <tr><td><strong>知识融合</strong></td><td>实体对齐、冲突消解、质量评估</td><td>第4章「事实还原」+「事件建模」</td><td>★★★☆☆</td><td>多源数据整合</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 关联化分析</td></tr>
-      <tr><td><strong>知识推理</strong></td><td>规则推理、图推理、LLM增强推理</td><td>第5章「问题三维度分析」</td><td>★★☆☆☆</td><td>根因分析、风险预测</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 数量化计算</td></tr>
-      <tr><td><strong>知识服务</strong></td><td>语义搜索、智能问答、知识推荐、报告生成</td><td>第6章「结构化表达」+「可视化呈现」</td><td>★★★★☆</td><td>一线员工自助查询</td><td><span class="badge badge-green" style="font-size:0.75rem;">输出</span> 结构化表达 · 可视化呈现</td></tr>
+      <tr><td><strong>知识获取</strong></td><td>NLP抽取、多模态解析、人机协同标注</td><td>文档结构化、对话知识抽取</td><td><span class="badge badge-blue" style="font-size:0.75rem;">输入</span> 形式化搜集</td></tr>
+      <tr><td><strong>知识表示</strong></td><td>本体/模式设计、实体关系定义</td><td>业务领域建模</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 主题化标引 · 逻辑化存储</td></tr>
+      <tr><td><strong>知识融合</strong></td><td>实体对齐、冲突消解、质量评估</td><td>多源数据整合</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 关联化分析</td></tr>
+      <tr><td><strong>知识推理</strong></td><td>规则推理、图推理、LLM增强推理</td><td>根因分析、风险预测</td><td><span class="badge badge-gold" style="font-size:0.75rem;">处理</span> 数量化计算</td></tr>
+      <tr><td><strong>知识服务</strong></td><td>语义搜索、智能问答、知识推荐、报告生成</td><td>一线员工自助查询</td><td><span class="badge badge-green" style="font-size:0.75rem;">输出</span> 结构化表达 · 可视化呈现</td></tr>
     </tbody>
   </table>
   </div>
 
   <div class="flow-wrap">
     <div class="flow-label">▎ 八种生产方法 · IPO 闭环</div>
-
-    <div class="phase-group">
-      <div class="phase-header input">▶ 输入 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识获取</span></div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="node" style="border-color:rgba(59,130,246,0.4);background:rgba(59,130,246,0.06);">形式化搜集</div>
-        </div>
-      </div>
+    <div class="flow-h" style="gap:0;margin-top:1rem;">
+      <div class="node" style="border-color:rgba(59,130,246,0.4);background:rgba(59,130,246,0.06);">形式化搜集</div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">主题化标引<div class="cap-tag">知识表示</div></div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">逻辑化存储<div class="cap-tag">知识表示</div></div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">关联化分析<div class="cap-tag">知识融合</div></div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">数量化计算<div class="cap-tag">知识推理</div></div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">结构化表达</div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">反馈化控制</div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">可视化呈现</div>
     </div>
-
-    <div class="phase-group">
-      <div class="phase-header process">▶ 处理 <span style="font-weight:400;font-size:0.7rem;color:var(--text-muted);margin-left:4px;">— 知识表示 · 知识融合 · 知识推理</span></div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">主题化标引<div class="cap-tag">知识表示</div></div>
-          <div class="arrow"></div>
-          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">逻辑化存储<div class="cap-tag">知识表示</div></div>
-          <div class="arrow"></div>
-          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">关联化分析<div class="cap-tag">知识融合</div></div>
-          <div class="arrow"></div>
-          <div class="node" style="border-color:rgba(212,168,83,0.3);background:var(--gold-glow);">数量化计算<div class="cap-tag">知识推理</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="phase-group">
-      <div class="phase-header output">▶ 输出</div>
-      <div class="phase-body">
-        <div class="flow-h">
-          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">结构化表达</div>
-          <div class="arrow"></div>
-          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">反馈化控制</div>
-          <div class="arrow"></div>
-          <div class="node" style="border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);">可视化呈现</div>
-        </div>
-      </div>
+    <div style="display:flex;justify-content:center;gap:2rem;margin-top:1.5rem;">
+      <span style="font-size:0.7rem;color:var(--blue);font-weight:500;">◀ 输入</span>
+      <span style="font-size:0.7rem;color:var(--gold);font-weight:500;">◀ 处理</span>
+      <span style="font-size:0.7rem;color:var(--green);font-weight:500;">◀ 输出</span>
     </div>
   </div>
 
@@ -761,7 +1081,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 <!-- ===== BRIDGE 3 → 4 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text">八种方法构成<span class="hl">IPO闭环</span>，但信息不是简单地「流动」——而是被<strong>十大信息机制</strong>驱动着在管线中运转。</div>
   </div>
   <div class="bridge-arrow"></div>
@@ -809,7 +1128,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 <!-- ===== BRIDGE 4 → 5 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text">十大机制需要技术来承载——<strong>知识图谱+双子系统</strong>是支撑这套体系的<span class="hl">核心技术路线</span>。</div>
   </div>
   <div class="bridge-arrow"></div>
@@ -862,7 +1180,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 <!-- ===== BRIDGE 5 → 6 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text">核心技术路线确定后，由供给侧六类岗位承载落地——每个角色不仅各司其职，还通过<span class="hl">「三导」管理方法论</span>协同运作。</div>
   </div>
   <div class="bridge-arrow"></div>
@@ -888,77 +1205,69 @@ tr:hover td { background: rgba(212,168,83,0.03); }
   </table>
   </div>
 
-  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系</div>
-  <div class="role-flowchart">
-    <!-- 左侧连续括弧 + 三层标注 -->
-    <div class="rf-side">
-      <div class="rf-line"></div>
-      <div class="rf-labels">
-        <span class="rf-label gold">战略统筹层</span>
-        <span class="rf-label blue">工程执行层</span>
-        <span class="rf-label green">价值落地层</span>
-      </div>
-    </div>
-    <!-- 连续流程图 -->
-    <div class="rf-flow">
-      <div class="rf-row">
-        <span class="rf-node">知识生产类</span>
-        <span class="rf-arrow"><span class="rf-sym">→</span></span>
-        <span class="rf-node hl">知识运营团队</span>
-        <span class="rf-arrow"><span class="rf-sym">←</span></span>
-        <span class="rf-node">业务分析类</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node">产品经理</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">统筹</span></span>
-        <span class="rf-node hl">知识运营团队</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node">产品助理</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
-        <span class="rf-node">产品经理</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node">产品助理</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">配置管理/考核</span></span>
-        <span class="rf-node">知识运营经理</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node hl">知识运营团队</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
-        <span class="rf-node hl">知识运营经理</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node-group">
-          <span class="rf-node">技术类工程师</span>
-          <span class="rf-node">训练类工程师</span>
-        </span>
-        <span class="rf-arrow"><span class="rf-sym">→</span></span>
-        <span class="rf-node">开发团队</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
-        <span class="rf-node hl">知识运营经理</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node hl">知识运营经理</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">指导</span></span>
-        <span class="rf-node">售前顾问</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">汇报</span></span>
-        <span class="rf-node">用户</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-space"></span>
-        <span class="rf-space"></span>
-        <span class="rf-node">用户</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">落地</span></span>
-        <span class="rf-node">项目团队</span>
-      </div>
-      <div class="rf-row">
-        <span class="rf-node hl">知识运营团队</span>
-        <span class="rf-arrow"><span class="rf-sym">⟶</span><span class="rf-lbl">组建</span></span>
-        <span class="rf-node">项目团队</span>
-        <span class="rf-arrow"><span class="rf-sym">⟵</span><span class="rf-lbl">组建</span></span>
-        <span class="rf-node">开发团队</span>
-      </div>
+  <div class="flow-label" style="margin-top:2rem;">▎ 三层实践体系 · 流程图</div>
+  <div class="mermaid-wrap">
+    <div class="mermaid">
+flowchart LR
+    %% 节点的定义
+    A[知识生产类]
+    B[业务分析类]
+    C[知识运营团队]
+    D[产品经理]
+    E[产品助理]
+    F[知识运营经理]
+    G[开发团队]
+    H[技术类工程师]
+    I[训练类工程师]
+    J[售前顾问]
+    K[用户]
+    L[项目团队]
+
+    %% 外部输入
+    A -->|输入| C
+    B -->|输入| C
+
+    %% 产品管理层
+    E -->|汇报| D
+    E -->|配置管理/考核| F
+    C -->|汇报| F
+
+    %% 需求汇集
+    E -.->|需求汇集| E_Note[需求汇集<br/>来自底层/外部]
+
+    %% 开发团队
+    H & I --> G
+    G -->|汇报| F
+
+    %% 交付链路
+    F -->|指导| J
+    J -->|汇报| K
+    K -->|落地| L
+
+    %% 组建关系
+    C -->|组建| L
+    G -->|组建| L
+
+    %% 统筹
+    D -->|统筹| C
+
+    %% 开发团队子节点
+    G --- G_Sub[技术类工程师 训练类工程师]
+
+    style C fill:#1a2740,stroke:#d4a853,color:#f0d68a
+    style F fill:#1a2740,stroke:#d4a853,color:#f0d68a
+    style D fill:#141e33,stroke:#d4a853,color:#f0f4f8
+    style E fill:#141e33,stroke:#d4a853,color:#f0f4f8
+    style A fill:#141e33,stroke:#d4a853,color:#f0f4f8
+    style B fill:#141e33,stroke:#d4a853,color:#f0f4f8
+    style H fill:#141e33,stroke:#3b82f6,color:#f0f4f8
+    style I fill:#141e33,stroke:#3b82f6,color:#f0f4f8
+    style G fill:#141e33,stroke:#3b82f6,color:#f0f4f8
+    style J fill:#141e33,stroke:#22c55e,color:#f0f4f8
+    style K fill:#141e33,stroke:#22c55e,color:#f0f4f8
+    style L fill:#1a2740,stroke:#22c55e,color:#f0d68a
+    style E_Note fill:#1e3a6a,stroke:#3b82f6,stroke-dasharray: 4 3,color:#8899b0
+    style G_Sub fill:#111827,stroke:#3b82f6,stroke-dasharray: 3 3,color:#8899b0
     </div>
   </div>
   <div class="insight-box" style="border-color:rgba(212,168,83,0.2);background:var(--gold-glow);">
@@ -985,7 +1294,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 <!-- ===== BRIDGE 6 → 7 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text">角色明确后，<strong>本地大模型</strong>嵌入知识构建·读取·交互全链路进行赋能——但技术到位了，每个角色有没有动力去用？<span class="hl">内生动力</span>是关键。</div>
 
   </div>
@@ -1071,7 +1379,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 <!-- ===== BRIDGE 7 → 8 ===== -->
 <div class="page-bridge">
   <div class="bridge-inner">
-    <div class="bridge-label">▎ 衔接</div>
     <div class="bridge-text">评估闭环暴露了培训体系、实时推送等短板——核心差距在<strong>信息对称基础设施</strong>，需要<strong>三个杠杆</strong>撬动跨越，以下是具体行动方案与五项决策。</div>
   </div>
   <div class="bridge-arrow"></div>
@@ -1218,9 +1525,6 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 </footer>
 
 <!-- ===== Scroll Reveal ===== -->
-</style>
-</head>
-<body>
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

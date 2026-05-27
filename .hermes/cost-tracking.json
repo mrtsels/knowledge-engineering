@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-05-26T16:17+08:00",
+      "label": "Page5-redesign",
+      "agent": "claude-code",
+      "model": "deepseek-v4-flash",
+      "input_tokens": 36475,
+      "cache_read_input_tokens": 1082368,
+      "output_tokens": 14835,
+      "cost_cny": 0.0878,
+      "cost_breakdown": {
+        "non_cache_input_cny": 0.0365,
+        "cache_hit_input_cny": 0.0216,
+        "output_cny": 0.0297
+      }
+    },
+    {
+      "timestamp": "2026-05-26T16:18+08:00",
+      "label": "Page6-flowchart",
+      "agent": "claude-code",
+      "model": "deepseek-v4-flash",
+      "input_tokens": 25771,
+      "cache_read_input_tokens": 539776,
+      "output_tokens": 11343,
+      "cost_cny": 0.0593,
+      "cost_breakdown": {
+        "non_cache_input_cny": 0.0258,
+        "cache_hit_input_cny": 0.0108,
+        "output_cny": 0.0227
+      }
+    },
+    {
+      "timestamp": "2026-05-26T16:19+08:00",
+      "label": "Page6-flowchart-v2",
+      "agent": "claude-code",
+      "model": "deepseek-v4-flash",
+      "input_tokens": 33695,
+      "cache_read_input_tokens": 616832,
+      "output_tokens": 15711,
+      "cost_cny": 0.0775,
+      "cost_breakdown": {
+        "non_cache_input_cny": 0.0337,
+        "cache_hit_input_cny": 0.0123,
+        "output_cny": 0.0314
+      }
+    }
+  ]
+}
