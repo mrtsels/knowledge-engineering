@@ -453,6 +453,37 @@ tr:hover td { background: rgba(212,168,83,0.03); }
 .lever-card h4 { font-size: 0.9rem; margin-bottom: 0.3rem; }
 .lever-card p { font-size: 0.75rem; color: var(--text-secondary); }
 
+/* ===== Role Cards (Page 7) ===== */
+.role-cards {
+  margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1rem;
+}
+.rc-group { }
+.rc-group-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+  color: var(--green); margin-bottom: 0.5rem;
+  display: inline-block; padding: 0.15rem 0.6rem;
+  border: 1px solid rgba(34,197,94,0.3); border-radius: 100px;
+  background: rgba(34,197,94,0.06);
+}
+.rc-row {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.6rem;
+}
+.rc-card {
+  background: var(--bg-alt); border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm); padding: 1rem;
+  text-align: center; transition: all 0.3s;
+}
+.rc-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.rc-icon { font-size: 1.6rem; line-height: 1; margin-bottom: 0.4rem; }
+.rc-name { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.2rem; }
+.rc-motive { font-size: 0.7rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0.5rem; }
+.rc-act {
+  font-size: 0.7rem; font-weight: 600; color: var(--gold);
+  padding: 0.15rem 0.4rem; border-radius: 4px;
+  background: var(--gold-glow); display: inline-block;
+}
+
 /* ===== Decision box ===== */
 .decisions { margin: 1.5rem 0; }
 .decision-item {
@@ -1307,19 +1338,76 @@ flowchart LR
   <div class="page-title">每个人的内生动力决定了系统能不能持续运转<br>—— <span class="hl">信息对称</span>是激发动力的核心手段</div>
 
 
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>角色</th><th>内生动力</th><th>当前状态</th><th>强化方向</th></tr></thead>
-    <tbody>
-      <tr><td><strong>产品经理</strong></td><td>做出成功产品、市场认可、战略影响力</td><td><span class="badge badge-green">动力明确</span></td><td>建立产品全生命周期数据反馈链路</td></tr>
-      <tr><td><strong>开发工程师</strong></td><td>技术成长、项目成就感、职业发展</td><td><span class="badge badge-amber">中等</span></td><td>增加「成果可视性」——让工程师看到代码对用户的真实价值</td></tr>
-      <tr><td><strong>训练工程师</strong></td><td>模型效果提升、算法创新空间</td><td><span class="badge badge-amber">中等</span></td><td>建立模型迭代可视化看板，实验效果实时对称</td></tr>
-      <tr><td><strong>知识运营经理</strong></td><td>打通知识与业务的价值印证</td><td><span class="badge badge-green">动力明确</span></td><td>核心枢纽，需要持续赋能</td></tr>
-      <tr><td><strong>产品助理</strong></td><td>从执行到规划的职业成长</td><td><span class="badge badge-amber">可能需要激发</span></td><td>「角色化实训」——让产品助理遍历更多角色建立全局视角</td></tr>
-      <tr><td><strong>售前顾问</strong></td><td>客户满意、项目成功、个人品牌</td><td><span class="badge badge-green">动力明确</span></td><td>加强其对产品迭代的影响力</td></tr>
-      <tr><td><strong>一线使用者</strong></td><td>效率提升、工作减负、产出增长</td><td><span class="badge badge-green">最底层动力</span></td><td>其满意度是所有工作的最终检验标准</td></tr>
-    </tbody>
-  </table>
+  <div class="role-cards">
+    <!-- 动力明确组 -->
+    <div class="rc-group">
+      <div class="rc-group-label">动力明确</div>
+      <div class="rc-row">
+        <div class="rc-card" style="border-color:rgba(212,168,83,0.3);">
+          <div class="rc-icon">🧭</div>
+          <div class="rc-name">产品经理</div>
+          <div class="rc-motive">做出成功产品、市场认可</div>
+          <div class="rc-act">数据反馈驱动</div>
+        </div>
+        <div class="rc-card" style="border-color:rgba(212,168,83,0.3);">
+          <div class="rc-icon">🧠</div>
+          <div class="rc-name">知识运营经理</div>
+          <div class="rc-motive">打通知识与业务价值</div>
+          <div class="rc-act">持续赋能枢纽</div>
+        </div>
+        <div class="rc-card" style="border-color:rgba(212,168,83,0.3);">
+          <div class="rc-icon">🤝</div>
+          <div class="rc-name">售前顾问</div>
+          <div class="rc-motive">客户满意、项目成功</div>
+          <div class="rc-act">加强迭代影响力</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中等组 -->
+    <div class="rc-group">
+      <div class="rc-group-label" style="color:var(--amber);border-color:rgba(245,158,11,0.3);">中等</div>
+      <div class="rc-row">
+        <div class="rc-card" style="border-color:rgba(245,158,11,0.2);">
+          <div class="rc-icon">💻</div>
+          <div class="rc-name">开发工程师</div>
+          <div class="rc-motive">技术成长、项目成就感</div>
+          <div class="rc-act">成果可视性激励</div>
+        </div>
+        <div class="rc-card" style="border-color:rgba(245,158,11,0.2);">
+          <div class="rc-icon">🤖</div>
+          <div class="rc-name">训练工程师</div>
+          <div class="rc-motive">模型效果、算法创新</div>
+          <div class="rc-act">迭代看板实时对称</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 可能需要激发 -->
+    <div class="rc-group">
+      <div class="rc-group-label" style="color:var(--red);border-color:rgba(239,68,68,0.3);">可能需要激发</div>
+      <div class="rc-row">
+        <div class="rc-card" style="border-color:rgba(239,68,68,0.15);">
+          <div class="rc-icon">📝</div>
+          <div class="rc-name">产品助理</div>
+          <div class="rc-motive">从执行到规划成长</div>
+          <div class="rc-act">多角色实训建全局</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最底层动力 -->
+    <div class="rc-group">
+      <div class="rc-group-label" style="color:var(--green);border-color:rgba(34,197,94,0.3);">最底层动力</div>
+      <div class="rc-row">
+        <div class="rc-card" style="border-color:rgba(34,197,94,0.15);">
+          <div class="rc-icon">👤</div>
+          <div class="rc-name">一线使用者</div>
+          <div class="rc-motive">效率提升、工作减负</div>
+          <div class="rc-act">满意度为最终标准</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="flow-label" style="margin-top:1.5rem;">▎ 评估闭环六阶段 · 潜在审视</div>
