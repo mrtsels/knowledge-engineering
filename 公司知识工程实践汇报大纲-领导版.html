@@ -1678,73 +1678,31 @@ flowchart LR
 <div class="section-num">02</div>
 <h2 class="page-title">十大信息机制构建了感知到控制的<span class="hl">信息哲学基础</span></h2>
 
-<!-- 十大机制分类树 -->
-<div class="mermaid-wrap">
-<div class="mermaid">
-flowchart LR
-  subgraph 感知["感知类 (6种)"]
-    BZ["📌 标识"] --> LX["📝 留痕"]
-    LX --> GK["🔓 公开"]
-    GK --> GX["🔗 共享"]
-    GX --> HJ["🔄 汇聚"]
-    HJ --> AQ["🛡️ 安全"]
-  end
-  subgraph 认知["认知类 (2种)"]
-    YZ["📚 预置"] --> FZ["🧪 仿真"]
-  end
-  subgraph 控制["控制类 (2种)"]
-    DC["⚖️ 对称"] --> FK["🔄 反馈"]
-  end
-  感知 --> 认知 --> 控制
-</div>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>机制</th><th>分类</th><th>理论定义</th></tr></thead>
+  <tbody>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🏷️</span> <strong style="color:var(--blue)">标识</strong></td><td><span class="badge badge-blue">感知</span></td><td>解决客观事物辨别问题，RFID/二维码/条码</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">📝</span> <strong style="color:var(--blue)">留痕</strong></td><td><span class="badge badge-blue">感知</span></td><td>客观事物的直接表征，痕迹信息>填报信息</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🔓</span> <strong style="color:var(--blue)">公开</strong></td><td><span class="badge badge-blue">感知</span></td><td>不加隐蔽，以公开为常态、不公开为例外</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🔗</span> <strong style="color:var(--blue)">共享</strong></td><td><span class="badge badge-blue">感知</span></td><td>基于多主体行为协同需求的信息分发</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">📊</span> <strong style="color:var(--blue)">汇聚</strong></td><td><span class="badge badge-blue">感知</span></td><td>逻辑层面会合异地异构异主的离散信息</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🛡️</span> <strong style="color:var(--blue)">安全</strong></td><td><span class="badge badge-blue">感知</span></td><td>=法权保护（主权+产权+人权），非技术手段</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">⚙️</span> <strong style="color:var(--gold)">预置</strong></td><td><span class="badge badge-gold">认知</span></td><td>预置程序性知识(怎么做)+描述性知识(是什么)</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🧪</span> <strong style="color:var(--gold)">仿真</strong></td><td><span class="badge badge-gold">认知</span></td><td>基于预置知识+事实信息处理产生新知识</td></tr>
+    <tr style="background:var(--gold-glow);"><td><span style="font-size:1rem;margin-right:0.3rem;">⚖️</span> <strong style="color:var(--gold)">对称</strong></td><td><span class="badge badge-gold">控制</span></td><td>任务相关各方信息尽可能对称，理性决策前提</td></tr>
+    <tr><td><span style="font-size:1rem;margin-right:0.3rem;">🔄</span> <strong style="color:var(--gold)">反馈</strong></td><td><span class="badge badge-gold">控制</span></td><td>结果对原因反作用，监测→对策循环往复</td></tr>
+  </tbody>
+</table>
 </div>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:2rem;">
-
-<div style="background:linear-gradient(135deg,rgba(59,130,246,0.08),rgba(59,130,246,0.02));border:1px solid rgba(59,130,246,0.15);border-radius:8px;padding:1rem;">
-  <div style="font-size:0.7rem;color:var(--blue);font-weight:700;margin-bottom:0.6rem;">⬡ 感知类 · 六种</div>
-  <div style="display:flex;flex-direction:column;gap:0.4rem;">
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">标识</span><span style="font-size:0.72rem;color:var(--text-secondary);">辨别事物 · RFID/二维码</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">留痕</span><span style="font-size:0.72rem;color:var(--text-secondary);">痕迹信息>填报信息 · 真实性</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">公开</span><span style="font-size:0.72rem;color:var(--text-secondary);">公平公正 · 以公开为常态</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">共享</span><span style="font-size:0.72rem;color:var(--text-secondary);">行为协同需求驱动</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">汇聚</span><span style="font-size:0.72rem;color:var(--text-secondary);">逻辑会合 · 还原事实全貌</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">安全</span><span style="font-size:0.72rem;color:var(--text-secondary);">=法权保护 ≠ 技术手段</span></div>
-  </div>
-</div>
-
-<div style="background:linear-gradient(135deg,rgba(212,168,83,0.08),rgba(212,168,83,0.02));border:1px solid rgba(212,168,83,0.15);border-radius:8px;padding:1rem;">
-  <div style="font-size:0.7rem;color:var(--gold);font-weight:700;margin-bottom:0.6rem;">⬡ 认知类 · 两种</div>
-  <div style="display:flex;flex-direction:column;gap:0.4rem;">
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">预置</span><span style="font-size:0.72rem;color:var(--text-secondary);">程序性知识(怎么做)+描述性知识(是什么)</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">仿真</span><span style="font-size:0.72rem;color:var(--text-secondary);">建模+事实信息→产生新知识</span></div>
-  </div>
-</div>
-
-<div style="background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.02));border:1px solid rgba(34,197,94,0.15);border-radius:8px;padding:1rem;">
-  <div style="font-size:0.7rem;color:var(--green);font-weight:700;margin-bottom:0.6rem;">⬡ 控制类 · 两种</div>
-  <div style="display:flex;flex-direction:column;gap:0.4rem;">
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">对称</span><span style="font-size:0.72rem;color:var(--text-secondary);">理性决策前提 · 纳什均衡</span></div>
-    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">反馈</span><span style="font-size:0.72rem;color:var(--text-secondary);">结果对原因反作用 · 监测→对策闭环</span></div>
-  </div>
-</div>
-
-</div>
-
-<!-- 监测↔对策闭环 -->
-<div style="margin-top:2rem;">
-<h4 style="color:var(--gold);margin-bottom:0.8rem;font-size:0.9rem;">社会控制模式：监测 ↔ 对策闭环</h4>
-<div class="feedback-loop" style="display:flex;justify-content:center;align-items:center;gap:1rem;flex-wrap:wrap;">
-  <div class="node" style="padding:1rem 1.5rem;border:2px solid var(--blue);border-radius:8px;">
-    <div style="font-weight:700;color:var(--blue);font-size:0.85rem;">监测</div>
-    <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;">发现·预测·预警·判定·报警·评估</div>
-  </div>
-  <div style="color:var(--text-muted);font-size:1.2rem;">↔</div>
-  <div class="node" style="padding:1rem 1.5rem;border:2px solid var(--gold);border-radius:8px;">
-    <div style="font-weight:700;color:var(--gold);font-size:0.85rem;">对策</div>
-    <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;">决策 · 执行 · 监督</div>
-  </div>
-</div>
+<div class="insight-box">
+  <div class="insight-title">全书理论框架中的关键洞察</div>
+  <ul>
+    <li><strong>感知→认知→控制</strong>形成完整的信息处理链条，十大机制缺一不可</li>
+    <li><strong>痕迹信息>填报信息</strong>：第一性原理——客观事实的直接表征优先于间接表达</li>
+    <li><strong>安全即法权保护</strong>：安全≠防火墙/加密，关键在于数字空间的法权落实</li>
+  </ul>
 </div>
 
 </div>
