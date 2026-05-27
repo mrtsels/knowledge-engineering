@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>mermaid.initialize({
-  startOnLoad: true,
+  startOnLoad: false,
   theme: 'dark',
   themeVariables: {
     fontFamily: '"Noto Sans SC", sans-serif',
@@ -156,10 +156,14 @@ section.page .page-inner {
 .tab-theory .mermaid-wrap,
 .tab-theory .table-wrap {
   border: none;
-  background: transparent;
 }
 .tab-theory .mermaid-wrap {
-  padding: 0;
+  margin: 2rem 0;
+  padding: 0.5rem 0;
+}
+.tab-theory .mermaid-wrap,
+.tab-theory .table-wrap {
+  background: transparent;
 }
 
 /* ===== Headings ===== */
@@ -2290,17 +2294,21 @@ function switchTab(tab) {
   } else {
     document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
     document.querySelector('.tab-theory').classList.add('active');
-    renderTheoryMermaid();
+    renderMermaid('.tab-theory');
   }
   window.scrollTo(0, 0);
 }
-function renderTheoryMermaid() {
-  document.querySelectorAll('.tab-theory .mermaid').forEach(el => {
-    if (!el.querySelector('svg')) {
-      mermaid.run({ nodes: [el] });
-    }
+function renderMermaid(scope) {
+  const els = document.querySelectorAll(scope + ' .mermaid');
+  els.forEach(el => {
+    el.removeAttribute('data-processed');
+    el.innerHTML = el.textContent;
   });
+  if (els.length) mermaid.run({ nodes: els });
 }
+window.addEventListener('DOMContentLoaded', () => {
+  renderMermaid('.tab-practice');
+});
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
