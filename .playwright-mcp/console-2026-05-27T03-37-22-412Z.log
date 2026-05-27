@@ -1,0 +1,3 @@
+[     333ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8896/favicon.ico:0
+[   25399ms] Uncaught (in promise) #<Object>
+    at run (https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js:3351:3419)

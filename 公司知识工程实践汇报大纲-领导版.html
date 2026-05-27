@@ -2298,17 +2298,22 @@ function switchTab(tab) {
   }
   window.scrollTo(0, 0);
 }
+var _mermaidRendered = false;
 function renderMermaid(scope) {
-  const els = document.querySelectorAll(scope + ' .mermaid');
-  els.forEach(el => {
+  if (typeof mermaid === 'undefined') return setTimeout(function(){ renderMermaid(scope); }, 200);
+  var els = document.querySelectorAll(scope + ' .mermaid');
+  els.forEach(function(el) {
+    if (el.getAttribute('data-orig') && el.querySelector('svg')) return;
+    if (!el.getAttribute('data-orig')) el.setAttribute('data-orig', el.innerHTML);
     el.removeAttribute('data-processed');
-    el.innerHTML = el.textContent;
+    el.innerHTML = el.getAttribute('data-orig');
   });
-  if (els.length) mermaid.run({ nodes: els });
+  if (els.length) mermaid.run({ nodes: els }).catch(function(e){});
 }
-window.addEventListener('DOMContentLoaded', () => {
+function renderAllMermaid() {
   renderMermaid('.tab-practice');
-});
+  renderMermaid('.tab-theory');
+}
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

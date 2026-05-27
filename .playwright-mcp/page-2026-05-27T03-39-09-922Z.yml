@@ -1,0 +1,780 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: 知识工程
+    - generic [ref=e4]:
+      - button "实践" [ref=e5] [cursor=pointer]
+      - button "理论" [active] [ref=e6] [cursor=pointer]
+  - text: — — — › › › › › › › › › ›
+  - generic [ref=e552]:
+    - generic [ref=e554]:
+      - generic [ref=e555]: 领域知识工程学 · 全书笔记
+      - heading "《领域知识工程学》 理论全景" [level=1] [ref=e556]:
+        - text: 《领域知识工程学》
+        - emphasis [ref=e557]: 理论全景
+      - paragraph [ref=e558]: 罗建中 · 八章完整框架 · 从认识世界到改造世界
+      - generic [ref=e559]:
+        - generic [ref=e560]: 理论体系 · 信息机制 · 任务范式
+        - generic [ref=e562]: 范式演化 · 工程创意 · 工程方法
+        - generic [ref=e564]: 实训实战 · 超级应用
+    - generic [ref=e566]:
+      - generic: "01"
+      - heading "领域知识工程学建立了信息社会的理论体系与研究方法" [level=2] [ref=e567]
+      - document [ref=e570]:
+        - generic [ref=e582]:
+          - paragraph [ref=e589]: 信息社会
+          - paragraph [ref=e596]:
+            - text: 信息技术体系
+            - text: 计算机·网络·软件
+          - paragraph [ref=e603]:
+            - text: 工控系统
+            - text: 对'物'自动化
+          - paragraph [ref=e610]:
+            - text: 社控系统
+            - text: 对'人'自动化
+          - paragraph [ref=e617]:
+            - text: 任务范式
+            - text: 研究对象
+          - paragraph [ref=e624]: 价值论方法
+          - paragraph [ref=e631]: 动力机制
+          - paragraph [ref=e638]: 实例化方法
+          - paragraph [ref=e645]:
+            - text: 确定性+工程化
+            - text: 学科特点
+      - table [ref=e647]:
+        - rowgroup [ref=e648]:
+          - row "章节 核心内容 关键要点" [ref=e649]:
+            - columnheader "章节" [ref=e650]
+            - columnheader "核心内容" [ref=e651]
+            - columnheader "关键要点" [ref=e652]
+        - rowgroup [ref=e653]:
+          - row "时代潮流 信息社会特征：控制客观世界行为 + 促进知识转化 社控系统两大误区：流程论、技术论" [ref=e654]:
+            - cell "时代潮流" [ref=e655]:
+              - generic [ref=e656]: 时代潮流
+            - cell "信息社会特征：控制客观世界行为 + 促进知识转化" [ref=e657]
+            - cell "社控系统两大误区：流程论、技术论" [ref=e658]
+          - row "学科渊源 新工科·新文科·领域知识工程学（第三条路径：外部集成） \"最内行的外行\"——从外部识别集成专业知识" [ref=e659]:
+            - cell "学科渊源" [ref=e660]:
+              - generic [ref=e661]: 学科渊源
+            - cell "新工科·新文科·领域知识工程学（第三条路径：外部集成）" [ref=e662]
+            - cell "\"最内行的外行\"——从外部识别集成专业知识" [ref=e663]
+          - row "研究对象 任务范式→实例→自动化→普及率（四层递进） 两大属性：领域属性 + 双子系统属性" [ref=e664]:
+            - cell "研究对象" [ref=e665]:
+              - generic [ref=e666]: 研究对象
+            - cell "任务范式→实例→自动化→普及率（四层递进）" [ref=e667]
+            - cell "两大属性：领域属性 + 双子系统属性" [ref=e668]
+          - row "研究方法 价值论→动力机制→实例化（三大方法论） 实证根基，定性+定量综合运用" [ref=e669]:
+            - cell "研究方法" [ref=e670]:
+              - generic [ref=e671]: 研究方法
+            - cell "价值论→动力机制→实例化（三大方法论）" [ref=e672]
+            - cell "实证根基，定性+定量综合运用" [ref=e673]
+          - row "知识体系 三层结构：学科知识 + 条件性知识 + 集成专业知识 条件性知识七大学科：哲学、逻辑学、语言学等" [ref=e674]:
+            - cell "知识体系" [ref=e675]:
+              - generic [ref=e676]: 知识体系
+            - cell "三层结构：学科知识 + 条件性知识 + 集成专业知识" [ref=e677]
+            - cell "条件性知识七大学科：哲学、逻辑学、语言学等" [ref=e678]
+          - row "学科特点 五确定（领域·任务·因果·条件·目标）+ 工程化 知识产品结果工程化 + 生产过程工程化" [ref=e679]:
+            - cell "学科特点" [ref=e680]:
+              - generic [ref=e681]: 学科特点
+            - cell "五确定（领域·任务·因果·条件·目标）+ 工程化" [ref=e682]
+            - cell "知识产品结果工程化 + 生产过程工程化" [ref=e683]
+      - generic [ref=e684]:
+        - heading "四大核心概念" [level=4] [ref=e685]
+        - table [ref=e687]:
+          - rowgroup [ref=e688]:
+            - row "概念 构成 关键特征" [ref=e689]:
+              - columnheader "概念" [ref=e690]
+              - columnheader "构成" [ref=e691]
+              - columnheader "关键特征" [ref=e692]
+          - rowgroup [ref=e693]:
+            - row "社会体系 主体（人/组织）+ 客体（技术体系）+ 行为（人对物/人对人） 政府、产业、社会三大范畴" [ref=e694]:
+              - cell "社会体系" [ref=e695]
+              - cell "主体（人/组织）+ 客体（技术体系）+ 行为（人对物/人对人）" [ref=e696]
+              - cell "政府、产业、社会三大范畴" [ref=e697]
+            - row "信息技术体系 计算机 + 网络通信 + 软件 替代和表达人类生物本能行为" [ref=e698]:
+              - cell "信息技术体系" [ref=e699]
+              - cell "计算机 + 网络通信 + 软件" [ref=e700]
+              - cell "替代和表达人类生物本能行为" [ref=e701]
+            - row "工控系统 对\"物\"的自动化控制 工业自动化，已相当成熟" [ref=e702]:
+              - cell "工控系统" [ref=e703]
+              - cell "对\"物\"的自动化控制" [ref=e704]
+              - cell "工业自动化，已相当成熟" [ref=e705]
+            - row "社控系统 对\"人\"的组织行为自动化 社会自动化，方兴未艾" [ref=e706]:
+              - cell "社控系统" [ref=e707]
+              - cell "对\"人\"的组织行为自动化" [ref=e708]
+              - cell "社会自动化，方兴未艾" [ref=e709]
+      - generic [ref=e710]:
+        - heading "三大研究方法 与 五大确定性" [level=4] [ref=e711]
+        - table [ref=e713]:
+          - rowgroup [ref=e714]:
+            - row "类别 名称 核心内容" [ref=e715]:
+              - columnheader "类别" [ref=e716]
+              - columnheader "名称" [ref=e717]
+              - columnheader "核心内容" [ref=e718]
+          - rowgroup [ref=e719]:
+            - row "研究方法 价值论方法 内禀价值（精神：文化/法律/伦理/习俗 + 物质：发展/秩序/突发）→ 驱动人类活动" [ref=e720]:
+              - cell "研究方法" [ref=e721]:
+                - generic [ref=e722]: 研究方法
+              - cell "价值论方法" [ref=e723]
+              - cell "内禀价值（精神：文化/法律/伦理/习俗 + 物质：发展/秩序/突发）→ 驱动人类活动" [ref=e724]
+            - row "动力机制建构 识别利害点 → 设计趋利避害方式 → 激发内生动力 → 外化为理性行为" [ref=e725]:
+              - cell "动力机制建构" [ref=e726]
+              - cell "识别利害点 → 设计趋利避害方式 → 激发内生动力 → 外化为理性行为" [ref=e727]
+            - row "实例化方法 利用历史样本事实结构化分析 → 总结模式 → 应对同类未来任务" [ref=e728]:
+              - cell "实例化方法" [ref=e729]
+              - cell "利用历史样本事实结构化分析 → 总结模式 → 应对同类未来任务" [ref=e730]
+            - row "五大确定 领域确定 以最小机构的最小职能、职责事项为边界" [ref=e731]:
+              - cell "五大确定" [ref=e732]:
+                - generic [ref=e733]: 五大确定
+              - cell "领域确定" [ref=e734]
+              - cell "以最小机构的最小职能、职责事项为边界" [ref=e735]
+            - row "任务确定 两系统要素（问题·目标·资源·条件·进程）都是确定的" [ref=e736]:
+              - cell "任务确定" [ref=e737]
+              - cell "两系统要素（问题·目标·资源·条件·进程）都是确定的" [ref=e738]
+            - row "因果确定 只有识别因果性才能真正解决问题（批判\"大数据\"仅强调相关性）" [ref=e739]:
+              - cell "因果确定" [ref=e740]
+              - cell "只有识别因果性才能真正解决问题（批判\"大数据\"仅强调相关性）" [ref=e741]
+            - row "条件确定 可利用的资源和条件是有边界的" [ref=e742]:
+              - cell "条件确定" [ref=e743]
+              - cell "可利用的资源和条件是有边界的" [ref=e744]
+            - row "目标确定 问题解决到什么程度是明确的" [ref=e745]:
+              - cell "目标确定" [ref=e746]
+              - cell "问题解决到什么程度是明确的" [ref=e747]
+    - generic [ref=e749]:
+      - generic: "02"
+      - heading "十大信息机制构建了感知到控制的信息哲学基础" [level=2] [ref=e750]
+      - document [ref=e753]:
+        - generic [ref=e756]:
+          - generic [ref=e757]:
+            - paragraph [ref=e765]: 控制类 (2种)
+            - generic [ref=e766]:
+              - paragraph [ref=e773]: ⚖️ 对称
+              - paragraph [ref=e780]: 🔄 反馈
+          - generic [ref=e781]:
+            - paragraph [ref=e789]: 认知类 (2种)
+            - generic [ref=e790]:
+              - paragraph [ref=e797]: 📚 预置
+              - paragraph [ref=e804]: 🧪 仿真
+          - generic [ref=e805]:
+            - paragraph [ref=e813]: 感知类 (6种)
+            - generic [ref=e814]:
+              - paragraph [ref=e821]: 📌 标识
+              - paragraph [ref=e828]: 📝 留痕
+              - paragraph [ref=e835]: 🔓 公开
+              - paragraph [ref=e842]: 🔗 共享
+              - paragraph [ref=e849]: 🔄 汇聚
+              - paragraph [ref=e856]: 🛡️ 安全
+      - table [ref=e858]:
+        - rowgroup [ref=e859]:
+          - row "机制 分类 理论定义" [ref=e860]:
+            - columnheader "机制" [ref=e861]
+            - columnheader "分类" [ref=e862]
+            - columnheader "理论定义" [ref=e863]
+        - rowgroup [ref=e864]:
+          - row "🏷️ 标识 感知 解决客观事物辨别问题，RFID/二维码/条码" [ref=e865]:
+            - cell "🏷️ 标识" [ref=e866]:
+              - text: 🏷️
+              - strong [ref=e867]: 标识
+            - cell "感知" [ref=e868]:
+              - generic [ref=e869]: 感知
+            - cell "解决客观事物辨别问题，RFID/二维码/条码" [ref=e870]
+          - row "📝 留痕 感知 客观事物的直接表征，痕迹信息>填报信息" [ref=e871]:
+            - cell "📝 留痕" [ref=e872]:
+              - text: 📝
+              - strong [ref=e873]: 留痕
+            - cell "感知" [ref=e874]:
+              - generic [ref=e875]: 感知
+            - cell "客观事物的直接表征，痕迹信息>填报信息" [ref=e876]
+          - row "🔓 公开 感知 不加隐蔽，以公开为常态、不公开为例外" [ref=e877]:
+            - cell "🔓 公开" [ref=e878]:
+              - text: 🔓
+              - strong [ref=e879]: 公开
+            - cell "感知" [ref=e880]:
+              - generic [ref=e881]: 感知
+            - cell "不加隐蔽，以公开为常态、不公开为例外" [ref=e882]
+          - row "🔗 共享 感知 基于多主体行为协同需求的信息分发" [ref=e883]:
+            - cell "🔗 共享" [ref=e884]:
+              - text: 🔗
+              - strong [ref=e885]: 共享
+            - cell "感知" [ref=e886]:
+              - generic [ref=e887]: 感知
+            - cell "基于多主体行为协同需求的信息分发" [ref=e888]
+          - row "📊 汇聚 感知 逻辑层面会合异地异构异主的离散信息" [ref=e889]:
+            - cell "📊 汇聚" [ref=e890]:
+              - text: 📊
+              - strong [ref=e891]: 汇聚
+            - cell "感知" [ref=e892]:
+              - generic [ref=e893]: 感知
+            - cell "逻辑层面会合异地异构异主的离散信息" [ref=e894]
+          - row "🛡️ 安全 感知 =法权保护（主权+产权+人权），非技术手段" [ref=e895]:
+            - cell "🛡️ 安全" [ref=e896]:
+              - text: 🛡️
+              - strong [ref=e897]: 安全
+            - cell "感知" [ref=e898]:
+              - generic [ref=e899]: 感知
+            - cell "=法权保护（主权+产权+人权），非技术手段" [ref=e900]
+          - row "⚙️ 预置 认知 预置程序性知识(怎么做)+描述性知识(是什么)" [ref=e901]:
+            - cell "⚙️ 预置" [ref=e902]:
+              - text: ⚙️
+              - strong [ref=e903]: 预置
+            - cell "认知" [ref=e904]:
+              - generic [ref=e905]: 认知
+            - cell "预置程序性知识(怎么做)+描述性知识(是什么)" [ref=e906]
+          - row "🧪 仿真 认知 基于预置知识+事实信息处理产生新知识" [ref=e907]:
+            - cell "🧪 仿真" [ref=e908]:
+              - text: 🧪
+              - strong [ref=e909]: 仿真
+            - cell "认知" [ref=e910]:
+              - generic [ref=e911]: 认知
+            - cell "基于预置知识+事实信息处理产生新知识" [ref=e912]
+          - row "⚖️ 对称 控制 任务相关各方信息尽可能对称，理性决策前提" [ref=e913]:
+            - cell "⚖️ 对称" [ref=e914]:
+              - text: ⚖️
+              - strong [ref=e915]: 对称
+            - cell "控制" [ref=e916]:
+              - generic [ref=e917]: 控制
+            - cell "任务相关各方信息尽可能对称，理性决策前提" [ref=e918]
+          - row "🔄 反馈 控制 结果对原因反作用，监测→对策循环往复" [ref=e919]:
+            - cell "🔄 反馈" [ref=e920]:
+              - text: 🔄
+              - strong [ref=e921]: 反馈
+            - cell "控制" [ref=e922]:
+              - generic [ref=e923]: 控制
+            - cell "结果对原因反作用，监测→对策循环往复" [ref=e924]
+      - generic [ref=e925]:
+        - generic [ref=e926]: 全书理论框架中的关键洞察
+        - list [ref=e927]:
+          - listitem [ref=e928]:
+            - text: —
+            - strong [ref=e929]: 感知→认知→控制
+            - text: 形成完整的信息处理链条，十大机制缺一不可
+          - listitem [ref=e930]:
+            - text: —
+            - strong [ref=e931]: 痕迹信息>填报信息
+            - text: ：第一性原理——客观事实的直接表征优先于间接表达
+          - listitem [ref=e932]:
+            - text: —
+            - strong [ref=e933]: 安全即法权保护
+            - text: ：安全≠防火墙/加密，关键在于数字空间的法权落实
+    - generic [ref=e935]:
+      - generic: "03"
+      - heading "任务范式定义了领域限定到知识制导的七大顶层概念" [level=2] [ref=e936]
+      - document [ref=e939]:
+        - generic [ref=e942]:
+          - paragraph [ref=e949]:
+            - text: 领域限定
+            - text: 最小机构最小职能
+          - paragraph [ref=e956]:
+            - text: 双子系统
+            - text: 主动系统 ↔ 对象系统
+          - paragraph [ref=e963]:
+            - text: 系统要素
+            - text: 主体·行为·客体·时间·空间
+          - paragraph [ref=e970]:
+            - text: 问题驱动
+            - text: 现象→根源→症结
+          - paragraph [ref=e977]:
+            - text: 目标约束
+            - text: 范围+解决程度
+          - paragraph [ref=e984]:
+            - text: 事实激活
+            - text: 特定事实触发系统
+          - paragraph [ref=e991]:
+            - text: 知识制导
+            - text: 描述性+程序性知识
+          - paragraph [ref=e998]:
+            - text: 数字倍增
+            - text: 效率指数级提升
+      - table [ref=e1000]:
+        - rowgroup [ref=e1001]:
+          - row "概念 定义 关键要点" [ref=e1002]:
+            - columnheader "概念" [ref=e1003]
+            - columnheader "定义" [ref=e1004]
+            - columnheader "关键要点" [ref=e1005]
+        - rowgroup [ref=e1006]:
+          - row "1 领域限定 任何活动在特定最小领域中展开 以最小机构的最小职能、职责事项为边界" [ref=e1007]:
+            - cell "1 领域限定" [ref=e1008]:
+              - generic [ref=e1009]: 1 领域限定
+            - cell "任何活动在特定最小领域中展开" [ref=e1010]
+            - cell "以最小机构的最小职能、职责事项为边界" [ref=e1011]
+          - row "2 双子系统 主动系统(施行方)+对象系统(工作对象) 两系统强相关互作用驱动任务展开" [ref=e1012]:
+            - cell "2 双子系统" [ref=e1013]:
+              - generic [ref=e1014]: 2 双子系统
+            - cell "主动系统(施行方)+对象系统(工作对象)" [ref=e1015]
+            - cell "两系统强相关互作用驱动任务展开" [ref=e1016]
+          - row "3 系统要素 两系统各含五要素：主体·行为·客体·时间·空间 五要素不可分割，是统一整体" [ref=e1017]:
+            - cell "3 系统要素" [ref=e1018]:
+              - generic [ref=e1019]: 3 系统要素
+            - cell "两系统各含五要素：主体·行为·客体·时间·空间" [ref=e1020]
+            - cell "五要素不可分割，是统一整体" [ref=e1021]
+          - row "4 问题驱动 理想与现状的差距产生任务内驱力 问题三层结构：现象→根源→症结" [ref=e1022]:
+            - cell "4 问题驱动" [ref=e1023]:
+              - generic [ref=e1024]: 4 问题驱动
+            - cell "理想与现状的差距产生任务内驱力" [ref=e1025]
+            - cell "问题三层结构：现象→根源→症结" [ref=e1026]
+          - row "5 目标约束 确定问题范围+界定解决程度 约束两系统五要素的资源配置" [ref=e1027]:
+            - cell "5 目标约束" [ref=e1028]:
+              - generic [ref=e1029]: 5 目标约束
+            - cell "确定问题范围+界定解决程度" [ref=e1030]
+            - cell "约束两系统五要素的资源配置" [ref=e1031]
+          - row "6 事实激活 特定负价值事实触发系统运转 需特定任务语境+特定预置知识" [ref=e1032]:
+            - cell "6 事实激活" [ref=e1033]:
+              - generic [ref=e1034]: 6 事实激活
+            - cell "特定负价值事实触发系统运转" [ref=e1035]
+            - cell "需特定任务语境+特定预置知识" [ref=e1036]
+          - row "7 知识制导 知识引导行为向目标不断接近 描述性知识(是什么)+程序性知识(怎么做)" [ref=e1037]:
+            - cell "7 知识制导" [ref=e1038]:
+              - generic [ref=e1039]: 7 知识制导
+            - cell "知识引导行为向目标不断接近" [ref=e1040]
+            - cell "描述性知识(是什么)+程序性知识(怎么做)" [ref=e1041]
+      - table [ref=e1043]:
+        - rowgroup [ref=e1044]:
+          - row "概念 内涵 详细说明" [ref=e1045]:
+            - columnheader "概念" [ref=e1046]
+            - columnheader "内涵" [ref=e1047]
+            - columnheader "详细说明" [ref=e1048]
+        - rowgroup [ref=e1049]:
+          - row "双子系统 主动系统 施行行动方：政府监管部门/供给侧企业，行为：监测·决策·执行·监督" [ref=e1050]:
+            - cell "双子系统" [ref=e1051]:
+              - generic [ref=e1052]: 双子系统
+            - cell "主动系统" [ref=e1053]
+            - cell "施行行动方：政府监管部门/供给侧企业，行为：监测·决策·执行·监督" [ref=e1054]
+          - row "对象系统 工作对象方：企业/公民/消费者，行为：表达诉求·改变状态（非\"被动\"）" [ref=e1055]:
+            - cell "对象系统" [ref=e1056]
+            - cell "工作对象方：企业/公民/消费者，行为：表达诉求·改变状态（非\"被动\"）" [ref=e1057]
+          - row "五要素 主体 法人(营利/非营利/特别法人) + 自然人(完全/限制/无民事行为能力)" [ref=e1058]:
+            - cell "五要素" [ref=e1059]:
+              - generic [ref=e1060]: 五要素
+            - cell "主体" [ref=e1061]
+            - cell "法人(营利/非营利/特别法人) + 自然人(完全/限制/无民事行为能力)" [ref=e1062]
+          - row "行为 生物本能行为(肢体/感官/思维) + 社会组织行为（两者耦合纠缠）" [ref=e1063]:
+            - cell "行为" [ref=e1064]
+            - cell "生物本能行为(肢体/感官/思维) + 社会组织行为（两者耦合纠缠）" [ref=e1065]
+          - row "客体 主体为解决问题利用和产生的物质/非物质资源" [ref=e1066]:
+            - cell "客体" [ref=e1067]
+            - cell "主体为解决问题利用和产生的物质/非物质资源" [ref=e1068]
+          - row "时间 时点·时段·周期·频率，不同场景适用不同粒度" [ref=e1069]:
+            - cell "时间" [ref=e1070]
+            - cell "时点·时段·周期·频率，不同场景适用不同粒度" [ref=e1071]
+          - row "空间 实体空间(现实世界) + 数字空间(信息系统)，两者耦合纠缠" [ref=e1072]:
+            - cell "空间" [ref=e1073]
+            - cell "实体空间(现实世界) + 数字空间(信息系统)，两者耦合纠缠" [ref=e1074]
+          - row "问题三层 现象 事物表现出的可感知状况 → 治标" [ref=e1075]:
+            - cell "问题三层" [ref=e1076]:
+              - generic [ref=e1077]: 问题三层
+            - cell "现象" [ref=e1078]
+            - cell "事物表现出的可感知状况 → 治标" [ref=e1079]
+          - row "根源 导致现象的直接原因（物质原因/规则原因）→ 治本（微创新）" [ref=e1080]:
+            - cell "根源" [ref=e1081]
+            - cell "导致现象的直接原因（物质原因/规则原因）→ 治本（微创新）" [ref=e1082]
+          - row "症结 最关键的根源，与内生动力和利益机制相关 → 根治（深度创新）" [ref=e1083]:
+            - cell "症结" [ref=e1084]
+            - cell "最关键的根源，与内生动力和利益机制相关 → 根治（深度创新）" [ref=e1085]
+    - generic [ref=e1087]:
+      - generic: "04"
+      - heading "本体构建实现了从抽象范式到具体工程的中介演化" [level=2] [ref=e1088]
+      - document [ref=e1091]:
+        - generic [ref=e1094]:
+          - paragraph [ref=e1101]:
+            - text: 信息能力
+            - text: IPO模型
+          - paragraph [ref=e1108]:
+            - text: 本体构建
+            - text: 概念·属性·关系
+          - paragraph [ref=e1115]:
+            - text: 事实还原
+            - text: 痕迹信息→高还原度
+          - paragraph [ref=e1122]:
+            - text: 事件建模
+            - text: 发展·秩序·突发
+          - paragraph [ref=e1129]:
+            - text: 指标量化
+            - text: 五种指标值
+      - generic [ref=e1130]:
+        - generic [ref=e1131]: 🔑 本体构建 — 范式演化的核心中介
+        - list [ref=e1132]:
+          - listitem [ref=e1133]: — 本体 = 两系统行为过程的知识体系 = "共享概念模型的形式化规范说明"
+          - listitem [ref=e1134]:
+            - text: — 三大构成：
+            - strong [ref=e1135]: 概念
+            - text: (类) +
+            - strong [ref=e1136]: 属性
+            - text: (范式属性+信息属性) +
+            - strong [ref=e1137]: 关系
+          - listitem [ref=e1138]: — 构建原则：分类分级 · 相关相连 · 走向实例
+          - listitem [ref=e1139]: — 操作方法：人工标引 ↔ 机器自动标引（交叉交替）
+      - generic [ref=e1140]:
+        - generic [ref=e1141]:
+          - generic [ref=e1142]: 信息流闭环 (IPO模型)
+          - generic [ref=e1143]:
+            - generic [ref=e1144]: I 输入
+            - generic [ref=e1146]: P 处理
+            - generic [ref=e1148]: O 输出
+          - generic [ref=e1149]: 处理分两种：流程化(程序性知识判定) + 知识化(机器调取知识产生新知识)
+        - generic [ref=e1150]:
+          - generic [ref=e1151]: 五种指标值
+          - generic [ref=e1152]:
+            - generic [ref=e1153]: 理想值
+            - generic [ref=e1154]: 现状值
+            - generic [ref=e1155]: 问题值
+            - generic [ref=e1156]: 目标值
+            - generic [ref=e1157]: 对标值
+          - generic [ref=e1158]: 指标值类型：绝对指标 + 相对指标(六种)
+    - generic [ref=e1160]:
+      - generic: "05"
+      - heading "问题三维度分析激发了从现象到症结的工程创意" [level=2] [ref=e1161]
+      - document [ref=e1164]:
+        - generic [ref=e1172]:
+          - paragraph [ref=e1179]:
+            - text: 问题
+            - text: 负价值状态
+          - paragraph [ref=e1186]:
+            - text: 问题三维度
+            - text: 现象→根源→症结
+          - paragraph [ref=e1193]:
+            - text: 逆向实证
+            - text: 向历史要未来
+          - paragraph [ref=e1200]:
+            - text: 微创新创意
+            - text: 针对根源·时间前置+空间普及
+          - paragraph [ref=e1207]:
+            - text: 深度创新创意
+            - text: 针对症结·重设利益机制
+          - paragraph [ref=e1214]:
+            - text: 制度安排
+            - text: 创意制度化
+          - paragraph [ref=e1221]: 进入第6章工程方法
+      - generic [ref=e1222]:
+        - generic [ref=e1223]:
+          - heading "问题三维度" [level=4] [ref=e1224]
+          - paragraph [ref=e1225]: 现象(表象)→根源(直接原因)→症结(最根本原因·与利益格局相关)
+        - generic [ref=e1226]:
+          - heading "逆向实证" [level=4] [ref=e1227]
+          - paragraph [ref=e1228]: 搜集同类事件样本→拼叠分析→从中找规律→激发创意灵感
+        - generic [ref=e1229]:
+          - heading "微创新" [level=4] [ref=e1230]
+          - paragraph [ref=e1231]: 已有规则·时间前置+空间普及·低成本见效易
+        - generic [ref=e1232]:
+          - heading "深度创新" [level=4] [ref=e1233]
+          - paragraph [ref=e1234]: 重新设计利益机制·激发内生动力·三大难点(认识/调整/制度化)
+      - generic [ref=e1235]:
+        - generic [ref=e1236]:
+          - generic [ref=e1237]: 微创新 vs 深度创新
+          - table [ref=e1239]:
+            - rowgroup [ref=e1240]:
+              - row "维度 微创新 深度创新" [ref=e1241]:
+                - columnheader "维度" [ref=e1242]
+                - columnheader "微创新" [ref=e1243]
+                - columnheader "深度创新" [ref=e1244]
+            - rowgroup [ref=e1245]:
+              - row "针对点 问题根源 问题症结" [ref=e1246]:
+                - cell "针对点" [ref=e1247]
+                - cell "问题根源" [ref=e1248]
+                - cell "问题症结" [ref=e1249]
+              - row "创新内容 时间+空间调整 重设利益机制" [ref=e1250]:
+                - cell "创新内容" [ref=e1251]
+                - cell "时间+空间调整" [ref=e1252]
+                - cell "重设利益机制" [ref=e1253]
+              - row "制度安排 修改补充已有 推翻重建新制度" [ref=e1254]:
+                - cell "制度安排" [ref=e1255]
+                - cell "修改补充已有" [ref=e1256]
+                - cell "推翻重建新制度" [ref=e1257]
+              - row "难度 低 高" [ref=e1258]:
+                - cell "难度" [ref=e1259]
+                - cell "低" [ref=e1260]
+                - cell "高" [ref=e1261]
+        - generic [ref=e1262]:
+          - generic [ref=e1263]: 问题值体系
+          - generic [ref=e1264]:
+            - generic [ref=e1265]: 问题值 = 理想值 - 现状值
+            - generic [ref=e1266]: 目标值 = 条件约束下的可达成值（比现状更趋近理想）
+            - generic [ref=e1267]: 所有问题归于：发展态(合理性) + 秩序态(合规性)
+    - generic [ref=e1269]:
+      - generic: "06"
+      - heading "八种生产方法构成了工程化产品的完整管线" [level=2] [ref=e1270]
+      - document [ref=e1273]:
+        - generic [ref=e1276]:
+          - generic [ref=e1277]:
+            - paragraph [ref=e1285]: 输出
+            - generic [ref=e1286]:
+              - paragraph [ref=e1293]: 结构化表达
+              - paragraph [ref=e1300]: 反馈化控制
+              - paragraph [ref=e1307]: 可视化呈现
+          - generic [ref=e1308]:
+            - paragraph [ref=e1316]: 处理
+            - generic [ref=e1317]:
+              - paragraph [ref=e1324]: 主题化标引
+              - paragraph [ref=e1331]: 逻辑化存储
+              - paragraph [ref=e1338]: 关联化分析
+              - paragraph [ref=e1345]: 数量化计算
+          - generic [ref=e1346]:
+            - paragraph [ref=e1354]: 输入
+            - paragraph [ref=e1362]: 形式化搜集
+      - generic [ref=e1363]:
+        - generic [ref=e1364]:
+          - text: 形式化搜集
+          - generic: 输入
+        - generic [ref=e1366]:
+          - text: 主题化标引
+          - generic: 处理
+        - generic [ref=e1368]: 逻辑化存储
+        - generic [ref=e1370]: 关联化分析
+        - generic [ref=e1372]: 数量化计算
+        - generic [ref=e1374]:
+          - text: 结构化表达
+          - generic: 输出
+        - generic [ref=e1376]: 反馈化控制
+        - generic [ref=e1378]: 可视化呈现
+      - generic [ref=e1379]:
+        - generic [ref=e1380]:
+          - generic [ref=e1381]: 三大团队
+          - generic [ref=e1382]:
+            - generic [ref=e1383]: 🎨 设计团队 — 创意想定+设计
+            - generic [ref=e1384]: ⚙ 开发团队 — 软件实现
+            - generic [ref=e1385]: 📊 运营团队 — 伴随服务
+        - generic [ref=e1386]:
+          - generic [ref=e1387]: 三大阶段
+          - generic [ref=e1388]:
+            - generic [ref=e1389]: 产品设计
+            - generic [ref=e1391]: 产品开发
+            - generic [ref=e1393]: 产品运营
+          - generic [ref=e1394]: 可并行·优化循环关系
+        - generic [ref=e1395]:
+          - generic [ref=e1396]: 超级系统
+          - generic [ref=e1397]:
+            - generic [ref=e1398]: 互联互通互操作
+            - generic [ref=e1399]: + 预置·仿真·对称·反馈
+            - generic [ref=e1400]: + 相关角色行为系统
+    - generic [ref=e1402]:
+      - generic: "07"
+      - heading "实训实战通过角色化与开源空间培养领域知识工程师" [level=2] [ref=e1403]
+      - document [ref=e1406]:
+        - generic [ref=e1409]:
+          - paragraph [ref=e1416]:
+            - text: 传播创新
+            - text: 三大创新：关系·内容·形式
+          - paragraph [ref=e1423]:
+            - text: 知识获取
+            - text: 三明治结构
+          - paragraph [ref=e1430]:
+            - text: 角色化实训
+            - text: 社会化=角色化
+          - paragraph [ref=e1437]:
+            - text: 业态创新
+            - text: 粉丝经济·项目→产品→服务
+          - paragraph [ref=e1444]:
+            - text: 动力机制触发
+            - text: 六大阶段评估闭环
+          - paragraph [ref=e1451]:
+            - text: 开源空间
+            - text: 人才培养+资源沉淀+项目聚合
+          - paragraph [ref=e1458]:
+            - text: 市场化实战
+            - text: 科研项目+商业项目
+      - generic [ref=e1459]:
+        - generic [ref=e1460]:
+          - generic [ref=e1461]: 六类供给侧岗位
+          - generic [ref=e1462]:
+            - generic [ref=e1463]: ✦ 创意设计师 — 问题识别+创意想定（灵魂人物）
+            - generic [ref=e1464]: ✦ 领域运营师 — 连通团队与市场
+            - generic [ref=e1465]: ✦ 产品集成师 — 基于任务边界设计
+            - generic [ref=e1466]: ✦ 功能设计师 — 监测对策功能设计
+            - generic [ref=e1467]: ✦ 知识萃取师 — 信息资源分析+知识提炼
+            - generic [ref=e1468]: ✦ 情报整编师 — 搜集+初级加工
+          - generic [ref=e1469]: 培养阶梯：本科→功能设计师 → 研究生→产品集成师 → 博士→领域运营师
+        - generic [ref=e1470]:
+          - generic [ref=e1471]: 五大角色内生动力
+          - generic [ref=e1472]:
+            - generic [ref=e1473]: ◈ 最终用户 — 效率效能倍增
+            - generic [ref=e1474]: ◈ 供应商 — 低成本获客·超额利润
+            - generic [ref=e1475]: ◈ 学生/家长 — 入学即入职·毕业即就业
+            - generic [ref=e1476]: ◈ 院校 — 培养+产业闭环
+            - generic [ref=e1477]: ◈ 教师 — 成果转化·个人增值
+          - generic [ref=e1478]: 两个嵌套闭环：评估闭环(内) + 产业生态闭环(外)
+      - generic [ref=e1479]:
+        - generic [ref=e1480]:
+          - generic [ref=e1481]: MIT路径 vs 领域知识工程
+          - table [ref=e1483]:
+            - rowgroup [ref=e1484]:
+              - row "维度 MIT(知识串编) 领域知识工程" [ref=e1485]:
+                - columnheader "维度" [ref=e1486]
+                - columnheader "MIT(知识串编)" [ref=e1487]
+                - columnheader "领域知识工程" [ref=e1488]
+            - rowgroup [ref=e1489]:
+              - row "方式 专业内部穿越 外部识别集成" [ref=e1490]:
+                - cell "方式" [ref=e1491]
+                - cell "专业内部穿越" [ref=e1492]
+                - cell "外部识别集成" [ref=e1493]
+              - row "目标 多料专家 通才·集成者" [ref=e1494]:
+                - cell "目标" [ref=e1495]
+                - cell "多料专家" [ref=e1496]
+                - cell "通才·集成者" [ref=e1497]
+              - row "类比 全能运动员 教练" [ref=e1498]:
+                - cell "类比" [ref=e1499]
+                - cell "全能运动员" [ref=e1500]
+                - cell "教练" [ref=e1501]
+        - generic [ref=e1502]:
+          - generic [ref=e1503]: 教师"三导"
+          - generic [ref=e1504]:
+            - generic [ref=e1505]:
+              - generic [ref=e1506]: 引导
+              - text: 引导学生自我获取条件性知识
+            - generic [ref=e1507]:
+              - generic [ref=e1508]: 指导
+              - text: 将范式植入学生，指导完成任务
+            - generic [ref=e1509]:
+              - generic [ref=e1510]: 制导
+              - text: 强制反复实践→动力定型
+    - generic [ref=e1512]:
+      - generic: "08"
+      - heading "超级应用在COVID-19中展示了十大机制的全景实战" [level=2] [ref=e1513]
+      - document [ref=e1516]:
+        - generic [ref=e1519]:
+          - paragraph [ref=e1526]:
+            - text: 背景
+            - text: COVID-19复盘
+          - paragraph [ref=e1533]:
+            - text: 核心设计
+            - text: 自动寻迹·自动禁足
+            - text: 自动资源配置·自动奖惩
+          - paragraph [ref=e1540]:
+            - text: 全量·在线·实时
+            - text: 三位一体应战策略
+          - paragraph [ref=e1547]:
+            - text: 十大机制全景应用
+            - text: 标识→留痕→...→反馈
+          - paragraph [ref=e1554]:
+            - text: 制度创新
+            - text: 一级响应前置·实时奖惩·信息直达
+          - paragraph [ref=e1561]:
+            - text: 全球治理展望
+            - text: WHO+人类命运共同体
+      - generic [ref=e1562]:
+        - generic [ref=e1563]:
+          - heading "自动寻迹" [level=4] [ref=e1564]
+          - paragraph [ref=e1565]: 手机轨迹回溯密切接触者，指数级提高早发现能力
+        - generic [ref=e1566]:
+          - heading "自动禁足" [level=4] [ref=e1567]
+          - paragraph [ref=e1568]: 控制确诊者活动范围，指数级提高早隔离能力
+        - generic [ref=e1569]:
+          - heading "自动资源配置" [level=4] [ref=e1570]
+          - paragraph [ref=e1571]: 仿真计算最优医疗资源分配
+        - generic [ref=e1572]:
+          - heading "自动奖惩兑现" [level=4] [ref=e1573]
+          - paragraph [ref=e1574]: 实时判定行为合规性，即刻兑现奖惩
+      - generic [ref=e1575]:
+        - generic [ref=e1576]: 十大信息机制在超级应用中的全景应用
+        - generic [ref=e1577]:
+          - generic [ref=e1578]:
+            - generic [ref=e1579]: 标识
+            - generic [ref=e1580]: 身份证/手机号/MAC地址
+          - generic [ref=e1581]:
+            - generic [ref=e1582]: 留痕
+            - generic [ref=e1583]: 病历·轨迹·住宿·车票
+          - generic [ref=e1584]:
+            - generic [ref=e1585]: 公开
+            - generic [ref=e1586]: 奖惩信息公示·执法公平
+          - generic [ref=e1587]:
+            - generic [ref=e1588]: 共享
+            - generic [ref=e1589]: 卫健·运营商·公安·社区
+          - generic [ref=e1590]:
+            - generic [ref=e1591]: 汇聚
+            - generic [ref=e1592]: 逻辑汇聚·还原轨迹全貌
+          - generic [ref=e1593]:
+            - generic [ref=e1594]: 安全
+            - generic [ref=e1595]: 数据脱敏·保护隐私法权
+          - generic [ref=e1596]:
+            - generic [ref=e1597]: 预置
+            - generic [ref=e1598]: 病毒库·SEIR·应急预案
+          - generic [ref=e1599]:
+            - generic [ref=e1600]: 仿真
+            - generic [ref=e1601]: SEIR模型·资源配置计算
+          - generic [ref=e1602]:
+            - generic [ref=e1603]: 对称
+            - generic [ref=e1604]: 各方信息实时知晓
+          - generic [ref=e1605]:
+            - generic [ref=e1606]: 反馈
+            - generic [ref=e1607]: 寻迹→禁足→检测→再寻迹
+      - generic [ref=e1608]:
+        - generic [ref=e1609]: 应战策略：全量 · 在线 · 实时
+        - generic [ref=e1610]:
+          - generic [ref=e1611]:
+            - generic [ref=e1612]: 全量
+            - generic [ref=e1613]: 区域全量基础信息·脱敏
+          - generic [ref=e1614]: +
+          - generic [ref=e1615]:
+            - generic [ref=e1616]: 在线
+            - generic [ref=e1617]: 所有手机实时在线·轨迹形成
+          - generic [ref=e1618]: +
+          - generic [ref=e1619]:
+            - generic [ref=e1620]: 实时
+            - generic [ref=e1621]: 实时对称·实时兑现奖惩
+      - generic [ref=e1622]:
+        - strong [ref=e1623]: SEIR模型逆向实证：
+        - text: 如果2019年12月29日启动一级响应（提前25天），最终累计确诊仅600多人，武汉不会封城。关键洞察：控制住暗线（确诊+潜在患者）就控制住了疫情。
+      - generic [ref=e1624]:
+        - generic [ref=e1625]:
+          - generic [ref=e1626]: 制度创新要点
+          - generic [ref=e1627]:
+            - generic [ref=e1628]: ① 一级响应触发条件前置
+            - generic [ref=e1629]: ② 奖惩时间点前置（实时兑现）
+            - generic [ref=e1630]: ③ 上报者保护与激励
+            - generic [ref=e1631]: ④ 信息直达权力核心
+        - generic [ref=e1632]:
+          - generic [ref=e1633]: 举国之权力 ≠ 举国之物力
+          - generic [ref=e1634]:
+            - text: 权力：国家元首指挥·最高授权（逻辑）
+            - text: 物力：全国资源物理调度
+            - text: 内紧外松：几千人应急 + 多数人正常
+    - generic [ref=e1636]:
+      - generic: ✦
+      - heading "全书从认识世界到改造世界构建完整闭环" [level=2] [ref=e1637]
+      - document [ref=e1640]:
+        - generic [ref=e1643]:
+          - paragraph [ref=e1650]:
+            - text: 第1章 理论体系
+            - text: 总纲·是什么·怎么研究
+          - paragraph [ref=e1657]:
+            - text: 第2章 信息机制
+            - text: 十大机制·感知→认知→控制
+          - paragraph [ref=e1664]:
+            - text: 第3章 任务范式
+            - text: 七大顶层概念·理论核心
+          - paragraph [ref=e1671]:
+            - text: 第4章 范式演化
+            - text: 本体构建·抽象→具体
+          - paragraph [ref=e1678]:
+            - text: 第5章 工程创意
+            - text: 问题三维度·微创新/深度创新
+          - paragraph [ref=e1685]:
+            - text: 第6章 工程方法
+            - text: 八种生产方法·产品化
+          - paragraph [ref=e1692]:
+            - text: 第7章 实训实战
+            - text: 人才培养·开源空间·新业态
+          - paragraph [ref=e1699]:
+            - text: 第8章 超级应用
+            - text: COVID-19·全景实战演示
+      - generic [ref=e1700]:
+        - generic [ref=e1701]:
+          - generic [ref=e1702]: 认识世界
+          - generic [ref=e1703]:
+            - text: 第1-3章
+            - text: 理论构建
+        - generic [ref=e1704]:
+          - generic [ref=e1705]: 中介转换
+          - generic [ref=e1706]:
+            - text: 第4章
+            - text: 抽象→具体
+        - generic [ref=e1707]:
+          - generic [ref=e1708]: 改造世界
+          - generic [ref=e1709]:
+            - text: 第5-6章
+            - text: 创意→产品
+        - generic [ref=e1710]:
+          - generic [ref=e1711]: 传播应用
+          - generic [ref=e1712]:
+            - text: 第7-8章
+            - text: 人才→实战
+  - contentinfo [ref=e551]:
+    - text: 知识工程理论在公司落地实践 · 领导汇报大纲
+    - text: 理论框架：罗建中《领域知识工程学》 · 基于第2-8章理论框架
