@@ -1678,6 +1678,27 @@ flowchart LR
 <div class="section-num">02</div>
 <h2 class="page-title">十大信息机制构建了感知到控制的<span class="hl">信息哲学基础</span></h2>
 
+<!-- 十大机制分类树 -->
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart LR
+  subgraph 感知["感知类 (6种)"]
+    BZ["📌 标识"] --> LX["📝 留痕"]
+    LX --> GK["🔓 公开"]
+    GK --> GX["🔗 共享"]
+    GX --> HJ["🔄 汇聚"]
+    HJ --> AQ["🛡️ 安全"]
+  end
+  subgraph 认知["认知类 (2种)"]
+    YZ["📚 预置"] --> FZ["🧪 仿真"]
+  end
+  subgraph 控制["控制类 (2种)"]
+    DC["⚖️ 对称"] --> FK["🔄 反馈"]
+  end
+  感知 --> 认知 --> 控制
+</div>
+</div>
+
 <div class="table-wrap">
 <table>
   <thead><tr><th>机制</th><th>分类</th><th>理论定义</th></tr></thead>
@@ -1714,6 +1735,20 @@ flowchart LR
 <div class="page-inner">
 <div class="section-num">03</div>
 <h2 class="page-title">任务范式定义了领域限定到知识制导的<span class="hl">七大顶层概念</span></h2>
+
+<!-- 七大概念关系图 -->
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart TD
+  LY["领域限定<br/>最小机构最小职能"] --> SS["双子系统<br/>主动系统 ↔ 对象系统"]
+  SS --> YS["系统要素<br/>主体·行为·客体·时间·空间"]
+  YS --> WT["问题驱动<br/>现象→根源→症结"]
+  WT --> MB["目标约束<br/>范围+解决程度"]
+  MB --> SJ["事实激活<br/>特定事实触发系统"]
+  SJ --> ZS["知识制导<br/>描述性+程序性知识"]
+  ZS --> SZ["数字倍增<br/>效率指数级提升"]
+</div>
+</div>
 
 <!-- 七大概念表 -->
 <div class="table-wrap">
@@ -2255,8 +2290,16 @@ function switchTab(tab) {
   } else {
     document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
     document.querySelector('.tab-theory').classList.add('active');
+    renderTheoryMermaid();
   }
   window.scrollTo(0, 0);
+}
+function renderTheoryMermaid() {
+  document.querySelectorAll('.tab-theory .mermaid').forEach(el => {
+    if (!el.querySelector('svg')) {
+      mermaid.run({ nodes: [el] });
+    }
+  });
 }
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
