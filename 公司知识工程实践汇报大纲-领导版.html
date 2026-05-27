@@ -1724,36 +1724,40 @@ flowchart LR
 <!-- 七大概念表 -->
 <div class="table-wrap">
 <table>
-  <thead><tr><th style="width:90px;">概念</th><th>定义</th><th>关键要点</th></tr></thead>
+  <thead><tr><th style="width:90px;">概念</th><th>核心说明</th></tr></thead>
   <tbody>
-    <tr><td><span class="badge badge-blue">1 领域限定</span></td><td>任何活动在特定最小领域中展开</td><td>以最小机构的最小职能、职责事项为边界</td></tr>
-    <tr><td><span class="badge badge-amber">2 双子系统</span></td><td>主动系统(施行方)+对象系统(工作对象)</td><td>两系统强相关互作用驱动任务展开</td></tr>
-    <tr><td><span class="badge badge-green">3 系统要素</span></td><td>两系统各含五要素：主体·行为·客体·时间·空间</td><td>五要素不可分割，是统一整体</td></tr>
-    <tr><td><span class="badge badge-red">4 问题驱动</span></td><td>理想与现状的差距产生任务内驱力</td><td>问题三层结构：现象→根源→症结</td></tr>
-    <tr><td><span class="badge badge-gold">5 目标约束</span></td><td>确定问题范围+界定解决程度</td><td>约束两系统五要素的资源配置</td></tr>
-    <tr><td><span class="badge badge-blue">6 事实激活</span></td><td>特定负价值事实触发系统运转</td><td>需特定任务语境+特定预置知识</td></tr>
-    <tr><td><span class="badge badge-amber">7 知识制导</span></td><td>知识引导行为向目标不断接近</td><td>描述性知识(是什么)+程序性知识(怎么做)</td></tr>
+    <tr><td><span class="badge badge-blue">1 领域限定</span></td><td><strong>最小化领域</strong>划定任务边界</td></tr>
+    <tr><td><span class="badge badge-amber">2 双子系统</span></td><td><strong>主动系统</strong>与<strong>对象系统</strong>互作用推动任务</td></tr>
+    <tr><td><span class="badge badge-green">3 系统要素</span></td><td>两系统共享<strong>五要素</strong>统一整体</td></tr>
+    <tr><td><span class="badge badge-red">4 问题驱动</span></td><td><strong>现象→根源→症结</strong>三层解构问题</td></tr>
+    <tr><td><span class="badge badge-gold">5 目标约束</span></td><td><strong>范围+程度</strong>双重锁定资源配置</td></tr>
+    <tr><td><span class="badge badge-blue">6 事实激活</span></td><td><strong>负价值事实</strong>触发系统自动运转</td></tr>
+    <tr><td><span class="badge badge-amber">7 知识制导</span></td><td><strong>描述性+程序性</strong>知识引导行为</td></tr>
   </tbody>
 </table>
 </div>
 
-<!-- 双子系统 + 五要素 + 问题三层结构 合并表 -->
-<div class="table-wrap" style="margin-top:2rem;">
-<table>
-  <thead><tr><th style="width:110px;">概念</th><th>内涵</th><th>详细说明</th></tr></thead>
-  <tbody>
-    <tr><td rowspan="2" style="vertical-align:middle;text-align:center;"><span class="badge badge-gold">双子系统</span></td><td>主动系统</td><td>施行行动方：政府监管部门/供给侧企业，行为：监测·决策·执行·监督</td></tr>
-    <tr><td>对象系统</td><td>工作对象方：企业/公民/消费者，行为：表达诉求·改变状态（非"被动"）</td></tr>
-    <tr><td rowspan="5" style="vertical-align:middle;text-align:center;"><span class="badge badge-gold">五要素</span></td><td>主体</td><td>法人(营利/非营利/特别法人) + 自然人(完全/限制/无民事行为能力)</td></tr>
-    <tr><td>行为</td><td>生物本能行为(肢体/感官/思维) + 社会组织行为（两者耦合纠缠）</td></tr>
-    <tr><td>客体</td><td>主体为解决问题利用和产生的物质/非物质资源</td></tr>
-    <tr><td>时间</td><td>时点·时段·周期·频率，不同场景适用不同粒度</td></tr>
-    <tr><td>空间</td><td>实体空间(现实世界) + 数字空间(信息系统)，两者耦合纠缠</td></tr>
-    <tr><td rowspan="3" style="vertical-align:middle;text-align:center;"><span class="badge badge-gold">问题三层</span></td><td>现象</td><td>事物表现出的可感知状况 → 治标</td></tr>
-    <tr><td>根源</td><td>导致现象的直接原因（物质原因/规则原因）→ 治本（微创新）</td></tr>
-    <tr><td>症结</td><td>最关键的根源，与内生动力和利益机制相关 → 根治（深度创新）</td></tr>
-  </tbody>
-</table>
+<!-- 树状结构：双子系统 → 五要素 → 问题三层 -->
+<div class="mermaid-wrap" style="margin-top:2rem;">
+<div class="mermaid">
+flowchart LR
+  subgraph SZ["双子系统"]
+    ZD["主动系统<br/><span style='font-size:0.75rem'>施行·监测·决策·执行·监督</span>"]
+    DX["对象系统<br/><span style='font-size:0.75rem'>诉求·改变状态</span>"]
+  end
+  subgraph WYS["五要素"]
+    ZT["主体<br/><span style='font-size:0.75rem'>法人+自然人</span>"]
+    XW["行为<br/><span style='font-size:0.75rem'>生物本能+社会组织</span>"]
+    KT["客体<br/><span style='font-size:0.75rem'>物质+非物质资源</span>"]
+    SJ["时间<br/><span style='font-size:0.75rem'>时点·时段·周期·频率</span>"]
+    KJ["空间<br/><span style='font-size:0.75rem'>实体+数字</span>"]
+  end
+  subgraph WT["问题三层"]
+    XX["现象<br/><span style='font-size:0.75rem'>可感知表象 → 治标</span>"]
+    GY["根源<br/><span style='font-size:0.75rem'>直接原因 → 治本</span>"]
+    ZJ["症结<br/><span style='font-size:0.75rem'>利益机制 → 根治</span>"]
+  end
+</div>
 </div>
 
 </div>
