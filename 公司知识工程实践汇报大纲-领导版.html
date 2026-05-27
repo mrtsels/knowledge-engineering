@@ -1556,15 +1556,855 @@ footer {
 
 </div>
 
-<!-- ===== THEORY PLACEHOLDER ===== -->
+<!-- ===== THEORY TAB ===== -->
 <div class="tab-theory">
-  <section class="page" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;">
-    <div class="page-inner" style="max-width:600px;background:transparent;border:none;box-shadow:none;">
-      <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">📖</div>
-      <div style="font-size:1.2rem;color:var(--text-muted);margin-bottom:0.5rem;">理论内容准备中</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);opacity:0.5;">罗建中《领域知识工程学》第2-8章理论框架</div>
+
+<!-- Hero -->
+<section class="page" style="min-height:85vh;display:flex;flex-direction:column;justify-content:center;">
+  <div class="page-inner" style="text-align:center;background:transparent;border:none;box-shadow:none;">
+    <div class="hero-badge">领域知识工程学 · 全书笔记</div>
+    <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;line-height:1.25;max-width:800px;margin:0 auto 1rem;">
+      《领域知识工程学》<br><em style="color:var(--gold);font-style:normal;">理论全景</em>
+    </h1>
+    <p style="font-size:1.05rem;color:var(--text-secondary);max-width:600px;margin:0 auto 2.5rem;">
+      罗建中 · 八章完整框架 · 从认识世界到改造世界
+    </p>
+    <div class="hero-meta">
+      <span>理论体系 · 信息机制 · 任务范式</span><span class="dot"></span>
+      <span>范式演化 · 工程创意 · 工程方法</span><span class="dot"></span>
+      <span>实训实战 · 超级应用</span>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 1: 理论体系 ===== -->
+<section class="page" id="theory-ch1">
+<div class="page-inner">
+<div class="section-num">01</div>
+<h2 class="page-title">第1章定义了信息社会的<span class="hl">理论体系与研究框架</span></h2>
+
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart LR
+  A["信息社会"] --> B["信息技术体系<br/>计算机·网络·软件"]
+  B --> C["工控系统<br/>对'物'自动化"]
+  B --> D["社控系统<br/>对'人'自动化"]
+  D --> E["任务范式<br/>研究对象"]
+  E --> F1["价值论方法"]
+  E --> F2["动力机制"]
+  E --> F3["实例化方法"]
+  F1 & F2 & F3 --> G["确定性+工程化<br/>学科特点"]
+</div>
+</div>
+
+<div class="levers">
+  <div class="lever-card">
+    <div class="num">1</div>
+    <h4>时代潮流</h4>
+    <p>信息社会特征：控制客观世界行为 + 促进知识转化</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">2</div>
+    <h4>学科渊源</h4>
+    <p>新工科·新文科·领域知识工程学（第三条路径：外部集成）</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">3</div>
+    <h4>研究对象</h4>
+    <p>任务范式→实例→自动化→普及率（四层递进）</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">4</div>
+    <h4>研究方法</h4>
+    <p>价值论→动力机制→实例化（三大方法论）</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">5</div>
+    <h4>知识体系</h4>
+    <p>三层结构：学科知识 + 条件性知识 + 集成专业知识</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">6</div>
+    <h4>学科特点</h4>
+    <p>五确定（领域·任务·因果·条件·目标）+ 工程化</p>
+  </div>
+</div>
+
+<div class="highlight">
+  <strong>核心命题：</strong>领域知识工程学的研究对象是信息社会人类经济社会活动特定任务过程的基本范式、范式的实例、实例的自动化，以及自动化实例的普及率。
+</div>
+
+<!-- 四大核心概念 -->
+<div style="margin-top:2rem;">
+<h4 style="color:var(--gold);margin-bottom:1rem;font-size:0.9rem;">四大核心概念</h4>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.7rem;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">社会体系</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);">主体(人/组织) + 客体(技术体系) + 行为(人对物/人对人)</div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.7rem;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">信息技术体系</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);">计算机 + 网络通信 + 软件，替代和表达人类生物本能行为</div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.7rem;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">工控系统</div>
+    <div style="font-size:0.75rem;color:var(--gold);">⚙ 对"物"的自动化（已成熟）</div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.7rem;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">社控系统</div>
+    <div style="font-size:0.75rem;color:var(--blue);">✦ 对"人"的自动化（方兴未艾）</div>
+  </div>
+</div>
+</div>
+
+<!-- 三大研究方法 -->
+<div style="margin-top:2rem;">
+<h4 style="color:var(--gold);margin-bottom:1rem;font-size:0.9rem;">三大研究方法</h4>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;">
+  <div style="flex:1;min-width:200px;background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;border-left:3px solid var(--blue);">
+    <div style="font-size:0.8rem;font-weight:600;margin-bottom:0.4rem;">① 价值论方法</div>
+    <div style="font-size:0.72rem;color:var(--text-secondary);">内禀价值（精神：文化/法律/伦理/习俗 + 物质：发展/秩序/突发）→ 驱动人类活动</div>
+  </div>
+  <div style="flex:1;min-width:200px;background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;border-left:3px solid var(--amber);">
+    <div style="font-size:0.8rem;font-weight:600;margin-bottom:0.4rem;">② 动力机制建构</div>
+    <div style="font-size:0.72rem;color:var(--text-secondary);">识别利害点 → 设计趋利避害方式 → 激发内生动力 → 外化为理性行为</div>
+  </div>
+  <div style="flex:1;min-width:200px;background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;border-left:3px solid var(--green);">
+    <div style="font-size:0.8rem;font-weight:600;margin-bottom:0.4rem;">③ 实例化方法</div>
+    <div style="font-size:0.72rem;color:var(--text-secondary);">利用历史样事实结构化分析 → 总结模式 → 应对同类未来任务</div>
+  </div>
+</div>
+</div>
+
+<!-- 五确定 -->
+<div style="margin-top:2rem;">
+<h4 style="color:var(--gold);margin-bottom:1rem;font-size:0.9rem;">学科五大确定性</h4>
+<div class="flow-h">
+  <div class="node">领域确定<span class="sub">最小机构最小职能</span></div><div class="arrow"></div>
+  <div class="node">任务确定<span class="sub">问题·目标·资源·条件·进程</span></div><div class="arrow"></div>
+  <div class="node">因果确定<span class="sub">识别因果才能真正解决问题</span></div><div class="arrow"></div>
+  <div class="node">条件确定<span class="sub">资源和条件有边界</span></div><div class="arrow"></div>
+  <div class="node">目标确定<span class="sub">解决程度明确</span></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 向下深化</div>
+  <div class="bridge-text">第1章定义了"是什么"和"怎么研究"。第2章深入信息层面，构建十大信息机制作为全书的信息哲学基础。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 2: 信息机制 ===== -->
+<section class="page" id="theory-ch2">
+<div class="page-inner">
+<div class="section-num">02</div>
+<h2 class="page-title">第2章构建了十大信息机制的<span class="hl">信息哲学基础</span></h2>
+
+<!-- 十大机制分类树 -->
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart LR
+  subgraph 感知["感知类 (6种)"]
+    BZ["📌 标识"] --> LX["📝 留痕"]
+    LX --> GK["🔓 公开"]
+    GK --> GX["🔗 共享"]
+    GX --> HJ["🔄 汇聚"]
+    HJ --> AQ["🛡️ 安全"]
+  end
+  subgraph 认知["认知类 (2种)"]
+    YZ["📚 预置"] --> FZ["🧪 仿真"]
+  end
+  subgraph 控制["控制类 (2种)"]
+    DC["⚖️ 对称"] --> FK["🔄 反馈"]
+  end
+  感知 --> 认知 --> 控制
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:2rem;">
+
+<div style="background:linear-gradient(135deg,rgba(59,130,246,0.08),rgba(59,130,246,0.02));border:1px solid rgba(59,130,246,0.15);border-radius:8px;padding:1rem;">
+  <div style="font-size:0.7rem;color:var(--blue);font-weight:700;margin-bottom:0.6rem;">⬡ 感知类 · 六种</div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;">
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">标识</span><span style="font-size:0.72rem;color:var(--text-secondary);">辨别事物 · RFID/二维码</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">留痕</span><span style="font-size:0.72rem;color:var(--text-secondary);">痕迹信息>填报信息 · 真实性</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">公开</span><span style="font-size:0.72rem;color:var(--text-secondary);">公平公正 · 以公开为常态</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">共享</span><span style="font-size:0.72rem;color:var(--text-secondary);">行为协同需求驱动</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">汇聚</span><span style="font-size:0.72rem;color:var(--text-secondary);">逻辑会合 · 还原事实全貌</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">安全</span><span style="font-size:0.72rem;color:var(--text-secondary);">=法权保护 ≠ 技术手段</span></div>
+  </div>
+</div>
+
+<div style="background:linear-gradient(135deg,rgba(212,168,83,0.08),rgba(212,168,83,0.02));border:1px solid rgba(212,168,83,0.15);border-radius:8px;padding:1rem;">
+  <div style="font-size:0.7rem;color:var(--gold);font-weight:700;margin-bottom:0.6rem;">⬡ 认知类 · 两种</div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;">
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">预置</span><span style="font-size:0.72rem;color:var(--text-secondary);">程序性知识(怎么做)+描述性知识(是什么)</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">仿真</span><span style="font-size:0.72rem;color:var(--text-secondary);">建模+事实信息→产生新知识</span></div>
+  </div>
+</div>
+
+<div style="background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.02));border:1px solid rgba(34,197,94,0.15);border-radius:8px;padding:1rem;">
+  <div style="font-size:0.7rem;color:var(--green);font-weight:700;margin-bottom:0.6rem;">⬡ 控制类 · 两种</div>
+  <div style="display:flex;flex-direction:column;gap:0.4rem;">
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">对称</span><span style="font-size:0.72rem;color:var(--text-secondary);">理性决策前提 · 纳什均衡</span></div>
+    <div><span style="display:inline-block;width:32px;font-size:0.7rem;color:var(--text-muted);">反馈</span><span style="font-size:0.72rem;color:var(--text-secondary);">结果对原因反作用 · 监测→对策闭环</span></div>
+  </div>
+</div>
+
+</div>
+
+<!-- 监测↔对策闭环 -->
+<div style="margin-top:2rem;">
+<h4 style="color:var(--gold);margin-bottom:0.8rem;font-size:0.9rem;">社会控制模式：监测 ↔ 对策闭环</h4>
+<div class="feedback-loop" style="display:flex;justify-content:center;align-items:center;gap:1rem;flex-wrap:wrap;">
+  <div class="node" style="padding:1rem 1.5rem;border:2px solid var(--blue);border-radius:8px;">
+    <div style="font-weight:700;color:var(--blue);font-size:0.85rem;">监测</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;">发现·预测·预警·判定·报警·评估</div>
+  </div>
+  <div style="color:var(--text-muted);font-size:1.2rem;">↔</div>
+  <div class="node" style="padding:1rem 1.5rem;border:2px solid var(--gold);border-radius:8px;">
+    <div style="font-weight:700;color:var(--gold);font-size:0.85rem;">对策</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;">决策 · 执行 · 监督</div>
+  </div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 从信息到范式</div>
+  <div class="bridge-text">第3章将信息机制融入任务范式框架，提出七大顶层概念，构成全书理论<span class="hl">核心</span>。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 3: 任务范式 ===== -->
+<section class="page" id="theory-ch3">
+<div class="page-inner">
+<div class="section-num">03</div>
+<h2 class="page-title">第3章提出了任务范式的<span class="hl">七大顶层概念</span></h2>
+
+<!-- 七大概念关系图 -->
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart TD
+  LY["领域限定<br/>最小机构最小职能"] --> SS["双子系统<br/>主动系统 ↔ 对象系统"]
+  SS --> YS["系统要素<br/>主体·行为·客体·时间·空间"]
+  YS --> WT["问题驱动<br/>现象→根源→症结"]
+  WT --> MB["目标约束<br/>范围+解决程度"]
+  MB --> SJ["事实激活<br/>特定事实触发系统"]
+  SJ --> ZS["知识制导<br/>描述性+程序性知识"]
+  ZS --> SZ["数字倍增<br/>效率指数级提升"]
+</div>
+</div>
+
+<div class="levers">
+  <div class="lever-card">
+    <div class="num">1</div>
+    <h4>领域限定</h4>
+    <p>任何活动在特定领域中展开，领域要最小化</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">2</div>
+    <h4>双子系统</h4>
+    <p>主动系统(施行方)+对象系统(工作对象)，强相关互作用</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">3</div>
+    <h4>系统要素</h4>
+    <p>两系统各含五要素：主体·行为·客体·时间·空间</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">4</div>
+    <h4>问题驱动</h4>
+    <p>理想与现状的差距产生内驱力</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">5</div>
+    <h4>目标约束</h4>
+    <p>确定问题范围+界定解决程度</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">6</div>
+    <h4>事实激活</h4>
+    <p>负价值事实激发系统运转</p>
+  </div>
+  <div class="lever-card">
+    <div class="num">7</div>
+    <h4>知识制导</h4>
+    <p>知识引导行为向目标接近</p>
+  </div>
+</div>
+
+<!-- 双子系统 -->
+<div class="mermaid-wrap" style="margin-top:1.5rem;">
+<div class="mermaid">
+flowchart LR
+  subgraph ZD["主动系统"]
+    ZD1["政府监管部门/供给侧企业<br/>施行行动·主导行动"] --> ZD2["行为：监测·决策·执行·监督"]
+  end
+  subgraph DX["对象系统"]
+    DX1["企业·公民·消费者<br/>工作对象·使命对象"] --> DX2["行为：表达诉求·改变状态"]
+  end
+  ZD -. "强相关互作用" .-> DX
+  DX -. "反作用" .-> ZD
+</div>
+</div>
+
+<!-- 五要素 -->
+<div style="margin-top:2rem;">
+<h4 style="color:var(--gold);margin-bottom:0.8rem;font-size:0.9rem;">两系统 · 五要素（不可分割的统一整体）</h4>
+<div class="flow-h">
+  <div class="node" style="border-color:var(--blue);">主体<span class="sub">法人+自然人</span></div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--gold);">行为<span class="sub">生物本能+社会组织</span></div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--green);">客体<span class="sub">物质+非物质资源</span></div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--amber);">时间<span class="sub">时点·时段·周期·频率</span></div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--red);">空间<span class="sub">实体+数字</span></div>
+</div>
+</div>
+
+<!-- 问题三层结构 -->
+<div style="margin-top:2rem;">
+<h4 style="color:var(--gold);margin-bottom:0.8rem;font-size:0.9rem;">问题三层结构</h4>
+<div class="flow-h">
+  <div class="node" style="border-color:var(--amber);background:rgba(245,158,11,0.08);">
+    现象<span class="sub">可感知的表象</span>
+    <div class="cap-tag" style="border-color:rgba(245,158,11,0.3);color:var(--amber);">治标</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="node" style="border-color:var(--blue);background:rgba(59,130,246,0.08);">
+    根源<span class="sub">直接原因</span>
+    <div class="cap-tag" style="border-color:rgba(59,130,246,0.3);color:var(--blue);">治本</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="node" style="border-color:var(--red);background:rgba(239,68,68,0.08);">
+    症结<span class="sub">最关键的根源(与利益相关)</span>
+    <div class="cap-tag" style="border-color:rgba(239,68,68,0.3);color:var(--red);">根治</div>
+  </div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 从抽象到具体</div>
+  <div class="bridge-text">第4章通过<span class="hl">本体构建</span>将抽象的任务范式逐级展开，走向具体实例——从"面"到"线"再到"点"。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 4: 范式演化 ===== -->
+<section class="page" id="theory-ch4">
+<div class="page-inner">
+<div class="section-num">04</div>
+<h2 class="page-title">第4章通过本体构建实现<span class="hl">范式向工程的演化</span></h2>
+
+<!-- 演化链 -->
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart LR
+  A["信息能力<br/>IPO模型"] --> B["本体构建<br/>概念·属性·关系"]
+  B --> C["事实还原<br/>痕迹信息→高还原度"]
+  C --> D["事件建模<br/>发展·秩序·突发"]
+  D --> E["指标量化<br/>五种指标值"]
+  style A fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style B fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style C fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style D fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style E fill:#141e33,stroke:#22c55e,color:#f0f4f8
+</div>
+</div>
+
+<div class="insight-box">
+  <div class="insight-title">🔑 本体构建 — 范式演化的核心中介</div>
+  <ul>
+    <li>本体 = 两系统行为过程的知识体系 = "共享概念模型的形式化规范说明"</li>
+    <li>三大构成：<strong>概念</strong>(类) + <strong>属性</strong>(范式属性+信息属性) + <strong>关系</strong></li>
+    <li>构建原则：分类分级 · 相关相连 · 走向实例</li>
+    <li>操作方法：人工标引 ↔ 机器自动标引（交叉交替）</li>
+  </ul>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;">
+  <!-- IPO模型 -->
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1.2rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--blue);margin-bottom:0.6rem;">信息流闭环 (IPO模型)</div>
+    <div class="flow-h" style="justify-content:flex-start;">
+      <div class="node" style="border-color:var(--blue);padding:0.5rem 0.8rem;">I 输入</div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:var(--gold);padding:0.5rem 0.8rem;">P 处理</div>
+      <div class="arrow"></div>
+      <div class="node" style="border-color:var(--green);padding:0.5rem 0.8rem;">O 输出</div>
+    </div>
+    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.6rem;">
+      处理分两种：流程化(程序性知识判定) + 知识化(机器调取知识产生新知识)
+    </div>
+  </div>
+
+  <!-- 五种指标值 -->
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1.2rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--green);margin-bottom:0.6rem;">五种指标值</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+      <span style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.7rem;">理想值</span>
+      <span style="background:rgba(212,168,83,0.1);border:1px solid rgba(212,168,83,0.2);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.7rem;">现状值</span>
+      <span style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.7rem;">问题值</span>
+      <span style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.7rem;">目标值</span>
+      <span style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.7rem;">对标值</span>
+    </div>
+    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.5rem;">指标值类型：绝对指标 + 相对指标(六种)</div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 从分析到创意</div>
+  <div class="bridge-text">第5章为任务范式注入<span class="hl">灵魂</span>——通过问题三维度分析和逆向实证，产生工程创意，再通过制度安排固化。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 5: 工程创意 ===== -->
+<section class="page" id="theory-ch5">
+<div class="page-inner">
+<div class="section-num">05</div>
+<h2 class="page-title">第5章运用问题三维度分析<span class="hl">激发工程创意</span></h2>
+
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart TD
+  WT["问题<br/>负价值状态"] --> SWD["问题三维度<br/>现象→根源→症结"]
+  SWD --> NXSZ["逆向实证<br/>向历史要未来"]
+  NXSZ --> WCX["微创新创意<br/>针对根源·时间前置+空间普及"]
+  NXSZ --> SDCX["深度创新创意<br/>针对症结·重设利益机制"]
+  WCX & SDCX --> ZDAP["制度安排<br/>创意制度化"]
+  ZDAP --> GCFF["进入第6章工程方法"]
+</div>
+</div>
+
+<div class="levers" style="margin-top:1.5rem;">
+  <div class="lever-card" style="border-left:3px solid var(--blue);">
+    <h4>问题三维度</h4>
+    <p>现象(表象)→根源(直接原因)→症结(最根本原因·与利益格局相关)</p>
+  </div>
+  <div class="lever-card" style="border-left:3px solid var(--gold);">
+    <h4>逆向实证</h4>
+    <p>搜集同类事件样本→拼叠分析→从中找规律→激发创意灵感</p>
+  </div>
+  <div class="lever-card" style="border-left:3px solid var(--green);">
+    <h4>微创新</h4>
+    <p>已有规则·时间前置+空间普及·低成本见效易</p>
+  </div>
+  <div class="lever-card" style="border-left:3px solid var(--red);">
+    <h4>深度创新</h4>
+    <p>重新设计利益机制·激发内生动力·三大难点(认识/调整/制度化)</p>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;">
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1.2rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--green);margin-bottom:0.6rem;">微创新 vs 深度创新</div>
+    <div class="table-wrap" style="margin:0;">
+    <table style="font-size:0.72rem;">
+      <thead><tr><th>维度</th><th>微创新</th><th>深度创新</th></tr></thead>
+      <tbody>
+        <tr><td>针对点</td><td>问题根源</td><td>问题症结</td></tr>
+        <tr><td>创新内容</td><td>时间+空间调整</td><td>重设利益机制</td></tr>
+        <tr><td>制度安排</td><td>修改补充已有</td><td>推翻重建新制度</td></tr>
+        <tr><td>难度</td><td>低</td><td>高</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1.2rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.6rem;">问题值体系</div>
+    <div style="font-size:0.72rem;color:var(--text-secondary);">
+      <div><span style="color:var(--gold);font-weight:600;">问题值</span> = <span style="color:var(--blue);">理想值</span> - <span style="color:var(--amber);">现状值</span></div>
+      <div style="margin-top:0.4rem;"><span style="color:var(--green);font-weight:600;">目标值</span> = 条件约束下的可达成值（比现状更趋近理想）</div>
+      <div style="margin-top:0.4rem;font-size:0.65rem;color:var(--text-muted);">所有问题归于：发展态(合理性) + 秩序态(合规性)</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 从创意到产品</div>
+  <div class="bridge-text">第6章是<span class="hl">实现路径</span>——八种生产方法构成完整工艺流程，将创意转化为可交付的领域知识工程产品。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 6: 工程方法 ===== -->
+<section class="page" id="theory-ch6">
+<div class="page-inner">
+<div class="section-num">06</div>
+<h2 class="page-title">第6章通过八种生产方法<span class="hl">实现工程化产品</span></h2>
+
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart LR
+  subgraph Input["输入"]
+    SS1["形式化搜集"]
+  end
+  subgraph Process["处理"]
+    SS2["主题化标引"] --> SS3["逻辑化存储"]
+    SS3 --> SS4["关联化分析"]
+    SS4 --> SS5["数量化计算"]
+  end
+  subgraph Output["输出"]
+    SS6["结构化表达"] --> SS7["反馈化控制"]
+    SS7 --> SS8["可视化呈现"]
+  end
+  Input --> Process --> Output
+</div>
+</div>
+
+<div class="flow-h" style="margin-top:1.5rem;">
+  <div class="node" style="border-color:var(--blue);background:rgba(59,130,246,0.08);padding:0.6rem 1rem;">
+    形式化搜集
+    <div class="cap-tag" style="border-color:rgba(59,130,246,0.3);color:var(--blue);">输入</div>
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--gold);background:rgba(212,168,83,0.08);padding:0.6rem 1rem;">
+    主题化标引
+    <div class="cap-tag" style="border-color:rgba(212,168,83,0.3);color:var(--gold);">处理</div>
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--gold);background:rgba(212,168,83,0.08);padding:0.6rem 1rem;">
+    逻辑化存储
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--gold);background:rgba(212,168,83,0.08);padding:0.6rem 1rem;">
+    关联化分析
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--gold);background:rgba(212,168,83,0.08);padding:0.6rem 1rem;">
+    数量化计算
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--green);background:rgba(34,197,94,0.08);padding:0.6rem 1rem;">
+    结构化表达
+    <div class="cap-tag" style="border-color:rgba(34,197,94,0.3);color:var(--green);">输出</div>
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--green);background:rgba(34,197,94,0.08);padding:0.6rem 1rem;">
+    反馈化控制
+  </div><div class="arrow"></div>
+  <div class="node" style="border-color:var(--green);background:rgba(34,197,94,0.08);padding:0.6rem 1rem;">
+    可视化呈现
+  </div>
+</div>
+
+<!-- 三大团队 + 三大阶段 + 六类岗位 -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem;">
+
+<div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+  <div style="font-size:0.8rem;font-weight:600;color:var(--blue);margin-bottom:0.6rem;">三大团队</div>
+  <div style="font-size:0.7rem;color:var(--text-secondary);">
+    <div style="padding:0.3rem 0;">🎨 设计团队 — 创意想定+设计</div>
+    <div style="padding:0.3rem 0;">⚙ 开发团队 — 软件实现</div>
+    <div style="padding:0.3rem 0;">📊 运营团队 — 伴随服务</div>
+  </div>
+</div>
+
+<div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+  <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.6rem;">三大阶段</div>
+  <div class="flow-h" style="justify-content:flex-start;">
+    <div class="node" style="padding:0.4rem 0.6rem;font-size:0.65rem;">产品设计</div>
+    <div class="arrow" style="width:16px;"></div>
+    <div class="node" style="padding:0.4rem 0.6rem;font-size:0.65rem;">产品开发</div>
+    <div class="arrow" style="width:16px;"></div>
+    <div class="node" style="padding:0.4rem 0.6rem;font-size:0.65rem;">产品运营</div>
+  </div>
+  <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.3rem;">可并行·优化循环关系</div>
+</div>
+
+<div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+  <div style="font-size:0.8rem;font-weight:600;color:var(--green);margin-bottom:0.6rem;">超级系统</div>
+  <div style="font-size:0.7rem;color:var(--text-secondary);">
+    <div style="font-weight:500;color:var(--gold);">互联互通互操作</div>
+    <div style="font-weight:500;color:var(--gold);">+ 预置·仿真·对称·反馈</div>
+    <div style="font-weight:500;color:var(--gold);">+ 相关角色行为系统</div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 从方法到人才</div>
+  <div class="bridge-text">第7章回答"谁来用"——领域知识工程师的<span class="hl">培养与产业生态</span>：实训实战+角色化+开源空间。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 7: 实训实战 ===== -->
+<section class="page" id="theory-ch7">
+<div class="page-inner">
+<div class="section-num">07</div>
+<h2 class="page-title">第7章通过实训实战<span class="hl">培养领域知识工程师</span></h2>
+
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart TD
+  CB["传播创新<br/>三大创新：关系·内容·形式"] --> ZS["知识获取<br/>三明治结构"]
+  ZS --> JSX["角色化实训<br/>社会化=角色化"]
+  JSX --> YT["业态创新<br/>粉丝经济·项目→产品→服务"]
+  YT --> DL["动力机制触发<br/>六大阶段评估闭环"]
+  DL --> KY["开源空间<br/>人才培养+资源沉淀+项目聚合"]
+  KY --> SC["市场化实战<br/>科研项目+商业项目"]
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;">
+
+<div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1.2rem;">
+  <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.6rem;">六类供给侧岗位</div>
+  <div style="display:flex;flex-direction:column;gap:0.3rem;">
+    <div style="font-size:0.7rem;"><span style="color:var(--red);">✦</span> 创意设计师 — 问题识别+创意想定（灵魂人物）</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--amber);">✦</span> 领域运营师 — 连通团队与市场</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--gold);">✦</span> 产品集成师 — 基于任务边界设计</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--green);">✦</span> 功能设计师 — 监测对策功能设计</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--blue);">✦</span> 知识萃取师 — 信息资源分析+知识提炼</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--text-muted);">✦</span> 情报整编师 — 搜集+初级加工</div>
+  </div>
+  <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.4rem;">培养阶梯：本科→功能设计师 → 研究生→产品集成师 → 博士→领域运营师</div>
+</div>
+
+<div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1.2rem;">
+  <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.6rem;">五大角色内生动力</div>
+  <div style="display:flex;flex-direction:column;gap:0.3rem;">
+    <div style="font-size:0.7rem;"><span style="color:var(--blue);">◈</span> 最终用户 — 效率效能倍增</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--green);">◈</span> 供应商 — 低成本获客·超额利润</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--amber);">◈</span> 学生/家长 — 入学即入职·毕业即就业</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--gold);">◈</span> 院校 — 培养+产业闭环</div>
+    <div style="font-size:0.7rem;"><span style="color:var(--red);">◈</span> 教师 — 成果转化·个人增值</div>
+  </div>
+  <div style="font-size:0.65rem;color:var(--text-muted);margin-top:0.4rem;">两个嵌套闭环：评估闭环(内) + 产业生态闭环(外)</div>
+</div>
+
+</div>
+
+<!-- 传播创新 -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--blue);margin-bottom:0.4rem;">MIT路径 vs 领域知识工程</div>
+    <div class="table-wrap" style="margin:0;">
+    <table style="font-size:0.68rem;">
+      <thead><tr><th>维度</th><th>MIT(知识串编)</th><th>领域知识工程</th></tr></thead>
+      <tbody>
+        <tr><td>方式</td><td>专业内部穿越</td><td>外部识别集成</td></tr>
+        <tr><td>目标</td><td>多料专家</td><td>通才·集成者</td></tr>
+        <tr><td>类比</td><td>全能运动员</td><td>教练</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.4rem;">教师"三导"</div>
+    <div style="display:flex;flex-direction:column;gap:0.4rem;">
+      <div><span style="display:inline-block;width:40px;font-size:0.7rem;color:var(--blue);font-weight:600;">引导</span><span style="font-size:0.7rem;color:var(--text-secondary);">引导学生自我获取条件性知识</span></div>
+      <div><span style="display:inline-block;width:40px;font-size:0.7rem;color:var(--gold);font-weight:600;">指导</span><span style="font-size:0.7rem;color:var(--text-secondary);">将范式植入学生，指导完成任务</span></div>
+      <div><span style="display:inline-block;width:40px;font-size:0.7rem;color:var(--red);font-weight:600;">制导</span><span style="font-size:0.7rem;color:var(--text-secondary);">强制反复实践→动力定型</span></div>
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- Page Bridge -->
+<div class="page-bridge"><div class="bridge-inner">
+  <div class="bridge-label">▼ 从理论到实战</div>
+  <div class="bridge-text">第8章通过COVID-19疫情的全景复盘，展示全部理论在真实危机中的<span class="hl">系统化应用</span>——全书实战收官。</div>
+</div></div>
+<div class="bridge-arrow"></div>
+
+<!-- ===== CHAPTER 8: 超级应用 ===== -->
+<section class="page" id="theory-ch8">
+<div class="page-inner">
+<div class="section-num">08</div>
+<h2 class="page-title">第8章以COVID-19展示<span class="hl">超级应用的全景实战</span></h2>
+
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart TD
+  BJS["背景<br/>COVID-19复盘"] --> HX["核心设计<br/>自动寻迹·自动禁足<br/>自动资源配置·自动奖惩"]
+  HX --> QXZL["全量·在线·实时<br/>三位一体应战策略"]
+  QXZL --> SJJT["十大机制全景应用<br/>标识→留痕→...→反馈"]
+  SJJT --> ZDCX["制度创新<br/>一级响应前置·实时奖惩·信息直达"]
+  ZDCX --> QZ["全球治理展望<br/>WHO+人类命运共同体"]
+</div>
+</div>
+
+<div class="levers" style="margin-top:1.5rem;">
+  <div class="lever-card" style="border-left:3px solid var(--blue);">
+    <h4>自动寻迹</h4>
+    <p>手机轨迹回溯密切接触者，指数级提高早发现能力</p>
+  </div>
+  <div class="lever-card" style="border-left:3px solid var(--red);">
+    <h4>自动禁足</h4>
+    <p>控制确诊者活动范围，指数级提高早隔离能力</p>
+  </div>
+  <div class="lever-card" style="border-left:3px solid var(--amber);">
+    <h4>自动资源配置</h4>
+    <p>仿真计算最优医疗资源分配</p>
+  </div>
+  <div class="lever-card" style="border-left:3px solid var(--gold);">
+    <h4>自动奖惩兑现</h4>
+    <p>实时判定行为合规性，即刻兑现奖惩</p>
+  </div>
+</div>
+
+<!-- 十大机制应用 -->
+<div style="margin-top:1.5rem;">
+<div style="font-size:0.85rem;font-weight:600;color:var(--gold);margin-bottom:0.8rem;">十大信息机制在超级应用中的全景应用</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.5rem;">
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">标识</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">身份证/手机号/MAC地址</div>
+  </div>
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">留痕</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">病历·轨迹·住宿·车票</div>
+  </div>
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">公开</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">奖惩信息公示·执法公平</div>
+  </div>
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">共享</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">卫健·运营商·公安·社区</div>
+  </div>
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">汇聚</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">逻辑汇聚·还原轨迹全貌</div>
+  </div>
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">安全</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">数据脱敏·保护隐私法权</div>
+  </div>
+  <div style="background:rgba(212,168,83,0.06);border:1px solid rgba(212,168,83,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--gold);">预置</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">病毒库·SEIR·应急预案</div>
+  </div>
+  <div style="background:rgba(212,168,83,0.06);border:1px solid rgba(212,168,83,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--gold);">仿真</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">SEIR模型·资源配置计算</div>
+  </div>
+  <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--green);">对称</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">各方信息实时知晓</div>
+  </div>
+  <div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:0.5rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--green);">反馈</div>
+    <div style="font-size:0.6rem;color:var(--text-muted);">寻迹→禁足→检测→再寻迹</div>
+  </div>
+</div>
+</div>
+
+<!-- 全量·在线·实时 -->
+<div style="margin-top:1.5rem;">
+<div style="font-size:0.85rem;font-weight:600;color:var(--gold);margin-bottom:0.8rem;">应战策略：全量 · 在线 · 实时</div>
+<div class="feedback-loop" style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+  <div class="node" style="border:2px solid var(--blue);padding:0.8rem 1.2rem;">
+    <div style="font-weight:700;color:var(--blue);font-size:0.85rem;">全量</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">区域全量基础信息·脱敏</div>
+  </div>
+  <div style="color:var(--text-muted);font-size:1rem;">+</div>
+  <div class="node" style="border:2px solid var(--gold);padding:0.8rem 1.2rem;">
+    <div style="font-weight:700;color:var(--gold);font-size:0.85rem;">在线</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">所有手机实时在线·轨迹形成</div>
+  </div>
+  <div style="color:var(--text-muted);font-size:1rem;">+</div>
+  <div class="node" style="border:2px solid var(--red);padding:0.8rem 1.2rem;">
+    <div style="font-weight:700;color:var(--red);font-size:0.85rem;">实时</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">实时对称·实时兑现奖惩</div>
+  </div>
+</div>
+</div>
+
+<div class="highlight" style="margin-top:1.5rem;">
+  <strong>SEIR模型逆向实证：</strong>如果2019年12月29日启动一级响应（提前25天），最终累计确诊仅600多人，武汉不会封城。关键洞察：控制住<span style="color:var(--red);font-weight:700;">暗线</span>（确诊+潜在患者）就控制住了疫情。
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;">
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.4rem;">制度创新要点</div>
+    <div style="font-size:0.7rem;color:var(--text-secondary);">
+      <div style="padding:0.2rem 0;">① 一级响应触发条件前置</div>
+      <div style="padding:0.2rem 0;">② 奖惩时间点前置（实时兑现）</div>
+      <div style="padding:0.2rem 0;">③ 上报者保护与激励</div>
+      <div style="padding:0.2rem 0;">④ 信息直达权力核心</div>
+    </div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:1rem;">
+    <div style="font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.4rem;">举国之权力 ≠ 举国之物力</div>
+    <div style="font-size:0.7rem;color:var(--text-secondary);">
+      <span style="color:var(--red);font-weight:600;">权力</span>：国家元首指挥·最高授权（逻辑）<br>
+      <span style="color:var(--blue);font-weight:600;">物力</span>：全国资源物理调度<br>
+      <span style="color:var(--green);font-weight:600;">内紧外松</span>：几千人应急 + 多数人正常
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 全书总览 ===== -->
+<section class="page" id="theory-summary">
+<div class="page-inner">
+<div class="section-num">✦</div>
+<h2 class="page-title">全书从认识世界到改造世界<span class="hl">构建完整闭环</span></h2>
+
+<div class="mermaid-wrap">
+<div class="mermaid">
+flowchart TD
+  C1["第1章 理论体系<br/>总纲·是什么·怎么研究"] --> C2["第2章 信息机制<br/>十大机制·感知→认知→控制"]
+  C2 --> C3["第3章 任务范式<br/>七大顶层概念·理论核心"]
+  C3 --> C4["第4章 范式演化<br/>本体构建·抽象→具体"]
+  C4 --> C5["第5章 工程创意<br/>问题三维度·微创新/深度创新"]
+  C5 --> C6["第6章 工程方法<br/>八种生产方法·产品化"]
+  C6 --> C7["第7章 实训实战<br/>人才培养·开源空间·新业态"]
+  C7 --> C8["第8章 超级应用<br/>COVID-19·全景实战演示"]
+  style C1 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style C2 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style C3 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style C4 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style C5 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style C6 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+  style C7 fill:#1e3a6a,stroke:#3b82f6,color:#f0f4f8
+  style C8 fill:#1a2740,stroke:#d4a853,color:#f0f4f8
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-top:1.5rem;">
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--blue);">认识世界</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">第1-3章<br>理论构建</div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--gold);">中介转换</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">第4章<br>抽象→具体</div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--green);">改造世界</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">第5-6章<br>创意→产品</div>
+  </div>
+  <div style="background:var(--bg-alt);border:1px solid var(--card-border);border-radius:8px;padding:0.8rem;text-align:center;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--red);">传播应用</div>
+    <div style="font-size:0.65rem;color:var(--text-muted);">第7-8章<br>人才→实战</div>
+  </div>
+</div>
+
+</div>
+</section>
+
 </div>
 
 <!-- ===== FOOTER ===== -->
