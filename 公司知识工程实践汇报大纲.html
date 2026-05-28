@@ -2178,6 +2178,7 @@ function switchTab(tab) {
   } else {
     document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
     document.querySelector('.tab-practice').classList.add('active');
+    renderMermaid('.tab-practice');
   }
   window.scrollTo(0, 0);
 }
@@ -2197,6 +2198,9 @@ function renderAllMermaid() {
   renderMermaid('.tab-practice');
   renderMermaid('.tab-theory');
 }
+document.addEventListener('DOMContentLoaded', function() {
+  renderMermaid('.tab-theory');
+});
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
